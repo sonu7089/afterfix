@@ -3,7 +3,6 @@
   "affiliation": "Independent researcher",
   "coauthors": [],
   "funding": null,
-  "unpublished": true,
   "permission_to_release_confirmed": true,
   "code_and_synthetic_benchmark_license": "Apache-2.0",
   "manuscript_license": "CC-BY-4.0 OR Apache-2.0",
@@ -12,7 +11,7 @@
   "planned_repository_url": "https://github.com/sonu7089/afterfix",
   "kaggle_account": "nitishsongara",
   "repository_created": true,
-  "published": false,
+  "published": true,
   "submitted": false,
   "public_notebook_url": "https://www.kaggle.com/code/nitishsongara/afterfix-study-reproduction",
   "manuscript_version": "publication-v8",
@@ -26,5 +25,11 @@
   "public_dataset_url": "https://www.kaggle.com/datasets/nitishsongara/afterfix-cpu-reproduction",
   "publication_authorized": true,
   "cpu_package": "afterfix-cpu-v6",
-  "competition_submitted": false
+  "competition_submitted": false,
+  "unpublished_before_initial_release": true,
+  "cpu_public_notebook_version": 2,
+  "cpu_public_execution_status": "running",
+  "nf4_publication_status": "uploading",
+  "release_readiness": "pending cloud verification",
+  "writeup_owner": "author; deferred at author request"
 }

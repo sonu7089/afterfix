@@ -16,11 +16,13 @@ Project Links:
 
 - Public CPU notebook: https://www.kaggle.com/code/nitishsongara/afterfix-study-reproduction
 - Code and reproduction package: https://github.com/sonu7089/afterfix
-- PDF: use the verified direct PDF release link supplied with the final release.
-- Optional NF4 companion: add its verified public URL after upload verification.
+- PDF: https://raw.githubusercontent.com/sonu7089/afterfix/a498ea6b1135dffe5c26b890cc3782e123ed213a/paper/afterfix-paper-v1.pdf
+- Optional NF4 companion: upload is in progress. Add its public URL only after verification.
 
 Confirm `nitishsongara` is joined and eligible, and review/accept the rules in the account if needed. This release process has not accepted a new agreement on the author's behalf. Check that links and notebook outputs are readable without login, and that no private historical resource is attached inadvertently. Kaggle says private resources attached to a public Writeup become public after the deadline.
 
 Deadline checked on 24 October 2026: 12 November 2026 at 23:59 UTC, or 13 November 2026 at 05:29 IST. Recheck the live overview before submitting. A saved draft is not a submitted entry.
 
 Official requirements: https://www.kaggle.com/competitions/gemma-4-developer-agent-paper/overview
+
+Before using the notebook as verified evidence, check that corrected version 2 completes successfully and reproduces 219 grades and 941 feedback records. Its current running status is documented in RELEASE_STATUS.md. No new GPU study is needed for the existing descriptive claims.

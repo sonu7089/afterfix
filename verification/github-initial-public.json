@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "commit": "a498ea6b1135dffe5c26b890cc3782e123ed213a",
+  "public_unauthenticated": true,
+  "files_verified": 385,
+  "all_bytes_exact": true,
+  "archive_bytes": 5274933,
+  "archive_sha256": "fbab9ba74228f16afa1b90d5b2bd595090a23c5d6ba0314533b249bf8177fbb8",
+  "url": "https://codeload.github.com/sonu7089/afterfix/zip/a498ea6b1135dffe5c26b890cc3782e123ed213a"
+}

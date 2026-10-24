@@ -14,7 +14,7 @@ The Apache License, Version 2.0 in [LICENSE](LICENSE) applies to original AfterF
 
 ## Model artifacts and other material
 
-The separate NF4 checkpoint is derived from Google's Gemma 4 12B IT and retains its upstream Apache 2.0 terms and attribution. Its own LICENSE, NOTICE, original model card and MODIFICATIONS.md govern that companion artifact. Its license is independent of the manuscript's dual-license choice. No model weights or runtime binaries are included in this review ZIP. The PDF embeds font subsets for display; font programs are not covered by the manuscript license.
+The separate NF4 checkpoint is derived from Google's Gemma 4 12B IT and retains its upstream Apache 2.0 terms and attribution. Its own LICENSE, NOTICE, original model card and MODIFICATIONS.md govern that companion artifact. Its license is independent of the manuscript's dual-license choice. No model weights or runtime binaries are included in this repository or publication ZIP. The PDF embeds font subsets for display; font programs are not covered by the manuscript license.
 
 Saved model responses and execution records are research evidence. This notice does not override upstream model/output terms or grant rights in third-party content. Original AfterFix code inside those records remains covered as above. Dependencies and cited works retain their respective terms. Preserve applicable notices.
 
