@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "manuscript": "afterfix-review-v7.md",
+  "whitespace_words": 2981,
+  "em_dashes": 0,
+  "numerical_tables_unchanged": true,
+  "scientific_sections_1_to_7_and_references_unchanged": true,
+  "changes": "Availability and licensing only; all study observations and limitations preserved.",
+  "manuscript_license": "CC-BY-4.0 OR Apache-2.0",
+  "code_and_synthetic_benchmark_license": "Apache-2.0",
+  "source_sha256": "0a62798415d5e177dcf0a1319dea313b6d2516faa1ebf7bb656846a95b9a316e",
+  "manuscript_sha256": "efb73b1a42745ee37ccf797bb27ea049747a1f8063c26507bb161b9a43fc32ca",
+  "published": false
+}

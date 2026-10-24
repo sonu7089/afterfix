@@ -1,0 +1,28 @@
+{
+  "status": "completed",
+  "study_version": "afterfix-deep-study-v3",
+  "planned_attempts": 144,
+  "stages": [
+    {
+      "model": "31b",
+      "status": "completed",
+      "download_seconds": 170.622361727,
+      "sha256": "179cfb99212709597eae5929112cfca677e1bbf566178b479ae1da0c4772874b",
+      "worker_returncode": 0,
+      "attempted_runs": 72
+    },
+    {
+      "model": "12b",
+      "status": "completed",
+      "download_seconds": 52.719836751,
+      "sha256": "93567e57a8fe10b23569b9d9ec38cd005deedf71e29477c421a4b83f418a538b",
+      "worker_returncode": 0,
+      "attempted_runs": 72
+    }
+  ],
+  "gpu_hours_ceiling": 11.5,
+  "elapsed_seconds": 7660.509079359,
+  "payload_verified": true,
+  "gpu_inventory": "Tesla T4, 15360 MiB, 580.178.04\nTesla T4, 15360 MiB, 580.178.04\n",
+  "runtime_version": "version: 0.7.0-dev (build 11836, commit f5027fb21)\nbuilt with GNU 13.3.0 for Linux x86_64\n"
+}

@@ -1,0 +1,18 @@
+{
+  "seal_sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+  "files": {
+    "afterfix/__init__.py": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2",
+    "afterfix/agent.py": "956f3c0bfa7c636af436b603dda8eac698ec1de7f234a8d86ced59f3e0e98836",
+    "afterfix/engine.py": "f3c8577485cc3e2672dc7f91a190158630797338800c5fc335563b9653c44be3",
+    "afterfix/protocol.py": "4a311901d79438699dac006608f1e108a26a65ec6c3bad273c0193664c2efd4f",
+    "afterfix/protocol_v2.py": "0c8641ce6043514dd20e0af83d41e9b1bfb2941a15494d3a00d32f7ead893347",
+    "afterfix/runner.py": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+    "afterfix/runtime.py": "7bd0da92eed49aca17c23b29155805617f7a95df088f1340ab7fdb89f2125c53",
+    "afterfix/model_source.py": "a3fdb94550d9168ddd88a5a08117bd95aa897ac3cf8e4278fe7ec1e6111107d9",
+    "afterfix/checkpoint_download.py": "2c8308a4309cad870bcd283d8ce9f29ce1d6f9298f0fce2940050a702e4f0ce2",
+    "afterfix/heldout_worker.py": "4c2ecdb9d735acccdcf43f66e7d5a5385c9af4f5ef2843b34995489217ac78ab",
+    "afterfix/heldout_job.py": "810f7dbce0724284448e5f95e9d4aef0f668f19d92233ee7ad5d52108e8dc3a4",
+    "afterfix-results/public-incidents.json": "71489214feda4cab2e9349f457c199ad454e417dc5c984d608487a8be16a3b50",
+    "afterfix-results/run-config.json": "e22e0b8539db1aa68915aca0713ee3f9d46eae9a97b28e8d79047d4163624f01"
+  }
+}

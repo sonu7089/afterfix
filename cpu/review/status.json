@@ -1,0 +1,146 @@
+{
+  "H01": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H02": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H03": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H04": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "Conflicting valid completions with the same sequence have no specified tie-break; none occur in evaluated fixtures."
+  },
+  "H05": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H06": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H07": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H08": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "Finite non-renewing credit budget; original harness caveat remains."
+  },
+  "H09": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H10": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H11": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H12": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "Conflicting accepted materializations with the same sequence have no specified tie-break; none occur in evaluated fixtures."
+  },
+  "H13": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H14": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H15": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H16": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H17": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H18": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H19": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "Positive units applies to use events. Reset is a zero-unit control record; this clarifies an ambiguity in the frozen wording."
+  },
+  "H20": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H21": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H22": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "See the full review for business-policy assumptions and production limits."
+  },
+  "H23": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "All evaluated streams have partitions. Empty-stream SQL and oracle outputs differ in a separate probe."
+  },
+  "H24": {
+    "status": "Internal AI review complete; evaluated fixtures accepted with documented scope",
+    "reviewer": "Codex AI assistant",
+    "independent_human_review": false,
+    "note": "The patch needs affected surviving children included in work after parent removal; this expansion is not explicit in the frozen H24 prompt."
+  }
+}

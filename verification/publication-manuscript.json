@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "words": 2942,
+  "em_dashes": 0,
+  "tables_unchanged": true,
+  "references_unchanged": true,
+  "changes": {
+    "Our question is narrower: given application SQL validated on the evaluated fixtures and explicit recovery requirements, can an agent adapt the SQL to repair existing data across several versions of a test case? We compare ordinary tools, checklist prompts and optional dependency tracing. We check whether execution and stability identify correct repairs.": "We test whether agents can adapt supplied SQL to repair existing data across case variants under explicit recovery requirements. We compare ordinary tools, checklist prompts and optional dependency tracing, and test whether execution and stability identify correct repairs.",
+    "Our contribution is an inspectable task set and controlled evaluation of supplied-patch adaptation.\n\n": "",
+    "These choices provide the agent with both the reconstruction logic and permission to use it broadly.": "Agents therefore have reconstruction logic and permission to apply it broadly.",
+    "A no-op is also stable while leaving damage untouched. Stable but wrong behavior is therefore not a new property discovered by this work.": "A no-op remains stable despite damage; stable but wrong behavior is not a new discovery.",
+    "The local NF4 artifact v1 includes file checksums and a reproduction adapter. Public access and adapter GPU execution remain untested. These new hashes cannot prove historical weight bytes. The v3 QAT checkpoints are separate.": "The [repository](https://github.com/sonu7089/afterfix) provides code, saved outputs, checksums and a [CPU notebook](https://www.kaggle.com/code/nitishsongara/afterfix-study-reproduction). The separate NF4 artifact has an access adapter; GPU execution through it remains untested. Its new checksums cannot prove historical weight bytes. V3 uses separate QAT checkpoints.",
+    " Publication awaits approval.": ""
+  },
+  "manuscript_sha256": "659013ec42fdcfbd62b356318c798e48c795e03863bf79f86a6bbfbf829d3354",
+  "public_repository": "https://github.com/sonu7089/afterfix",
+  "public_notebook": "https://www.kaggle.com/code/nitishsongara/afterfix-study-reproduction",
+  "competition_submitted": false
+}

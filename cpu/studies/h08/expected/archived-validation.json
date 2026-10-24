@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "reviewed_at_utc": "2026-10-23T12:29:54.448075+00:00",
+  "base_seal_sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+  "correction_seal_sha256": "53b7ddcb05835abffeff23639db5c1b9249a87ce03306e31cb893b0359cdcdf9",
+  "correction_files_verified": 35,
+  "payload_files_verified": 15,
+  "raw_agent_sha256": "7a7b2a242f5106f1ba8f053ee265318cfaeabe3aff19e9d76691945eedee8ae6",
+  "original_evidence_sha256": {
+    "results\\heldout-batch-4-gpu\\afterfix-results\\agent-results.json": "567ad8fbc47e0345404f186d4f0ed3d756da1dd49fdbea30047b8a42147a43dc",
+    "results\\heldout-batch-4-analysis\\grades.json": "b48fa96c0809692fc99cd2a11c94cd9597294359151fdb41b7356e11a352865d",
+    "results\\heldout-full-evaluation\\case-results.csv": "26c73db98999c97ee461e1663ab496a2b993b83af51e4a048b8612cfaf29c3cd",
+    "results\\heldout-full-evaluation\\grades.json": "859f529bde3e9d3ad3346bbbed31b0778102858e081c344ddb730c323427ce5f",
+    "results\\heldout-full-evaluation\\resources.json": "3ff93f91a41d596d6303df5f59fa77d3abf05a2cb122912cba4a0cbe807a4c15",
+    "results\\heldout-full-evaluation\\summary.json": "b994981fc0adbea46b18fcee0b96666a3f85e8f2de6561a80583d9c010e98aab",
+    "results\\heldout-full-evaluation\\tool-denial-audit.json": "692348aa283dbe219ec02976bf6eb955ec50c975815bc72d44a228aada31b475",
+    "results\\heldout-full-evaluation\\validation.json": "1a85aed57266e9d27761c933a35cc924e6b569160bf238353d3e68066ff750cb"
+  },
+  "source_versions": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.20.2",
+    "accelerate": "1.15.0",
+    "bitsandbytes": "0.50.2",
+    "sqlite": "3.45.1",
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]"
+  },
+  "local_sqlite": "3.53.1",
+  "exact_tool_feedback_replays": 16,
+  "exact_query_feedback_replays": 12,
+  "exact_test_feedback_replays": 4,
+  "run_order_prompt_task_hashes_verified": true,
+  "model_checkpoint_versions_match_original": true,
+  "controller_seconds": 418.706337471,
+  "checkpoint_download_seconds": 43.57229645199999,
+  "model_load_seconds": 13.061307780999982,
+  "output_tokens": 1784,
+  "maximum_input_tokens": 2327,
+  "maximum_output_tokens_per_response": 208,
+  "gpus": [
+    {
+      "name": "Tesla T4",
+      "total_GiB": 14.56219482421875
+    },
+    {
+      "name": "Tesla T4",
+      "total_GiB": 14.56219482421875
+    }
+  ],
+  "parameter_devices": [
+    "cuda:0"
+  ],
+  "gpu_runs_started": 0
+}

@@ -1,0 +1,591 @@
+{
+  "scope": "Byte-identical allowlisted copies; historical seals describe larger workspace snapshots.",
+  "files": {
+    "reproduce.py": {
+      "workspace_source": "tools/repro_package_v2/reproduce.py",
+      "sha256": "fa6282ef4f38b1b4f808c9ea9a483a1397a793e2b888ed39d253b5552b87dd2c",
+      "historical_seals": []
+    },
+    "replay_worker.py": {
+      "workspace_source": "tools/repro_package_v2/replay_worker.py",
+      "sha256": "ea8818cadacf025c7f8041deb158f838551e918c1d9e7073a460f9ea1368f315",
+      "historical_seals": []
+    },
+    "provenance/historical-seals/seal-v1.json": {
+      "workspace_source": "benchmark/seal-v1.json",
+      "sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+      "historical_seals": []
+    },
+    "provenance/historical-seals/harness-v2-seal.json": {
+      "workspace_source": "benchmark/harness-v2-seal.json",
+      "sha256": "53b7ddcb05835abffeff23639db5c1b9249a87ce03306e31cb893b0359cdcdf9",
+      "historical_seals": []
+    },
+    "provenance/historical-seals/deep-study-seal-v1.json": {
+      "workspace_source": "benchmark/deep-study-seal-v1.json",
+      "sha256": "a5f308bd3b047e3a69659982e5a9d6576c0752d9f560686626822c2978cce12d",
+      "historical_seals": []
+    },
+    "provenance/historical-seals/deep-study-seal-v2.json": {
+      "workspace_source": "benchmark/deep-study-seal-v2.json",
+      "sha256": "45160e539a506dc87515a43c124df07936c8b2d4514db77c1b6a82f4aef41fa0",
+      "historical_seals": []
+    },
+    "provenance/historical-seals/bos-smoke-seal-v1.json": {
+      "workspace_source": "benchmark/bos-smoke-seal-v1.json",
+      "sha256": "d5d75c97e775cb7c7c061f28b8cec364b09d5dca95ebc5b8163130c63b961add",
+      "historical_seals": []
+    },
+    "provenance/historical-seals/deep-study-seal-v3.json": {
+      "workspace_source": "benchmark/deep-study-seal-v3.json",
+      "sha256": "1b5dab30de76cd900e2e42fede026b8ba7c51b4c6ed908cd6c542f876bbf0a69",
+      "historical_seals": []
+    },
+    "paper/afterfix-draft-v4.md": {
+      "workspace_source": "paper/afterfix-draft-v4.md",
+      "sha256": "85e3ba1d602458f877ebf12c248a060f863e912f7772c2282a6125383b16b0e3",
+      "historical_seals": []
+    },
+    "paper/draft-v4-validation.json": {
+      "workspace_source": "paper/draft-v4-validation.json",
+      "sha256": "60b39912633bcdd8877f23ee17959fb9d77e9ac80f593b253223c16d5fbee29f",
+      "historical_seals": []
+    },
+    "paper/reviewer-report-v1.md": {
+      "workspace_source": "paper/reviewer-report-v1.md",
+      "sha256": "5f7c589c98cceac10454dd694004a2441e558716d844d6b041509407326ace3a",
+      "historical_seals": []
+    },
+    "review/case-review-v2.md": {
+      "workspace_source": "paper/case-review-v2.md",
+      "sha256": "e2e50f7fabc1f6fa92cd366456b2d5e73b41d07150ae3c91e630248de7a2bb5e",
+      "historical_seals": []
+    },
+    "review/case-review-v2-checks.json": {
+      "workspace_source": "paper/case-review-v2-checks.json",
+      "sha256": "4f77ba8beb9ab4df50171585c66ed4bda0f1e641cbdca76f0ed283dd5c987af7",
+      "historical_seals": []
+    },
+    "review/status.json": {
+      "workspace_source": "paper/case-review-v2-status.json",
+      "sha256": "ed32bf38000b4b957c8b83db0e639449cbbd05c9194a4c1ff94e6d40d38980bc",
+      "historical_seals": []
+    },
+    "tools/review_all_cases_v2.py": {
+      "workspace_source": "tools/review_all_cases_v2.py",
+      "sha256": "977cdaa75a98a95c4d1625094f8e8732d2c3778b4af54517546066f328972311",
+      "historical_seals": []
+    },
+    "studies/diagnostic/plan.md": {
+      "workspace_source": "paper/review-scope-diagnostic-plan.md",
+      "sha256": "c8359caaa8b619f63e9e09f136a022bd1b83c96c7b6d1e407e0b78d32f3373f8",
+      "historical_seals": []
+    },
+    "studies/v3/runtime-plan.json": {
+      "workspace_source": "experiments/deep-v3/plan.json",
+      "sha256": "c0de44fe160820f7127da828ac664efb5ef20b5f645fba4fcdb9a6623aaf64c0",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/v3/recorded-controller-summary.json": {
+      "workspace_source": "results/deep-v3-gpu/deep-results/summary.json",
+      "sha256": "05ada4bff64a901918f8e6bf47435d74ddabe40d9e72ded6e5457b6ab618701c",
+      "historical_seals": []
+    },
+    "studies/original/source/afterfix/__init__.py": {
+      "workspace_source": "afterfix/__init__.py",
+      "sha256": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/original/source/afterfix/cases.py": {
+      "workspace_source": "afterfix/cases.py",
+      "sha256": "70d2c08cb35865ff23e57e0279325c122ae909752c0b8733ad498d7549080650",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/original/source/afterfix/engine.py": {
+      "workspace_source": "afterfix/engine.py",
+      "sha256": "f3c8577485cc3e2672dc7f91a190158630797338800c5fc335563b9653c44be3",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/original/source/afterfix/grade.py": {
+      "workspace_source": "afterfix/grade.py",
+      "sha256": "edbe0b9c78b90b83b5597efeab5fa8b48d6c4a2bf8e4c730496b79dd351b1413",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/original/source/afterfix/heldout_cases.py": {
+      "workspace_source": "afterfix/heldout_cases.py",
+      "sha256": "cd3c187cb9a0e1867268b80b388b1edbb66ee0ff7563bec82256000d704b5af6",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/original/source/afterfix/heldout_remaining.py": {
+      "workspace_source": "afterfix/heldout_remaining.py",
+      "sha256": "98b5d57b2637c13d30593a389af8f53a2c075af63a92c56a077d05a4353f12a8",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/original/source/afterfix/heldout_grade.py": {
+      "workspace_source": "afterfix/heldout_grade.py",
+      "sha256": "fdd798f17177a1e839b8ac05df8d8fc5fa838e3b51fa9237bcf08516ed8b64fa",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/original/source/afterfix/heldout_evaluation.py": {
+      "workspace_source": "afterfix/heldout_evaluation.py",
+      "sha256": "c61de116cb73ce99b00634ce089f646fb4b048ce524ba1cb318b66728e3550cf",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/original/source/afterfix/protocol.py": {
+      "workspace_source": "afterfix/protocol.py",
+      "sha256": "4a311901d79438699dac006608f1e108a26a65ec6c3bad273c0193664c2efd4f",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/original/source/afterfix/protocol_v2.py": {
+      "workspace_source": "afterfix/protocol_v2.py",
+      "sha256": "0c8641ce6043514dd20e0af83d41e9b1bfb2941a15494d3a00d32f7ead893347",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/original/source/afterfix/runner.py": {
+      "workspace_source": "afterfix/runner.py",
+      "sha256": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/original/expected/grades.json": {
+      "workspace_source": "results/heldout-full-evaluation/grades.json",
+      "sha256": "859f529bde3e9d3ad3346bbbed31b0778102858e081c344ddb730c323427ce5f",
+      "historical_seals": []
+    },
+    "studies/original/expected/summary.json": {
+      "workspace_source": "results/heldout-full-evaluation/summary.json",
+      "sha256": "b994981fc0adbea46b18fcee0b96666a3f85e8f2de6561a80583d9c010e98aab",
+      "historical_seals": []
+    },
+    "studies/original/expected/archived-validation.json": {
+      "workspace_source": "results/heldout-full-evaluation/validation.json",
+      "sha256": "1a85aed57266e9d27761c933a35cc924e6b569160bf238353d3e68066ff750cb",
+      "historical_seals": []
+    },
+    "studies/original/plan.json": {
+      "workspace_source": "benchmark/plan-v1.json",
+      "sha256": "2711d5bb662a8379b939d477253e86e84f33538a53d9ec53da3c69a2ff79d104",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/original/raw/agents-1-12b_nf4.json": {
+      "workspace_source": "results/heldout-batch-1-gpu/afterfix-results/agent-results.json",
+      "sha256": "a4a75b72c51aca5ef3b1a0d1187f0b22ae505fa93bb38498f09f3337846b856d",
+      "historical_seals": []
+    },
+    "studies/original/raw/agents-2-12b_nf4.json": {
+      "workspace_source": "results/heldout-batch-2-gpu/afterfix-results/agent-results.json",
+      "sha256": "167847119b67e5fae71ee959eae97713b5cdfc21a5e4ca3618e9cf5383131c26",
+      "historical_seals": []
+    },
+    "studies/original/raw/agents-3-12b_nf4.json": {
+      "workspace_source": "results/heldout-batch-3-retry-v2-gpu/afterfix-results/agent-results.json",
+      "sha256": "c198fdc435e3c5d2098cf9d63d941adca67753f21912f04d16547c464d3b32c7",
+      "historical_seals": []
+    },
+    "studies/original/raw/agents-4-12b_nf4.json": {
+      "workspace_source": "results/heldout-batch-4-gpu/afterfix-results/agent-results.json",
+      "sha256": "567ad8fbc47e0345404f186d4f0ed3d756da1dd49fdbea30047b8a42147a43dc",
+      "historical_seals": []
+    },
+    "studies/h08/source/afterfix/__init__.py": {
+      "workspace_source": "revisions/harness-v2/afterfix/__init__.py",
+      "sha256": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2",
+      "historical_seals": [
+        "harness-v2-seal.json"
+      ]
+    },
+    "studies/h08/source/afterfix/cases.py": {
+      "workspace_source": "revisions/harness-v2/afterfix/cases.py",
+      "sha256": "70d2c08cb35865ff23e57e0279325c122ae909752c0b8733ad498d7549080650",
+      "historical_seals": [
+        "harness-v2-seal.json"
+      ]
+    },
+    "studies/h08/source/afterfix/engine.py": {
+      "workspace_source": "revisions/harness-v2/afterfix/engine.py",
+      "sha256": "e83228ef2502ba06cf311f0d7357796d4d99df1b7300fa36ebdbc8be21c0c090",
+      "historical_seals": [
+        "harness-v2-seal.json"
+      ]
+    },
+    "studies/h08/source/afterfix/grade.py": {
+      "workspace_source": "revisions/harness-v2/afterfix/grade.py",
+      "sha256": "edbe0b9c78b90b83b5597efeab5fa8b48d6c4a2bf8e4c730496b79dd351b1413",
+      "historical_seals": [
+        "harness-v2-seal.json"
+      ]
+    },
+    "studies/h08/source/afterfix/heldout_cases.py": {
+      "workspace_source": "revisions/harness-v2/afterfix/heldout_cases.py",
+      "sha256": "cd3c187cb9a0e1867268b80b388b1edbb66ee0ff7563bec82256000d704b5af6",
+      "historical_seals": [
+        "harness-v2-seal.json"
+      ]
+    },
+    "studies/h08/source/afterfix/heldout_remaining.py": {
+      "workspace_source": "revisions/harness-v2/afterfix/heldout_remaining.py",
+      "sha256": "98b5d57b2637c13d30593a389af8f53a2c075af63a92c56a077d05a4353f12a8",
+      "historical_seals": [
+        "harness-v2-seal.json"
+      ]
+    },
+    "studies/h08/source/afterfix/heldout_grade.py": {
+      "workspace_source": "revisions/harness-v2/afterfix/heldout_grade.py",
+      "sha256": "fdd798f17177a1e839b8ac05df8d8fc5fa838e3b51fa9237bcf08516ed8b64fa",
+      "historical_seals": [
+        "harness-v2-seal.json"
+      ]
+    },
+    "studies/h08/source/afterfix/heldout_evaluation.py": {
+      "workspace_source": "revisions/harness-v2/afterfix/heldout_evaluation.py",
+      "sha256": "c61de116cb73ce99b00634ce089f646fb4b048ce524ba1cb318b66728e3550cf",
+      "historical_seals": [
+        "harness-v2-seal.json"
+      ]
+    },
+    "studies/h08/source/afterfix/protocol.py": {
+      "workspace_source": "revisions/harness-v2/afterfix/protocol.py",
+      "sha256": "4a311901d79438699dac006608f1e108a26a65ec6c3bad273c0193664c2efd4f",
+      "historical_seals": [
+        "harness-v2-seal.json"
+      ]
+    },
+    "studies/h08/source/afterfix/protocol_v2.py": {
+      "workspace_source": "revisions/harness-v2/afterfix/protocol_v2.py",
+      "sha256": "0c8641ce6043514dd20e0af83d41e9b1bfb2941a15494d3a00d32f7ead893347",
+      "historical_seals": [
+        "harness-v2-seal.json"
+      ]
+    },
+    "studies/h08/source/afterfix/runner.py": {
+      "workspace_source": "revisions/harness-v2/afterfix/runner.py",
+      "sha256": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+      "historical_seals": [
+        "harness-v2-seal.json"
+      ]
+    },
+    "studies/h08/expected/grades.json": {
+      "workspace_source": "results/h08-harness-v2-analysis/grades.json",
+      "sha256": "ef83bb4e9ca4a79b9f663429ade2081aa548743ce85e122b591f6128ac70a8e5",
+      "historical_seals": []
+    },
+    "studies/h08/expected/summary.json": {
+      "workspace_source": "results/h08-harness-v2-analysis/summary.json",
+      "sha256": "dab820da528a74cbed479b17b9a2562ff0d899982eb39a3ad3ffce6451d1ec0d",
+      "historical_seals": []
+    },
+    "studies/h08/expected/archived-validation.json": {
+      "workspace_source": "results/h08-harness-v2-analysis/validation.json",
+      "sha256": "f100a2998437f056bd7b6851b6f90823abda05060a9ec40949aa23fb1a25e8a1",
+      "historical_seals": []
+    },
+    "studies/h08/plan.json": {
+      "workspace_source": "benchmark/plan-v1.json",
+      "sha256": "2711d5bb662a8379b939d477253e86e84f33538a53d9ec53da3c69a2ff79d104",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/h08/raw/agents-1-12b_nf4.json": {
+      "workspace_source": "results/h08-harness-v2-gpu/afterfix-results/agent-results.json",
+      "sha256": "7a7b2a242f5106f1ba8f053ee265318cfaeabe3aff19e9d76691945eedee8ae6",
+      "historical_seals": []
+    },
+    "studies/v3/source/afterfix/__init__.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/__init__.py",
+      "sha256": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/v3/source/afterfix/cases.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/cases.py",
+      "sha256": "70d2c08cb35865ff23e57e0279325c122ae909752c0b8733ad498d7549080650",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/v3/source/afterfix/engine.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/engine.py",
+      "sha256": "e83228ef2502ba06cf311f0d7357796d4d99df1b7300fa36ebdbc8be21c0c090",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/v3/source/afterfix/grade.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/grade.py",
+      "sha256": "edbe0b9c78b90b83b5597efeab5fa8b48d6c4a2bf8e4c730496b79dd351b1413",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/v3/source/afterfix/heldout_cases.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/heldout_cases.py",
+      "sha256": "cd3c187cb9a0e1867268b80b388b1edbb66ee0ff7563bec82256000d704b5af6",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/v3/source/afterfix/heldout_remaining.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/heldout_remaining.py",
+      "sha256": "98b5d57b2637c13d30593a389af8f53a2c075af63a92c56a077d05a4353f12a8",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/v3/source/afterfix/heldout_grade.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/heldout_grade.py",
+      "sha256": "fdd798f17177a1e839b8ac05df8d8fc5fa838e3b51fa9237bcf08516ed8b64fa",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/v3/source/afterfix/heldout_evaluation.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/heldout_evaluation.py",
+      "sha256": "c61de116cb73ce99b00634ce089f646fb4b048ce524ba1cb318b66728e3550cf",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/v3/source/afterfix/protocol.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/protocol.py",
+      "sha256": "70a2361be51496dc6f340b1004c6843f490f6bc2aaed9041ebfefd2726fca18a",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/v3/source/afterfix/protocol_v2.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/protocol_v2.py",
+      "sha256": "40d0dde45942585be210167925d406e31f23d56204c52ac6cb3a92f36b23fcea",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/v3/source/afterfix/runner.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/runner.py",
+      "sha256": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/v3/expected/grades.json": {
+      "workspace_source": "results/deep-v3-analysis/grades.json",
+      "sha256": "1ab5f6aaf0c0dda68552b4d98a47379c4480d7583aeb104d4ba23bfe6d208eb5",
+      "historical_seals": []
+    },
+    "studies/v3/expected/summary.json": {
+      "workspace_source": "results/deep-v3-analysis/summary.json",
+      "sha256": "f9725a8344a1b68eae0f443e9a8044d32ac79cba6c15b77bce4e0892793d2023",
+      "historical_seals": []
+    },
+    "studies/v3/expected/archived-validation.json": {
+      "workspace_source": "results/deep-v3-analysis/validation.json",
+      "sha256": "ba503a16a102638401c6c7368aa4f5f5ef0dd2cadc0da69ca2ae8ce379e2b6dc",
+      "historical_seals": []
+    },
+    "studies/v3/plan.json": {
+      "workspace_source": "benchmark/plan-v1.json",
+      "sha256": "2711d5bb662a8379b939d477253e86e84f33538a53d9ec53da3c69a2ff79d104",
+      "historical_seals": [
+        "seal-v1.json"
+      ]
+    },
+    "studies/v3/raw/agents-1-31b.json": {
+      "workspace_source": "results/deep-v3-gpu/deep-results/31b/agent-results.json",
+      "sha256": "2b1657bae10f866073c56e21f33e043b7e99965e46a0c85b31c7c786c7a250a4",
+      "historical_seals": []
+    },
+    "studies/v3/raw/agents-2-12b.json": {
+      "workspace_source": "results/deep-v3-gpu/deep-results/12b/agent-results.json",
+      "sha256": "af0824933c39b089ba7fe4ff596e9b5120e7ea2286e4f657f3b19e0c6cb86f9b",
+      "historical_seals": []
+    },
+    "studies/diagnostic/source/afterfix/__init__.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/__init__.py",
+      "sha256": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/diagnostic/source/afterfix/cases.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/cases.py",
+      "sha256": "70d2c08cb35865ff23e57e0279325c122ae909752c0b8733ad498d7549080650",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/diagnostic/source/afterfix/engine.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/engine.py",
+      "sha256": "e83228ef2502ba06cf311f0d7357796d4d99df1b7300fa36ebdbc8be21c0c090",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/diagnostic/source/afterfix/grade.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/grade.py",
+      "sha256": "edbe0b9c78b90b83b5597efeab5fa8b48d6c4a2bf8e4c730496b79dd351b1413",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/diagnostic/source/afterfix/heldout_cases.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/heldout_cases.py",
+      "sha256": "cd3c187cb9a0e1867268b80b388b1edbb66ee0ff7563bec82256000d704b5af6",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/diagnostic/source/afterfix/heldout_remaining.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/heldout_remaining.py",
+      "sha256": "98b5d57b2637c13d30593a389af8f53a2c075af63a92c56a077d05a4353f12a8",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/diagnostic/source/afterfix/heldout_grade.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/heldout_grade.py",
+      "sha256": "fdd798f17177a1e839b8ac05df8d8fc5fa838e3b51fa9237bcf08516ed8b64fa",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/diagnostic/source/afterfix/heldout_evaluation.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/heldout_evaluation.py",
+      "sha256": "c61de116cb73ce99b00634ce089f646fb4b048ce524ba1cb318b66728e3550cf",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/diagnostic/source/afterfix/protocol.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/protocol.py",
+      "sha256": "70a2361be51496dc6f340b1004c6843f490f6bc2aaed9041ebfefd2726fca18a",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/diagnostic/source/afterfix/protocol_v2.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/protocol_v2.py",
+      "sha256": "40d0dde45942585be210167925d406e31f23d56204c52ac6cb3a92f36b23fcea",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/diagnostic/source/afterfix/runner.py": {
+      "workspace_source": "experiments/deep-v3/afterfix/runner.py",
+      "sha256": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+      "historical_seals": [
+        "deep-study-seal-v3.json"
+      ]
+    },
+    "studies/diagnostic/expected/grades.json": {
+      "workspace_source": "results/paper-review-v1/grades.json",
+      "sha256": "8020821dd435a09a3ce8a0016ada63f664cda88400d18d3e686a1a42ce1ab7a4",
+      "historical_seals": []
+    },
+    "studies/diagnostic/expected/summary.json": {
+      "workspace_source": "results/paper-review-v1/summary.json",
+      "sha256": "ad24e22fab739ef868caf7082c56ba527555588e26814cd5e5cea570e4ffb770",
+      "historical_seals": []
+    },
+    "studies/diagnostic/raw/public-candidates.json": {
+      "workspace_source": "results/paper-review-v1/public-candidates.json",
+      "sha256": "558012d1feba2bfbb09de0ea6b48f2042a0e15dfc093f4dc7589309992144030",
+      "historical_seals": []
+    },
+    "studies/diagnostic/raw/public-incidents.json": {
+      "workspace_source": "results/deep-v3-gpu/deep-results/public-incidents.json",
+      "sha256": "b2ee173ad3b19968728d1d2f44768b51348950e8e4b26825966a942213bfbda5",
+      "historical_seals": []
+    },
+    "paper/afterfix-draft-v5.md": {
+      "workspace_source": "paper/afterfix-draft-v5.md",
+      "sha256": "bef2c8ee534971d2d1c6731c66f8696da8ece00a562c37c4e046919e9b429571",
+      "historical_seals": []
+    },
+    "paper/draft-v5-validation.json": {
+      "workspace_source": "paper/draft-v5-validation.json",
+      "sha256": "d26a3cb7c40dfc2d931354a3c93dcb2370de5386846cac65bbb6d897814c7ea5",
+      "historical_seals": []
+    },
+    "paper/afterfix-draft-v2.md": {
+      "workspace_source": "paper/afterfix-draft-v2.md",
+      "sha256": "d26bfc0a937ad72f8cd4978deab3429bf5821e705fdeec3bb772fb89facc9ebf",
+      "historical_seals": []
+    },
+    "paper/review-scope-diagnostic-plan.md": {
+      "workspace_source": "paper/review-scope-diagnostic-plan.md",
+      "sha256": "c8359caaa8b619f63e9e09f136a022bd1b83c96c7b6d1e407e0b78d32f3373f8",
+      "historical_seals": []
+    },
+    "results/paper-review-v1/public-candidates.json": {
+      "workspace_source": "results/paper-review-v1/public-candidates.json",
+      "sha256": "558012d1feba2bfbb09de0ea6b48f2042a0e15dfc093f4dc7589309992144030",
+      "historical_seals": []
+    },
+    "results/paper-review-v1/grades.json": {
+      "workspace_source": "results/paper-review-v1/grades.json",
+      "sha256": "8020821dd435a09a3ce8a0016ada63f664cda88400d18d3e686a1a42ce1ab7a4",
+      "historical_seals": []
+    },
+    "results/paper-review-v1/summary.json": {
+      "workspace_source": "results/paper-review-v1/summary.json",
+      "sha256": "ad24e22fab739ef868caf7082c56ba527555588e26814cd5e5cea570e4ffb770",
+      "historical_seals": []
+    },
+    "results/paper-review-v1/selected-failures.json": {
+      "workspace_source": "results/paper-review-v1/selected-failures.json",
+      "sha256": "ab611979b9775f93e978848e522dd75f549f9f2a3a9fde4224f755096cc1239a",
+      "historical_seals": []
+    },
+    "tools/review_paper_cpu_diagnostics.py": {
+      "workspace_source": "tools/review_paper_cpu_diagnostics.py",
+      "sha256": "8c34ed1d90bbe5030555fbc68e23355cd443e55a627c2fcf70ce486a581bb2a2",
+      "historical_seals": []
+    },
+    "paper/afterfix-review-v6.md": {
+      "workspace_source": "paper/afterfix-review-v6.md",
+      "sha256": "0a62798415d5e177dcf0a1319dea313b6d2516faa1ebf7bb656846a95b9a316e",
+      "historical_seals": []
+    },
+    "paper/review-v6-validation.json": {
+      "workspace_source": "paper/review-v6-validation.json",
+      "sha256": "54f01b4100a33da9091073b9e19c15ffe35776703b74f88cf4c6f7e5c904ece1",
+      "historical_seals": []
+    },
+    "paper/review-pdf-validation-v1.json": {
+      "workspace_source": "paper/review-pdf-validation-v1.json",
+      "sha256": "4afd896e8ec81e3607259f6963a715049080a344e3caed415b1ffea106e2be37",
+      "historical_seals": []
+    },
+    "paper/afterfix-final-review-v1.pdf": {
+      "workspace_source": "output/pdf/afterfix-final-review-v1.pdf",
+      "sha256": "de65b76e35b2a557ef0d12395b9781f16d5d67d019bee65ab84ae6afee365ff6",
+      "historical_seals": []
+    }
+  }
+}

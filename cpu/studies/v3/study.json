@@ -1,0 +1,14 @@
+{
+  "title": "Matched v3 model comparison",
+  "caveat": "Reused cases, expanded protocol, QAT runtime, 31B first. Separate from original NF4.",
+  "raw_agents": [
+    {
+      "file": "raw/agents-1-31b.json",
+      "model": "31b"
+    },
+    {
+      "file": "raw/agents-2-12b.json",
+      "model": "12b"
+    }
+  ]
+}

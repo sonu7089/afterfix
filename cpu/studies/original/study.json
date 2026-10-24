@@ -1,0 +1,22 @@
+{
+  "title": "Original 12B NF4 study",
+  "caveat": "Original harness, including the H08 query-authorizer bug. Corrected H08 is separate.",
+  "raw_agents": [
+    {
+      "file": "raw/agents-1-12b_nf4.json",
+      "model": "12b_nf4"
+    },
+    {
+      "file": "raw/agents-2-12b_nf4.json",
+      "model": "12b_nf4"
+    },
+    {
+      "file": "raw/agents-3-12b_nf4.json",
+      "model": "12b_nf4"
+    },
+    {
+      "file": "raw/agents-4-12b_nf4.json",
+      "model": "12b_nf4"
+    }
+  ]
+}

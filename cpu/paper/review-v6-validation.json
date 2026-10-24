@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "manuscript": "afterfix-review-v6.md",
+  "whitespace_words": 2934,
+  "em_dashes": 0,
+  "numerical_tables_unchanged": true,
+  "study_numbers_unchanged": true,
+  "author": "Nitish Songara",
+  "affiliation": "Independent researcher",
+  "coauthors": [],
+  "funding": "None",
+  "unpublished_and_release_permission_confirmed_by_user": true,
+  "code_and_synthetic_benchmark_license": "Apache-2.0",
+  "manuscript_license": "Not selected",
+  "intended_repository": "sonu7089/afterfix",
+  "repository_created": false,
+  "published": false,
+  "source_sha256": "bef2c8ee534971d2d1c6731c66f8696da8ece00a562c37c4e046919e9b429571",
+  "manuscript_sha256": "0a62798415d5e177dcf0a1319dea313b6d2516faa1ebf7bb656846a95b9a316e",
+  "changes": [
+    "*A controlled study of adapting supplied SQL patches to repair existing data*",
+    "The same authors wrote cases and oracles; separate implementations are not independent human review.",
+    "Development cases were excluded from the original evaluation, but authors knew the test cases.",
+    "Public hosting, licensing and author metadata remain pending.",
+    "## References"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "pdf_sha256": "a1818ad15e8d011d4154a85a2fd83cf954e5f35d8a9c7c4f0e84b76ba7b7dc09",
+  "source_sha256": "659013ec42fdcfbd62b356318c798e48c795e03863bf79f86a6bbfbf829d3354",
+  "reference_pdf_sha256": "8cd63919af0093f01a944c62177a6be9aac454e39f8f9ea0879a0bffa756ea9f",
+  "pages": 7,
+  "prose_and_table_cell_checks": 164,
+  "all_source_content_present": true,
+  "character_bounds_pass": true,
+  "em_dashes": 0,
+  "replacement_characters": 0,
+  "clickable_links": 29,
+  "fonts": [
+    "AAAAAA+Garamond",
+    "AAAAAA+Garamond-Italic",
+    "AAAAAA+Georgia",
+    "AAAAAA+Georgia-Bold",
+    "Courier"
+  ],
+  "rendered_pages": [
+    "tmp/pdfs/afterfix-publication-v1/page-1.png",
+    "tmp/pdfs/afterfix-publication-v1/page-2.png",
+    "tmp/pdfs/afterfix-publication-v1/page-3.png",
+    "tmp/pdfs/afterfix-publication-v1/page-4.png",
+    "tmp/pdfs/afterfix-publication-v1/page-5.png",
+    "tmp/pdfs/afterfix-publication-v1/page-6.png",
+    "tmp/pdfs/afterfix-publication-v1/page-7.png"
+  ]
+}

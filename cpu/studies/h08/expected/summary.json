@@ -1,0 +1,185 @@
+{
+  "scope": "Separate corrected H08 block only; not pooled with original 72-attempt study.",
+  "harness_version": "afterfix-harness-v2",
+  "completed_attempts": 3,
+  "full_recoveries": 0,
+  "visible_recoveries": 0,
+  "by_method": {
+    "provenance": {
+      "complete": false,
+      "outcome": "sql_execution_failure",
+      "components": {
+        "historical": false,
+        "preservation": false,
+        "repeatable": false,
+        "healthy_control": false,
+        "future": true,
+        "continuation": false
+      }
+    },
+    "ordinary": {
+      "complete": false,
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "checklist": {
+      "complete": false,
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  "comparisons": [
+    {
+      "method": "provenance",
+      "original_harness_v1": {
+        "complete": false,
+        "outcome": "executable_but_wrong",
+        "visible_complete": false,
+        "components": {
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true
+        },
+        "turns": 5,
+        "output_tokens": 518,
+        "wall_seconds": 76.37201182699994,
+        "trace_calls": 0,
+        "authorization_denials": 1,
+        "protocol_errors": 0,
+        "artifact_sha256": "eda1c2fe0dcd3dbfa6cdd8175805316509b593857da14ebd7f390ff041f740ab",
+        "stop_reason": "submitted"
+      },
+      "corrected_harness_v2": {
+        "complete": false,
+        "outcome": "sql_execution_failure",
+        "visible_complete": false,
+        "components": {
+          "historical": false,
+          "preservation": false,
+          "repeatable": false,
+          "healthy_control": false,
+          "future": true,
+          "continuation": false
+        },
+        "turns": 6,
+        "output_tokens": 605,
+        "wall_seconds": 89.61809580599999,
+        "trace_calls": 0,
+        "authorization_denials": 0,
+        "protocol_errors": 0,
+        "artifact_sha256": "3dde1f733661681a5197fa89b4a9ec9e3bd95f86061c8a3caa1bc03e9e718584",
+        "stop_reason": "turn_budget"
+      },
+      "same_artifact": false
+    },
+    {
+      "method": "ordinary",
+      "original_harness_v1": {
+        "complete": true,
+        "outcome": "complete",
+        "visible_complete": true,
+        "components": {
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true
+        },
+        "turns": 6,
+        "output_tokens": 417,
+        "wall_seconds": 66.11401370299996,
+        "trace_calls": 0,
+        "authorization_denials": 1,
+        "protocol_errors": 0,
+        "artifact_sha256": "ba6f91becabbb7d17f2e7a12fe5308220e974bfae99bdfbdef5a3035ea4805f3",
+        "stop_reason": "turn_budget"
+      },
+      "corrected_harness_v2": {
+        "complete": false,
+        "outcome": "executable_but_wrong",
+        "visible_complete": false,
+        "components": {
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true
+        },
+        "turns": 6,
+        "output_tokens": 624,
+        "wall_seconds": 91.53439222899999,
+        "trace_calls": 0,
+        "authorization_denials": 0,
+        "protocol_errors": 0,
+        "artifact_sha256": "eda1c2fe0dcd3dbfa6cdd8175805316509b593857da14ebd7f390ff041f740ab",
+        "stop_reason": "submitted"
+      },
+      "same_artifact": false
+    },
+    {
+      "method": "checklist",
+      "original_harness_v1": {
+        "complete": false,
+        "outcome": "no_valid_artifact",
+        "visible_complete": false,
+        "components": {},
+        "turns": 6,
+        "output_tokens": 284,
+        "wall_seconds": 50.92497618499999,
+        "trace_calls": 0,
+        "authorization_denials": 6,
+        "protocol_errors": 0,
+        "artifact_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "stop_reason": "turn_budget"
+      },
+      "corrected_harness_v2": {
+        "complete": false,
+        "outcome": "executable_but_wrong",
+        "visible_complete": false,
+        "components": {
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true
+        },
+        "turns": 6,
+        "output_tokens": 555,
+        "wall_seconds": 84.29100284799995,
+        "trace_calls": 0,
+        "authorization_denials": 0,
+        "protocol_errors": 0,
+        "artifact_sha256": "eda1c2fe0dcd3dbfa6cdd8175805316509b593857da14ebd7f390ff041f740ab",
+        "stop_reason": "submitted"
+      },
+      "same_artifact": false
+    }
+  ],
+  "trace_calls": 0,
+  "original_study_totals_unchanged": {
+    "ordinary": "2/24",
+    "checklist": "1/24",
+    "provenance": "0/24"
+  },
+  "caution": "One affected case and one attempt per method. Different tool feedback changes subsequent generation; this is not evidence of general method superiority or a harness-fix effect size."
+}

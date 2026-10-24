@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "scope": "Manuscript v4 numeric-table preservation, detail coverage and internal-review disclosure",
+  "draft": "paper/afterfix-draft-v4.md",
+  "draft_sha256": "85e3ba1d602458f877ebf12c248a060f863e912f7772c2282a6125383b16b0e3",
+  "whitespace_words_including_tables_references": 2956,
+  "em_dash_count": 0,
+  "all_table_rows_identical_to_v3": true,
+  "references_identical_to_v3": true,
+  "review_cases": 24,
+  "case_seed_checks": 72,
+  "explicit_initial_continuation_comparisons": 144,
+  "healthy_checks": 72,
+  "separate_boundary_probes": 4,
+  "studies_separate": true,
+  "original_results_replaced": false,
+  "independent_human_review": false,
+  "gpu_jobs_started": 0,
+  "public_release_pending": true,
+  "submitted": false
+}

@@ -1,0 +1,682 @@
+[
+  {
+    "id": "H02",
+    "title": "InboxLane: a failed consumer transaction overwrote an accepted revision",
+    "specification": "Each event is a full replacement value, not a delta. An event is accepted if any transaction attempt committed, even if a duplicate retry failed. Materialize the highest accepted revision for each entity; with none use initial and revision zero. Failed-only events have no effect. Later accepted replacements supersede earlier ones. The fixed patch refreshes only entity IDs in work for applied, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE entities(id TEXT PRIMARY KEY,initial INTEGER);\nCREATE TABLE events(id TEXT PRIMARY KEY,entity TEXT,revision INTEGER,value INTEGER,UNIQUE(entity,revision));\nCREATE TABLE attempts(id TEXT PRIMARY KEY,event TEXT,outcome TEXT);\nCREATE TABLE applied(entity TEXT PRIMARY KEY,value INTEGER,revision INTEGER);\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM applied WHERE entity IN (SELECT entity FROM work); INSERT INTO applied SELECT * FROM (SELECT x.id AS entity,COALESCE((SELECT value FROM events e WHERE e.entity=x.id AND EXISTS(SELECT 1 FROM attempts a WHERE a.event=e.id AND a.outcome='committed') ORDER BY revision DESC LIMIT 1),x.initial),COALESCE((SELECT MAX(revision) FROM events e WHERE e.entity=x.id AND EXISTS(SELECT 1 FROM attempts a WHERE a.event=e.id AND a.outcome='committed')),0) FROM entities x) WHERE entity IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "applied"
+    ],
+    "immutable_tables": [
+      "entities",
+      "events",
+      "attempts",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "entities": [
+        [
+          "order_0",
+          5
+        ],
+        [
+          "healthy_0",
+          9
+        ],
+        [
+          "idle_0",
+          4
+        ]
+      ],
+      "events": [
+        [
+          "e1_0",
+          "order_0",
+          1,
+          20
+        ],
+        [
+          "e2_0",
+          "order_0",
+          2,
+          30
+        ],
+        [
+          "e3_0",
+          "order_0",
+          3,
+          99
+        ],
+        [
+          "e4_0",
+          "healthy_0",
+          1,
+          12
+        ]
+      ],
+      "attempts": [
+        [
+          "a1_0",
+          "e1_0",
+          "committed"
+        ],
+        [
+          "a2_0",
+          "e1_0",
+          "failed"
+        ],
+        [
+          "a3_0",
+          "e2_0",
+          "committed"
+        ],
+        [
+          "a4_0",
+          "e3_0",
+          "failed"
+        ],
+        [
+          "a5_0",
+          "e4_0",
+          "committed"
+        ]
+      ],
+      "work": [],
+      "applied": [
+        [
+          "order_0",
+          99,
+          3
+        ],
+        [
+          "healthy_0",
+          12,
+          1
+        ],
+        [
+          "idle_0",
+          4,
+          0
+        ]
+      ]
+    },
+    "evidence": [
+      "An inbox rebuild read the highest seen revision before checking transaction commit.",
+      "entities + events + attempts -> applied; work -> applied"
+    ],
+    "condition": "correct_patch_given",
+    "family": "delivery_workflows",
+    "history_variant": "H02"
+  },
+  {
+    "id": "H06",
+    "title": "StockBridge: partial transfer receipts were credited as full deliveries",
+    "specification": "Accepted transfers debit their full quantity from source. Credit destination only for accepted receipt quantities of accepted transfers; ignore rejected receipts and all evidence for rejected transfers. Receipt IDs identify distinct parts; accepted receipt sum never exceeds quantity. in_transit=debit-credit. Stock equals opening minus outgoing debits plus incoming credits. Stock plus all in_transit conserves opening inventory. The fixed patch refreshes only id IDs in work for transfer_state, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE warehouses(id TEXT PRIMARY KEY,opening INTEGER);\nCREATE TABLE transfers(id TEXT PRIMARY KEY,source TEXT,destination TEXT,qty INTEGER,accepted INTEGER);\nCREATE TABLE receipts(id TEXT PRIMARY KEY,transfer TEXT,qty INTEGER,accepted INTEGER);\nCREATE TABLE transfer_state(id TEXT PRIMARY KEY,debit INTEGER,credit INTEGER,in_transit INTEGER);\nCREATE TABLE stock(warehouse TEXT PRIMARY KEY,qty INTEGER);\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM transfer_state WHERE id IN (SELECT entity FROM work); INSERT INTO transfer_state SELECT * FROM (SELECT t.id,t.qty*t.accepted,CASE WHEN t.accepted=1 THEN COALESCE((SELECT SUM(qty) FROM receipts r WHERE r.transfer=t.id AND r.accepted=1),0) ELSE 0 END,t.qty*t.accepted-(CASE WHEN t.accepted=1 THEN COALESCE((SELECT SUM(qty) FROM receipts r WHERE r.transfer=t.id AND r.accepted=1),0) ELSE 0 END) FROM transfers t) WHERE id IN (SELECT entity FROM work);DELETE FROM stock; INSERT INTO stock SELECT w.id,w.opening-COALESCE((SELECT SUM(s.debit) FROM transfer_state s JOIN transfers t ON t.id=s.id WHERE t.source=w.id),0)+COALESCE((SELECT SUM(s.credit) FROM transfer_state s JOIN transfers t ON t.id=s.id WHERE t.destination=w.id),0) FROM warehouses w;",
+    "writable_tables": [
+      "transfer_state",
+      "stock"
+    ],
+    "immutable_tables": [
+      "warehouses",
+      "transfers",
+      "receipts",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "warehouses": [
+        [
+          "a_0",
+          100
+        ],
+        [
+          "b_0",
+          30
+        ],
+        [
+          "c_0",
+          20
+        ]
+      ],
+      "transfers": [
+        [
+          "t1_0",
+          "a_0",
+          "b_0",
+          10,
+          1
+        ],
+        [
+          "t2_0",
+          "a_0",
+          "c_0",
+          7,
+          0
+        ],
+        [
+          "t3_0",
+          "b_0",
+          "c_0",
+          3,
+          1
+        ]
+      ],
+      "receipts": [
+        [
+          "r1_0",
+          "t1_0",
+          4,
+          1
+        ],
+        [
+          "r2_0",
+          "t1_0",
+          2,
+          0
+        ],
+        [
+          "r3_0",
+          "t2_0",
+          7,
+          1
+        ],
+        [
+          "r4_0",
+          "t3_0",
+          3,
+          1
+        ]
+      ],
+      "work": [],
+      "transfer_state": [
+        [
+          "t1_0",
+          10,
+          10,
+          0
+        ],
+        [
+          "t2_0",
+          7,
+          7,
+          0
+        ],
+        [
+          "t3_0",
+          3,
+          3,
+          0
+        ]
+      ],
+      "stock": [
+        [
+          "a_0",
+          83
+        ],
+        [
+          "b_0",
+          37
+        ],
+        [
+          "c_0",
+          30
+        ]
+      ]
+    },
+    "evidence": [
+      "Transfer finalization assumed shipment meant full receipt and honored a receipt for a rejected transfer.",
+      "transfers + receipts -> transfer_state; warehouses + transfers + transfer_state -> stock; work -> transfer_state"
+    ],
+    "condition": "correct_patch_given",
+    "family": "coupled_resources",
+    "history_variant": "H06"
+  },
+  {
+    "id": "H10",
+    "title": "CompactSpan: partial publication counted source and replacement ranges twice",
+    "specification": "slots enumerates logical record positions. coverage maps every slot to exactly one physical segment: highest generation among published segments covering its half-open [lo,hi) range. Same-generation ranges never overlap; every slot has a published covering segment. A partially published compaction supersedes only its published subranges. Staged ranges contribute nothing; retain old coverage elsewhere. The fixed patch refreshes only dataset IDs in work for coverage, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE slots(dataset TEXT,pos INTEGER,PRIMARY KEY(dataset,pos));\nCREATE TABLE segments(id TEXT PRIMARY KEY,dataset TEXT,lo INTEGER,hi INTEGER,generation INTEGER,published INTEGER);\nCREATE TABLE coverage(dataset TEXT,pos INTEGER,file TEXT,generation INTEGER,PRIMARY KEY(dataset,pos));\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM coverage WHERE dataset IN (SELECT entity FROM work); INSERT INTO coverage SELECT * FROM (SELECT s.dataset,s.pos,f.id,f.generation FROM slots s JOIN segments f ON f.dataset=s.dataset AND s.pos>=f.lo AND s.pos<f.hi AND f.published=1 WHERE NOT EXISTS(SELECT 1 FROM segments g WHERE g.dataset=s.dataset AND s.pos>=g.lo AND s.pos<g.hi AND g.published=1 AND g.generation>f.generation)) WHERE dataset IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "coverage"
+    ],
+    "immutable_tables": [
+      "slots",
+      "segments",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "slots": [
+        [
+          "a_0",
+          0
+        ],
+        [
+          "a_0",
+          1
+        ],
+        [
+          "a_0",
+          2
+        ],
+        [
+          "a_0",
+          3
+        ],
+        [
+          "a_0",
+          4
+        ],
+        [
+          "a_0",
+          5
+        ],
+        [
+          "b_0",
+          0
+        ]
+      ],
+      "segments": [
+        [
+          "old_0",
+          "a_0",
+          0,
+          6,
+          1,
+          1
+        ],
+        [
+          "left_0",
+          "a_0",
+          0,
+          3,
+          2,
+          1
+        ],
+        [
+          "right_0",
+          "a_0",
+          3,
+          6,
+          2,
+          0
+        ],
+        [
+          "bfile_0",
+          "b_0",
+          0,
+          1,
+          1,
+          1
+        ]
+      ],
+      "work": [],
+      "coverage": [
+        [
+          "a_0",
+          0,
+          "left_0",
+          2
+        ],
+        [
+          "a_0",
+          1,
+          "left_0",
+          2
+        ],
+        [
+          "a_0",
+          2,
+          "left_0",
+          2
+        ],
+        [
+          "a_0",
+          3,
+          "right_0",
+          2
+        ],
+        [
+          "a_0",
+          4,
+          "right_0",
+          2
+        ],
+        [
+          "a_0",
+          5,
+          "right_0",
+          2
+        ],
+        [
+          "b_0",
+          0,
+          "bfile_0",
+          1
+        ]
+      ]
+    },
+    "evidence": [
+      "A compaction index switched the entire source range before the right replacement was published.",
+      "slots + segments -> coverage; work -> coverage"
+    ],
+    "condition": "correct_patch_given",
+    "family": "versioned_storage",
+    "history_variant": "H10"
+  },
+  {
+    "id": "H14",
+    "title": "DelegateTree: revocation removed independent grants but retained descendants",
+    "specification": "Delegations form an acyclic forest with existing parents and unchanged resource along a chain. A grant is effective only if neither it nor any ancestor is revoked. Count effective grant nodes per (user,resource), one access row if count>0. Revocation on one path does not remove an independent root/path. work contains all affected users, including descendants. The fixed patch refreshes only user IDs in work for access, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE delegations(id TEXT PRIMARY KEY,parent TEXT,user TEXT,resource TEXT,revoked INTEGER);\nCREATE TABLE access(user TEXT,resource TEXT,paths INTEGER,PRIMARY KEY(user,resource));\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM access WHERE user IN (SELECT entity FROM work); INSERT INTO access SELECT * FROM (WITH RECURSIVE live(id,user,resource) AS (SELECT id,user,resource FROM delegations WHERE parent IS NULL AND revoked=0 UNION ALL SELECT d.id,d.user,d.resource FROM delegations d JOIN live l ON d.parent=l.id WHERE d.revoked=0) SELECT user,resource,COUNT(*) FROM live GROUP BY user,resource) WHERE user IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "access"
+    ],
+    "immutable_tables": [
+      "delegations",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "delegations": [
+        [
+          "root_0",
+          null,
+          "owner_0",
+          "read_0",
+          1
+        ],
+        [
+          "child_0",
+          "root_0",
+          "ana_0",
+          "read_0",
+          0
+        ],
+        [
+          "grand_0",
+          "child_0",
+          "bo_0",
+          "read_0",
+          0
+        ],
+        [
+          "independent_0",
+          null,
+          "ana_0",
+          "read_0",
+          0
+        ],
+        [
+          "healthy_0",
+          null,
+          "cy_0",
+          "read_0",
+          0
+        ]
+      ],
+      "work": [],
+      "access": [
+        [
+          "ana_0",
+          "read_0",
+          2
+        ],
+        [
+          "cy_0",
+          "read_0",
+          1
+        ],
+        [
+          "bo_0",
+          "read_0",
+          1
+        ]
+      ]
+    },
+    "evidence": [
+      "A flat revoke removed all access for one user but missed a grandchild of the revoked root.",
+      "delegations -> access; work -> access"
+    ],
+    "condition": "correct_patch_given",
+    "family": "authorization_graphs",
+    "history_variant": "H14"
+  },
+  {
+    "id": "H18",
+    "title": "AmendStay: a cancellation for an old version removed a reinstated reservation",
+    "specification": "Process actions in seq order. activate installs its version and quantity, superseding earlier versions. cancel and reinstate affect only the currently active version; stale-version actions do nothing. Reinstate restores that version quantity. All versions are activated once in increasing version order, every reservation is activated, and later cancellation/reinstatement references existing versions. Store current version even when canceled (qty zero). The fixed patch refreshes only reservation IDs in work for allocation, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE reservations(id TEXT PRIMARY KEY);\nCREATE TABLE versions(reservation TEXT,version INTEGER,qty INTEGER,PRIMARY KEY(reservation,version));\nCREATE TABLE actions(id TEXT PRIMARY KEY,reservation TEXT,seq INTEGER,version INTEGER,kind TEXT,UNIQUE(reservation,seq));\nCREATE TABLE allocation(reservation TEXT PRIMARY KEY,version INTEGER,qty INTEGER);\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM allocation WHERE reservation IN (SELECT entity FROM work); INSERT INTO allocation SELECT * FROM (WITH current AS (SELECT r.id,(SELECT version FROM actions a WHERE a.reservation=r.id AND a.kind='activate' ORDER BY seq DESC LIMIT 1) AS v FROM reservations r) SELECT c.id AS reservation,c.v,CASE WHEN (SELECT kind FROM actions a WHERE a.reservation=c.id AND a.version=c.v ORDER BY seq DESC LIMIT 1)='cancel' THEN 0 ELSE v.qty END FROM current c JOIN versions v ON v.reservation=c.id AND v.version=c.v) WHERE reservation IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "allocation"
+    ],
+    "immutable_tables": [
+      "reservations",
+      "versions",
+      "actions",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "reservations": [
+        [
+          "a_0"
+        ],
+        [
+          "b_0"
+        ],
+        [
+          "c_0"
+        ]
+      ],
+      "versions": [
+        [
+          "a_0",
+          1,
+          4
+        ],
+        [
+          "a_0",
+          2,
+          7
+        ],
+        [
+          "b_0",
+          1,
+          3
+        ],
+        [
+          "c_0",
+          1,
+          2
+        ]
+      ],
+      "actions": [
+        [
+          "x1_0",
+          "a_0",
+          1,
+          1,
+          "activate"
+        ],
+        [
+          "x2_0",
+          "a_0",
+          2,
+          2,
+          "activate"
+        ],
+        [
+          "x3_0",
+          "a_0",
+          3,
+          2,
+          "cancel"
+        ],
+        [
+          "x4_0",
+          "a_0",
+          4,
+          2,
+          "reinstate"
+        ],
+        [
+          "x5_0",
+          "a_0",
+          5,
+          1,
+          "cancel"
+        ],
+        [
+          "x6_0",
+          "b_0",
+          1,
+          1,
+          "activate"
+        ],
+        [
+          "x7_0",
+          "c_0",
+          1,
+          1,
+          "activate"
+        ],
+        [
+          "x8_0",
+          "c_0",
+          2,
+          1,
+          "cancel"
+        ]
+      ],
+      "work": [],
+      "allocation": [
+        [
+          "a_0",
+          2,
+          0
+        ],
+        [
+          "b_0",
+          1,
+          3
+        ],
+        [
+          "c_0",
+          1,
+          0
+        ]
+      ]
+    },
+    "evidence": [
+      "A delayed cancellation for version 1 was applied after version 2 had been reinstated.",
+      "reservations + versions + actions -> allocation; work -> allocation"
+    ],
+    "condition": "correct_patch_given",
+    "family": "ordered_state",
+    "history_variant": "H18"
+  },
+  {
+    "id": "H22",
+    "title": "EntityVerdict: rejected duplicate candidates bridged distinct customers",
+    "specification": "Only accepted links establish undirected equivalence. Compute transitive components, with lexicographically smallest entity ID as representative and component size as members. Keep one row for every entity including singletons. Rejected and pending candidate links do not connect components. work expands to every member of components changed by adjudication. The fixed patch refreshes only entity IDs in work for canonical, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE entities(id TEXT PRIMARY KEY);\nCREATE TABLE links(id TEXT PRIMARY KEY,a TEXT,b TEXT,decision TEXT);\nCREATE TABLE canonical(entity TEXT PRIMARY KEY,representative TEXT,members INTEGER);\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM canonical WHERE entity IN (SELECT entity FROM work); INSERT INTO canonical SELECT * FROM (WITH RECURSIVE edges(a,b) AS (SELECT a,b FROM links WHERE decision='accepted' UNION SELECT b,a FROM links WHERE decision='accepted'), reach(a,b) AS (SELECT id,id FROM entities UNION SELECT r.a,e.b FROM reach r JOIN edges e ON e.a=r.b) SELECT a AS entity,MIN(b),COUNT(*) FROM reach GROUP BY a) WHERE entity IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "canonical"
+    ],
+    "immutable_tables": [
+      "entities",
+      "links",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "entities": [
+        [
+          "a_0"
+        ],
+        [
+          "b_0"
+        ],
+        [
+          "c_0"
+        ],
+        [
+          "d_0"
+        ],
+        [
+          "e_0"
+        ]
+      ],
+      "links": [
+        [
+          "l1_0",
+          "a_0",
+          "b_0",
+          "accepted"
+        ],
+        [
+          "l2_0",
+          "b_0",
+          "c_0",
+          "accepted"
+        ],
+        [
+          "l3_0",
+          "c_0",
+          "d_0",
+          "rejected"
+        ],
+        [
+          "l4_0",
+          "d_0",
+          "e_0",
+          "pending"
+        ]
+      ],
+      "work": [],
+      "canonical": [
+        [
+          "a_0",
+          "a_0",
+          3
+        ],
+        [
+          "b_0",
+          "a_0",
+          3
+        ],
+        [
+          "c_0",
+          "a_0",
+          3
+        ],
+        [
+          "d_0",
+          "a_0",
+          4
+        ],
+        [
+          "e_0",
+          "e_0",
+          1
+        ]
+      ]
+    },
+    "evidence": [
+      "Candidate generation was mistaken for adjudication and a rejected bridge merged separate identities.",
+      "entities + links -> canonical; work -> canonical"
+    ],
+    "condition": "correct_patch_given",
+    "family": "evidence_adjudication",
+    "history_variant": "H22"
+  }
+]

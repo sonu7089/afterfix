@@ -1,0 +1,8 @@
+{
+  "id":"nitishsongara/afterfix-checkpoint-cpu",
+  "title":"AfterFix Checkpoint CPU",
+  "code_file":"prepare.py","language":"python","kernel_type":"script",
+  "is_private":true,"enable_gpu":false,"enable_internet":true,
+  "dataset_sources":[],"competition_sources":[],"kernel_sources":[],
+  "model_sources":["google/gemma-4/transformers/gemma-4-12b-it/2"]
+}

@@ -1,0 +1,82 @@
+{
+  "status": "passed",
+  "execution": "Exact code cells run locally in isolated Python with no third-party packages",
+  "notebook_sha256": "41050c7e3930941127a7d31bcc3bfb72d58604d63830c9040a66cbcdd5bb0a61",
+  "cpu_archive_sha256": "0248e950d022e0add1b5852af3f11d6f312866764f351542b7c2c77e34f8e806",
+  "cpu_verification": {
+    "status": "passed",
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "isolated_python": true,
+    "package_files_verified": 164,
+    "studies": {
+      "original": {
+        "status": "passed",
+        "study": "original",
+        "model_attempts": 72,
+        "exact_grade_matches": 72,
+        "exact_feedback_replays": 336,
+        "source_engine": "studies/original/source/afterfix/engine.py",
+        "source_engine_sha256": "f3c8577485cc3e2672dc7f91a190158630797338800c5fc335563b9653c44be3",
+        "sqlite": "3.53.1",
+        "model_generation_repeated": false,
+        "all_studies_separate": true
+      },
+      "h08": {
+        "status": "passed",
+        "study": "h08",
+        "model_attempts": 3,
+        "exact_grade_matches": 3,
+        "exact_feedback_replays": 16,
+        "source_engine": "studies/h08/source/afterfix/engine.py",
+        "source_engine_sha256": "e83228ef2502ba06cf311f0d7357796d4d99df1b7300fa36ebdbc8be21c0c090",
+        "sqlite": "3.53.1",
+        "model_generation_repeated": false,
+        "all_studies_separate": true
+      },
+      "v3": {
+        "status": "passed",
+        "study": "v3",
+        "model_attempts": 144,
+        "exact_grade_matches": 144,
+        "exact_feedback_replays": 589,
+        "source_engine": "studies/v3/source/afterfix/engine.py",
+        "source_engine_sha256": "e83228ef2502ba06cf311f0d7357796d4d99df1b7300fa36ebdbc8be21c0c090",
+        "sqlite": "3.53.1",
+        "model_generation_repeated": false,
+        "all_studies_separate": true
+      },
+      "diagnostic": {
+        "status": "passed",
+        "cases": 24,
+        "rules": 3,
+        "seeds": [
+          0,
+          7,
+          19
+        ],
+        "exact_case_rule_grade_matches": 72,
+        "public_candidates_exact": true,
+        "post_hoc": true,
+        "model_attempts": 0
+      }
+    },
+    "metric_overlap_exact": true,
+    "case_admissions": 24,
+    "case_review_files_exact": true,
+    "internal_review_exact": true,
+    "internal_review_cases": 24,
+    "review_case_seed_checks": 72,
+    "separate_boundary_probes": 4,
+    "elapsed_seconds": 5.923,
+    "model_inference_performed": false,
+    "network_required": false,
+    "third_party_packages_required": false,
+    "scope": "Saved-output regrading, SQL/feedback replay, case admissions and paper tables. Not a new model evaluation or independent GPU/tokenizer audit."
+  },
+  "generated_tables_identical": true,
+  "kaggle_execution": false,
+  "gpu_used": false,
+  "uploads": 0
+}

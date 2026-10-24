@@ -1,0 +1,386 @@
+{
+  "version": "afterfix-deep-study-v3",
+  "role": "Post-study model-size follow-up; not pooled with earlier experiments",
+  "original_seal_sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+  "harness_v2_seal_sha256": "53b7ddcb05835abffeff23639db5c1b9249a87ce03306e31cb893b0359cdcdf9",
+  "models": [
+    {
+      "key": "31b",
+      "repo": "google/gemma-4-31B-it-qat-q4_0-gguf",
+      "revision": "59dde24573e7e61570dba08b18a2e1fe246955ed",
+      "filename": "gemma-4-31B_q4_0-it.gguf",
+      "sha256": "179cfb99212709597eae5929112cfca677e1bbf566178b479ae1da0c4772874b",
+      "bytes": 17651001568,
+      "ranges": true,
+      "url": "https://huggingface.co/google/gemma-4-31B-it-qat-q4_0-gguf/resolve/59dde24573e7e61570dba08b18a2e1fe246955ed/gemma-4-31B_q4_0-it.gguf?download=true"
+    },
+    {
+      "key": "12b",
+      "repo": "google/gemma-4-12B-it-qat-q4_0-gguf",
+      "revision": "29d097773436b69ff9feafd636ab4cf873786537",
+      "filename": "gemma-4-12b-it-qat-q4_0.gguf",
+      "sha256": "93567e57a8fe10b23569b9d9ec38cd005deedf71e29477c421a4b83f418a538b",
+      "bytes": 6975879296,
+      "ranges": true,
+      "url": "https://huggingface.co/google/gemma-4-12B-it-qat-q4_0-gguf/resolve/29d097773436b69ff9feafd636ab4cf873786537/gemma-4-12b-it-qat-q4_0.gguf?download=true"
+    }
+  ],
+  "runtime": {
+    "name": "llama.cpp",
+    "release": "b11836",
+    "archives": [
+      {
+        "name": "llama-b11836-bin-ubuntu-cuda-12.8-x64.tar.gz",
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11836/llama-b11836-bin-ubuntu-cuda-12.8-x64.tar.gz",
+        "bytes": 177951812,
+        "sha256": "08a1882bbb32792605e7979ea81224ebd78880d7c2dec2f0b84b87dd8321b276"
+      },
+      {
+        "name": "cudart-llama-b11836-bin-ubuntu-cuda-12.8-x64.tar.gz",
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11836/cudart-llama-b11836-bin-ubuntu-cuda-12.8-x64.tar.gz",
+        "bytes": 594377811,
+        "sha256": "9068dd3ca46ff3f999e781ff748ad3f0ef4d751637f6a415002cd81b9252aaeb"
+      }
+    ]
+  },
+  "schedule": [
+    {
+      "id": "H01",
+      "method": "ordinary"
+    },
+    {
+      "id": "H01",
+      "method": "checklist"
+    },
+    {
+      "id": "H01",
+      "method": "provenance"
+    },
+    {
+      "id": "H05",
+      "method": "ordinary"
+    },
+    {
+      "id": "H05",
+      "method": "provenance"
+    },
+    {
+      "id": "H05",
+      "method": "checklist"
+    },
+    {
+      "id": "H09",
+      "method": "checklist"
+    },
+    {
+      "id": "H09",
+      "method": "ordinary"
+    },
+    {
+      "id": "H09",
+      "method": "provenance"
+    },
+    {
+      "id": "H13",
+      "method": "checklist"
+    },
+    {
+      "id": "H13",
+      "method": "provenance"
+    },
+    {
+      "id": "H13",
+      "method": "ordinary"
+    },
+    {
+      "id": "H17",
+      "method": "provenance"
+    },
+    {
+      "id": "H17",
+      "method": "ordinary"
+    },
+    {
+      "id": "H17",
+      "method": "checklist"
+    },
+    {
+      "id": "H21",
+      "method": "provenance"
+    },
+    {
+      "id": "H21",
+      "method": "checklist"
+    },
+    {
+      "id": "H21",
+      "method": "ordinary"
+    },
+    {
+      "id": "H02",
+      "method": "ordinary"
+    },
+    {
+      "id": "H02",
+      "method": "provenance"
+    },
+    {
+      "id": "H02",
+      "method": "checklist"
+    },
+    {
+      "id": "H06",
+      "method": "checklist"
+    },
+    {
+      "id": "H06",
+      "method": "ordinary"
+    },
+    {
+      "id": "H06",
+      "method": "provenance"
+    },
+    {
+      "id": "H10",
+      "method": "checklist"
+    },
+    {
+      "id": "H10",
+      "method": "provenance"
+    },
+    {
+      "id": "H10",
+      "method": "ordinary"
+    },
+    {
+      "id": "H14",
+      "method": "provenance"
+    },
+    {
+      "id": "H14",
+      "method": "ordinary"
+    },
+    {
+      "id": "H14",
+      "method": "checklist"
+    },
+    {
+      "id": "H18",
+      "method": "provenance"
+    },
+    {
+      "id": "H18",
+      "method": "checklist"
+    },
+    {
+      "id": "H18",
+      "method": "ordinary"
+    },
+    {
+      "id": "H22",
+      "method": "ordinary"
+    },
+    {
+      "id": "H22",
+      "method": "checklist"
+    },
+    {
+      "id": "H22",
+      "method": "provenance"
+    },
+    {
+      "id": "H03",
+      "method": "checklist"
+    },
+    {
+      "id": "H03",
+      "method": "ordinary"
+    },
+    {
+      "id": "H03",
+      "method": "provenance"
+    },
+    {
+      "id": "H07",
+      "method": "checklist"
+    },
+    {
+      "id": "H07",
+      "method": "provenance"
+    },
+    {
+      "id": "H07",
+      "method": "ordinary"
+    },
+    {
+      "id": "H11",
+      "method": "provenance"
+    },
+    {
+      "id": "H11",
+      "method": "ordinary"
+    },
+    {
+      "id": "H11",
+      "method": "checklist"
+    },
+    {
+      "id": "H15",
+      "method": "provenance"
+    },
+    {
+      "id": "H15",
+      "method": "checklist"
+    },
+    {
+      "id": "H15",
+      "method": "ordinary"
+    },
+    {
+      "id": "H19",
+      "method": "ordinary"
+    },
+    {
+      "id": "H19",
+      "method": "checklist"
+    },
+    {
+      "id": "H19",
+      "method": "provenance"
+    },
+    {
+      "id": "H23",
+      "method": "ordinary"
+    },
+    {
+      "id": "H23",
+      "method": "provenance"
+    },
+    {
+      "id": "H23",
+      "method": "checklist"
+    },
+    {
+      "id": "H04",
+      "method": "checklist"
+    },
+    {
+      "id": "H04",
+      "method": "provenance"
+    },
+    {
+      "id": "H04",
+      "method": "ordinary"
+    },
+    {
+      "id": "H08",
+      "method": "provenance"
+    },
+    {
+      "id": "H08",
+      "method": "ordinary"
+    },
+    {
+      "id": "H08",
+      "method": "checklist"
+    },
+    {
+      "id": "H12",
+      "method": "provenance"
+    },
+    {
+      "id": "H12",
+      "method": "checklist"
+    },
+    {
+      "id": "H12",
+      "method": "ordinary"
+    },
+    {
+      "id": "H16",
+      "method": "ordinary"
+    },
+    {
+      "id": "H16",
+      "method": "checklist"
+    },
+    {
+      "id": "H16",
+      "method": "provenance"
+    },
+    {
+      "id": "H20",
+      "method": "ordinary"
+    },
+    {
+      "id": "H20",
+      "method": "provenance"
+    },
+    {
+      "id": "H20",
+      "method": "checklist"
+    },
+    {
+      "id": "H24",
+      "method": "checklist"
+    },
+    {
+      "id": "H24",
+      "method": "ordinary"
+    },
+    {
+      "id": "H24",
+      "method": "provenance"
+    }
+  ],
+  "case_count": 24,
+  "method_count": 3,
+  "planned_attempts": 144,
+  "model_order": [
+    "31b",
+    "12b"
+  ],
+  "budget": {
+    "max_turns": 12,
+    "max_generated_tokens_per_case": 4096,
+    "max_generated_tokens_per_call": 1024,
+    "max_input_tokens": 8192,
+    "case_seconds": 240,
+    "generation_seconds": 80,
+    "thinking": false,
+    "seed": 17
+  },
+  "notebook_timeout_seconds": 42300,
+  "controller_seconds": 41400,
+  "model_download_cutoff_seconds": 900,
+  "loading_cutoff_seconds": 300,
+  "retry_policy": "No automatic fallback or retries. Stop on infrastructure failure; retain partial evidence and do not count missing cells as model failures.",
+  "analysis": "Grade each artifact with harness v2 on seeds 0,7,19; report by model/method/family, paired case outcomes, timing and token censoring; no pooling with original NF4 runs.",
+  "limitation": "Both models use QAT Q4_0 and the same backend/budgets; size and model training can differ. Greedy runs are single observations, not population samples. Fixed model order and shared wall-clock cap can affect performance.",
+  "startup_amendment": {
+    "predecessor": "afterfix-deep-study-v1",
+    "reason": "Library INFO logs require verbosity 4 in b11836; v1 generated zero benchmark attempts.",
+    "verification_version": "afterfix-startup-v2",
+    "log_verbosity": 4,
+    "log_colors": "off",
+    "expected_offload_layers": {
+      "31b": 61,
+      "12b": 49
+    },
+    "require_two_cuda_model_buffers": true,
+    "failure_exit_code": 1,
+    "evaluation_protocol_unchanged": true,
+    "require_positive_device_memory": true,
+    "process_memory_telemetry": "Recorded as a non-gating cross-check because container PID namespaces can differ from NVML host PIDs."
+  },
+  "bos_amendment": {
+    "transport_version": "afterfix-bos-transport-v3",
+    "verified_smoke": "afterfix-bos-smoke-v1",
+    "bos_token": "<bos>",
+    "bos_id": 2,
+    "exactly_one_leading_bos": true,
+    "archive_each_formatted_prompt": true,
+    "native_input_token_count_check": true,
+    "protocol_unchanged": true
+  }
+}

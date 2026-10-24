@@ -1,0 +1,446 @@
+{
+  "version": "afterfix-heldout-design-v1",
+  "frozen_at_utc": "2026-10-23T04:19:49.800599+00:00",
+  "scope": "case-level holdout; authors unblinded; Gemma unexposed",
+  "target_case_count": 24,
+  "families": [
+    "delivery_workflows",
+    "coupled_resources",
+    "versioned_storage",
+    "authorization_graphs",
+    "ordered_state",
+    "evidence_adjudication"
+  ],
+  "roster": [
+    {
+      "id": "H01",
+      "family": "delivery_workflows",
+      "obligation": "Outbox acknowledgement reconciliation: preserve delivered messages, reconstruct retry counts and distinguish permanent rejection"
+    },
+    {
+      "id": "H02",
+      "family": "delivery_workflows",
+      "obligation": "Consumer inbox transaction: reconcile accepted event effects with a failed consumer transaction and a later superseding event"
+    },
+    {
+      "id": "H03",
+      "family": "delivery_workflows",
+      "obligation": "Workflow compensation: cancel only completed child steps after parent cancellation; preserve unrelated completed work"
+    },
+    {
+      "id": "H04",
+      "family": "delivery_workflows",
+      "obligation": "Lease handoff: reject a stale worker's completion using generation and fencing tokens while retaining the new owner's work"
+    },
+    {
+      "id": "H05",
+      "family": "coupled_resources",
+      "obligation": "Bundle reservations: all component quantities follow a committed bundle, with released bundles excluded and shared inventory conserved"
+    },
+    {
+      "id": "H06",
+      "family": "coupled_resources",
+      "obligation": "Warehouse transfers: source debit and destination credit depend on transfer acceptance, partial receipt and rejection"
+    },
+    {
+      "id": "H07",
+      "family": "coupled_resources",
+      "obligation": "Split shipment returns: allocate returns to shipped lines without freeing unshipped allocations or duplicating replacements"
+    },
+    {
+      "id": "H08",
+      "family": "coupled_resources",
+      "obligation": "Quota escrow: reconcile issued, consumed and expired leases across tenant and parent capacity constraints"
+    },
+    {
+      "id": "H09",
+      "family": "versioned_storage",
+      "obligation": "Active file manifest: committed snapshot membership, obsolete files and staged unpublished files determine a multilevel projection"
+    },
+    {
+      "id": "H10",
+      "family": "versioned_storage",
+      "obligation": "Compaction coverage: superseded source ranges and partially published replacement ranges must not double count logical records"
+    },
+    {
+      "id": "H11",
+      "family": "versioned_storage",
+      "obligation": "Schema epoch migration: distinguish absent fields from explicit NULL and preserve later operator-edited values"
+    },
+    {
+      "id": "H12",
+      "family": "versioned_storage",
+      "obligation": "Generation-fenced cache: reject stale materializations after object-key reuse without deleting the new incarnation"
+    },
+    {
+      "id": "H13",
+      "family": "authorization_graphs",
+      "obligation": "Inherited roles: transitive role membership with scoped explicit deny and active grants determines effective access"
+    },
+    {
+      "id": "H14",
+      "family": "authorization_graphs",
+      "obligation": "Delegation revocation: revoke descendants of a withdrawn delegation without removing independent access paths"
+    },
+    {
+      "id": "H15",
+      "family": "authorization_graphs",
+      "obligation": "Group merge/split: reconcile membership provenance when a group splits and users retain direct assignments"
+    },
+    {
+      "id": "H16",
+      "family": "authorization_graphs",
+      "obligation": "Capability expiry: intersect delegated scope and expiry along a path rather than unioning privileges"
+    },
+    {
+      "id": "H17",
+      "family": "ordered_state",
+      "obligation": "Meter correction: ordered SET and ADD operations are noncommutative; late-arriving authoritative sequence overrides arrival order"
+    },
+    {
+      "id": "H18",
+      "family": "ordered_state",
+      "obligation": "Reservation amendment: amend, cancel and reinstate transitions affect only the relevant version of an allocation"
+    },
+    {
+      "id": "H19",
+      "family": "ordered_state",
+      "obligation": "Rate-tier crossing: ordered cumulative consumption changes marginal allocation, preserving subsequent reset boundaries"
+    },
+    {
+      "id": "H20",
+      "family": "ordered_state",
+      "obligation": "Interval surgery: split/coalesce effective intervals around a retroactive correction without rewriting later explicit overrides"
+    },
+    {
+      "id": "H21",
+      "family": "evidence_adjudication",
+      "obligation": "Quarantine release: a complete current batch and revision-bound approval are both required; legal holds override release"
+    },
+    {
+      "id": "H22",
+      "family": "evidence_adjudication",
+      "obligation": "Duplicate adjudication: accepted equivalence groups may be merged, while explicitly rejected candidate links remain separate"
+    },
+    {
+      "id": "H23",
+      "family": "evidence_adjudication",
+      "obligation": "Backfill watermark: distinguish event completeness from processing progress and preserve accepted late arrivals"
+    },
+    {
+      "id": "H24",
+      "family": "evidence_adjudication",
+      "obligation": "Redaction-aware restore: authoritative erasure obligations survive backup recovery while non-erased descendants remain usable"
+    }
+  ],
+  "initial_build_ids": [
+    "H01",
+    "H05",
+    "H09",
+    "H13",
+    "H17",
+    "H21"
+  ],
+  "visible_seed": 0,
+  "grader_seeds": [
+    0,
+    7,
+    19
+  ],
+  "primary_methods": [
+    "ordinary",
+    "checklist"
+  ],
+  "exploratory_methods": [
+    "provenance"
+  ],
+  "scheduled_attempts": 72,
+  "runtime": {
+    "protocol": "afterfix-protocol-v2-patch-given",
+    "max_turns": 6,
+    "max_generated_tokens_per_case": 1536,
+    "max_generated_tokens_per_call": 512,
+    "max_input_tokens": 4096,
+    "case_seconds": 240,
+    "generation_seconds": 80,
+    "feedback_characters": 7000,
+    "seed": 17,
+    "thinking": false,
+    "decoding": "greedy",
+    "artifact_selection": "latest_schema_valid_test_or_submit_including_failed_execution",
+    "methods": {
+      "ordinary": {
+        "prompt_sha256": "c2237575365d6753687bc7279af885bb07ae23abfa2a2a88f825106025aa7854"
+      },
+      "checklist": {
+        "prompt_sha256": "a7845cadb0e1c1d0615d59f86f974a32d52eea1401f2829a147ee64746ff0559"
+      },
+      "provenance": {
+        "prompt_sha256": "fd177418870cdf83076744651b08c98eb76d950d6a98844b59fa2492f1edaaf6"
+      }
+    },
+    "condition": "correct_patch_given",
+    "grading_version": "afterfix-recovery-grader-v2",
+    "development_only": true,
+    "independent_families": 2,
+    "note": "Two histories per family are matched sensitivity checks, not four independent tasks."
+  },
+  "grading_version": "afterfix-heldout-grader-v3",
+  "batches": [
+    {
+      "batch": 1,
+      "blocks": [
+        {
+          "id": "H01",
+          "family": "delivery_workflows",
+          "methods": [
+            "ordinary",
+            "checklist",
+            "provenance"
+          ]
+        },
+        {
+          "id": "H05",
+          "family": "coupled_resources",
+          "methods": [
+            "ordinary",
+            "provenance",
+            "checklist"
+          ]
+        },
+        {
+          "id": "H09",
+          "family": "versioned_storage",
+          "methods": [
+            "checklist",
+            "ordinary",
+            "provenance"
+          ]
+        },
+        {
+          "id": "H13",
+          "family": "authorization_graphs",
+          "methods": [
+            "checklist",
+            "provenance",
+            "ordinary"
+          ]
+        },
+        {
+          "id": "H17",
+          "family": "ordered_state",
+          "methods": [
+            "provenance",
+            "ordinary",
+            "checklist"
+          ]
+        },
+        {
+          "id": "H21",
+          "family": "evidence_adjudication",
+          "methods": [
+            "provenance",
+            "checklist",
+            "ordinary"
+          ]
+        }
+      ],
+      "attempts": 18,
+      "worker_timeout_seconds": 4950,
+      "model_loading_timeout_seconds": 300,
+      "notebook_timeout_seconds": 5310
+    },
+    {
+      "batch": 2,
+      "blocks": [
+        {
+          "id": "H02",
+          "family": "delivery_workflows",
+          "methods": [
+            "ordinary",
+            "provenance",
+            "checklist"
+          ]
+        },
+        {
+          "id": "H06",
+          "family": "coupled_resources",
+          "methods": [
+            "checklist",
+            "ordinary",
+            "provenance"
+          ]
+        },
+        {
+          "id": "H10",
+          "family": "versioned_storage",
+          "methods": [
+            "checklist",
+            "provenance",
+            "ordinary"
+          ]
+        },
+        {
+          "id": "H14",
+          "family": "authorization_graphs",
+          "methods": [
+            "provenance",
+            "ordinary",
+            "checklist"
+          ]
+        },
+        {
+          "id": "H18",
+          "family": "ordered_state",
+          "methods": [
+            "provenance",
+            "checklist",
+            "ordinary"
+          ]
+        },
+        {
+          "id": "H22",
+          "family": "evidence_adjudication",
+          "methods": [
+            "ordinary",
+            "checklist",
+            "provenance"
+          ]
+        }
+      ],
+      "attempts": 18,
+      "worker_timeout_seconds": 4950,
+      "model_loading_timeout_seconds": 300,
+      "notebook_timeout_seconds": 5310
+    },
+    {
+      "batch": 3,
+      "blocks": [
+        {
+          "id": "H03",
+          "family": "delivery_workflows",
+          "methods": [
+            "checklist",
+            "ordinary",
+            "provenance"
+          ]
+        },
+        {
+          "id": "H07",
+          "family": "coupled_resources",
+          "methods": [
+            "checklist",
+            "provenance",
+            "ordinary"
+          ]
+        },
+        {
+          "id": "H11",
+          "family": "versioned_storage",
+          "methods": [
+            "provenance",
+            "ordinary",
+            "checklist"
+          ]
+        },
+        {
+          "id": "H15",
+          "family": "authorization_graphs",
+          "methods": [
+            "provenance",
+            "checklist",
+            "ordinary"
+          ]
+        },
+        {
+          "id": "H19",
+          "family": "ordered_state",
+          "methods": [
+            "ordinary",
+            "checklist",
+            "provenance"
+          ]
+        },
+        {
+          "id": "H23",
+          "family": "evidence_adjudication",
+          "methods": [
+            "ordinary",
+            "provenance",
+            "checklist"
+          ]
+        }
+      ],
+      "attempts": 18,
+      "worker_timeout_seconds": 4950,
+      "model_loading_timeout_seconds": 300,
+      "notebook_timeout_seconds": 5310
+    },
+    {
+      "batch": 4,
+      "blocks": [
+        {
+          "id": "H04",
+          "family": "delivery_workflows",
+          "methods": [
+            "checklist",
+            "provenance",
+            "ordinary"
+          ]
+        },
+        {
+          "id": "H08",
+          "family": "coupled_resources",
+          "methods": [
+            "provenance",
+            "ordinary",
+            "checklist"
+          ]
+        },
+        {
+          "id": "H12",
+          "family": "versioned_storage",
+          "methods": [
+            "provenance",
+            "checklist",
+            "ordinary"
+          ]
+        },
+        {
+          "id": "H16",
+          "family": "authorization_graphs",
+          "methods": [
+            "ordinary",
+            "checklist",
+            "provenance"
+          ]
+        },
+        {
+          "id": "H20",
+          "family": "ordered_state",
+          "methods": [
+            "ordinary",
+            "provenance",
+            "checklist"
+          ]
+        },
+        {
+          "id": "H24",
+          "family": "evidence_adjudication",
+          "methods": [
+            "checklist",
+            "ordinary",
+            "provenance"
+          ]
+        }
+      ],
+      "attempts": 18,
+      "worker_timeout_seconds": 4950,
+      "model_loading_timeout_seconds": 300,
+      "notebook_timeout_seconds": 5310
+    }
+  ],
+  "dataset_sealed": false,
+  "model_exposure_count_at_freeze": 0,
+  "joint_repair_in_scope": false
+}

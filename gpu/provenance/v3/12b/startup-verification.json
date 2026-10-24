@@ -1,0 +1,53 @@
+{
+  "version": "afterfix-startup-v2",
+  "passed": true,
+  "checks": {
+    "full_layer_offload": true,
+    "two_cuda_model_buffers": true,
+    "two_t4_devices": true,
+    "allocated_memory_on_both_devices": true
+  },
+  "offloaded_layers": [
+    [
+      49,
+      49
+    ]
+  ],
+  "expected_layers": 49,
+  "cuda_model_buffers_mib": {
+    "CUDA0": 3045.38,
+    "CUDA1": 3592.31
+  },
+  "server_pid": 472,
+  "devices": [
+    {
+      "index": 0,
+      "uuid": "GPU-1dfeb26b-827a-5c73-ef51-dcc8196f87e9",
+      "name": "Tesla T4",
+      "total_mib": 15360.0,
+      "used_mib": 3519.0
+    },
+    {
+      "index": 1,
+      "uuid": "GPU-55d05861-d575-2ea3-7664-64f615854782",
+      "name": "Tesla T4",
+      "total_mib": 15360.0,
+      "used_mib": 4031.0
+    }
+  ],
+  "processes": [
+    {
+      "pid": 472,
+      "uuid": "GPU-1dfeb26b-827a-5c73-ef51-dcc8196f87e9",
+      "used_mib": 3516.0
+    },
+    {
+      "pid": 472,
+      "uuid": "GPU-55d05861-d575-2ea3-7664-64f615854782",
+      "used_mib": 4028.0
+    }
+  ],
+  "snapshot_parse_error": null,
+  "server_pid_memory_on_both_devices": true,
+  "failed_checks": []
+}

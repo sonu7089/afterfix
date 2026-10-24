@@ -1,0 +1,1221 @@
+{
+  "study": "afterfix-deep-study-v3",
+  "scope": "Separate post-study QAT model comparison; original NF4 and H08 results not pooled",
+  "completed_attempts": 144,
+  "infrastructure_missing": 0,
+  "compact": [
+    {
+      "model": "31b",
+      "method": "ordinary",
+      "full": 18,
+      "n": 24,
+      "full_rate": 0.75,
+      "visible": 21,
+      "outcomes": {
+        "complete": 18,
+        "executable_but_wrong": 4,
+        "sql_execution_failure": 2
+      },
+      "stable_but_wrong": 4,
+      "output_tokens": 11319,
+      "median_attempt_seconds": 46.34124233500006,
+      "total_attempt_seconds": 1318.9587718439993,
+      "stop_reasons": {
+        "submitted": 23,
+        "time_budget": 1
+      },
+      "time_cutoff_calls": 3,
+      "token_cutoff_calls": 0,
+      "protocol_errors": 4,
+      "trace_calls": 0,
+      "success_case_ids": [
+        "H01",
+        "H05",
+        "H09",
+        "H13",
+        "H21",
+        "H06",
+        "H10",
+        "H14",
+        "H22",
+        "H03",
+        "H11",
+        "H15",
+        "H19",
+        "H23",
+        "H04",
+        "H08",
+        "H16",
+        "H24"
+      ]
+    },
+    {
+      "model": "31b",
+      "method": "checklist",
+      "full": 17,
+      "n": 24,
+      "full_rate": 0.7083333333333334,
+      "visible": 21,
+      "outcomes": {
+        "complete": 17,
+        "executable_but_wrong": 6,
+        "sql_execution_failure": 1
+      },
+      "stable_but_wrong": 6,
+      "output_tokens": 11180,
+      "median_attempt_seconds": 48.61077976550018,
+      "total_attempt_seconds": 1386.8597813270005,
+      "stop_reasons": {
+        "submitted": 24
+      },
+      "time_cutoff_calls": 1,
+      "token_cutoff_calls": 0,
+      "protocol_errors": 2,
+      "trace_calls": 0,
+      "success_case_ids": [
+        "H01",
+        "H05",
+        "H09",
+        "H13",
+        "H21",
+        "H06",
+        "H10",
+        "H14",
+        "H22",
+        "H03",
+        "H15",
+        "H19",
+        "H23",
+        "H04",
+        "H08",
+        "H16",
+        "H24"
+      ]
+    },
+    {
+      "model": "31b",
+      "method": "provenance",
+      "full": 16,
+      "n": 24,
+      "full_rate": 0.6666666666666666,
+      "visible": 22,
+      "outcomes": {
+        "complete": 16,
+        "executable_but_wrong": 8
+      },
+      "stable_but_wrong": 8,
+      "output_tokens": 10961,
+      "median_attempt_seconds": 53.361947798499955,
+      "total_attempt_seconds": 1429.2147548049995,
+      "stop_reasons": {
+        "submitted": 24
+      },
+      "time_cutoff_calls": 0,
+      "token_cutoff_calls": 0,
+      "protocol_errors": 1,
+      "trace_calls": 0,
+      "success_case_ids": [
+        "H01",
+        "H09",
+        "H13",
+        "H21",
+        "H06",
+        "H14",
+        "H22",
+        "H03",
+        "H11",
+        "H15",
+        "H19",
+        "H23",
+        "H04",
+        "H08",
+        "H16",
+        "H24"
+      ]
+    },
+    {
+      "model": "12b",
+      "method": "ordinary",
+      "full": 11,
+      "n": 24,
+      "full_rate": 0.4583333333333333,
+      "visible": 17,
+      "outcomes": {
+        "complete": 11,
+        "executable_but_wrong": 10,
+        "sql_execution_failure": 3
+      },
+      "stable_but_wrong": 10,
+      "output_tokens": 16347,
+      "median_attempt_seconds": 28.379694313000073,
+      "total_attempt_seconds": 929.7842416649992,
+      "stop_reasons": {
+        "submitted": 23,
+        "turn_budget": 1
+      },
+      "time_cutoff_calls": 0,
+      "token_cutoff_calls": 1,
+      "protocol_errors": 19,
+      "trace_calls": 0,
+      "success_case_ids": [
+        "H01",
+        "H09",
+        "H13",
+        "H02",
+        "H06",
+        "H22",
+        "H03",
+        "H07",
+        "H15",
+        "H04",
+        "H08"
+      ]
+    },
+    {
+      "model": "12b",
+      "method": "checklist",
+      "full": 12,
+      "n": 24,
+      "full_rate": 0.5,
+      "visible": 17,
+      "outcomes": {
+        "complete": 12,
+        "executable_but_wrong": 8,
+        "no_valid_artifact": 1,
+        "sql_execution_failure": 3
+      },
+      "stable_but_wrong": 8,
+      "output_tokens": 20411,
+      "median_attempt_seconds": 23.110606225000083,
+      "total_attempt_seconds": 1099.0926131020015,
+      "stop_reasons": {
+        "submitted": 21,
+        "turn_budget": 3
+      },
+      "time_cutoff_calls": 0,
+      "token_cutoff_calls": 1,
+      "protocol_errors": 19,
+      "trace_calls": 0,
+      "success_case_ids": [
+        "H01",
+        "H09",
+        "H13",
+        "H02",
+        "H06",
+        "H03",
+        "H07",
+        "H15",
+        "H04",
+        "H08",
+        "H16",
+        "H20"
+      ]
+    },
+    {
+      "model": "12b",
+      "method": "provenance",
+      "full": 10,
+      "n": 24,
+      "full_rate": 0.4166666666666667,
+      "visible": 17,
+      "outcomes": {
+        "complete": 10,
+        "sql_execution_failure": 2,
+        "executable_but_wrong": 12
+      },
+      "stable_but_wrong": 12,
+      "output_tokens": 15731,
+      "median_attempt_seconds": 32.66092476699987,
+      "total_attempt_seconds": 958.901099961,
+      "stop_reasons": {
+        "submitted": 24
+      },
+      "time_cutoff_calls": 0,
+      "token_cutoff_calls": 0,
+      "protocol_errors": 16,
+      "trace_calls": 1,
+      "success_case_ids": [
+        "H01",
+        "H09",
+        "H13",
+        "H02",
+        "H06",
+        "H14",
+        "H03",
+        "H07",
+        "H15",
+        "H08"
+      ]
+    }
+  ],
+  "model_comparisons": {
+    "ordinary": {
+      "paired_cases": 24,
+      "successes_31b": 18,
+      "successes_12b": 11,
+      "rate_difference_31b_minus_12b": 0.2916666666666667,
+      "only_31b_case_ids": [
+        "H05",
+        "H10",
+        "H11",
+        "H14",
+        "H16",
+        "H19",
+        "H21",
+        "H23",
+        "H24"
+      ],
+      "only_12b_case_ids": [
+        "H02",
+        "H07"
+      ],
+      "both_success_case_ids": [
+        "H01",
+        "H03",
+        "H04",
+        "H06",
+        "H08",
+        "H09",
+        "H13",
+        "H15",
+        "H22"
+      ],
+      "both_failure_case_ids": [
+        "H12",
+        "H17",
+        "H18",
+        "H20"
+      ]
+    },
+    "checklist": {
+      "paired_cases": 24,
+      "successes_31b": 17,
+      "successes_12b": 12,
+      "rate_difference_31b_minus_12b": 0.20833333333333334,
+      "only_31b_case_ids": [
+        "H05",
+        "H10",
+        "H14",
+        "H19",
+        "H21",
+        "H22",
+        "H23",
+        "H24"
+      ],
+      "only_12b_case_ids": [
+        "H02",
+        "H07",
+        "H20"
+      ],
+      "both_success_case_ids": [
+        "H01",
+        "H03",
+        "H04",
+        "H06",
+        "H08",
+        "H09",
+        "H13",
+        "H15",
+        "H16"
+      ],
+      "both_failure_case_ids": [
+        "H11",
+        "H12",
+        "H17",
+        "H18"
+      ]
+    },
+    "provenance": {
+      "paired_cases": 24,
+      "successes_31b": 16,
+      "successes_12b": 10,
+      "rate_difference_31b_minus_12b": 0.25,
+      "only_31b_case_ids": [
+        "H04",
+        "H11",
+        "H16",
+        "H19",
+        "H21",
+        "H22",
+        "H23",
+        "H24"
+      ],
+      "only_12b_case_ids": [
+        "H02",
+        "H07"
+      ],
+      "both_success_case_ids": [
+        "H01",
+        "H03",
+        "H06",
+        "H08",
+        "H09",
+        "H13",
+        "H14",
+        "H15"
+      ],
+      "both_failure_case_ids": [
+        "H05",
+        "H10",
+        "H12",
+        "H17",
+        "H18",
+        "H20"
+      ]
+    }
+  },
+  "by_model": {
+    "31b": {
+      "by_method": {
+        "ordinary": {
+          "planned": 24,
+          "evaluated": 24,
+          "infrastructure_incomplete": 0,
+          "complete_recoveries": 18,
+          "complete_recovery_rate": 0.75,
+          "outcomes": {
+            "complete": 18,
+            "executable_but_wrong": 4,
+            "sql_execution_failure": 2,
+            "no_valid_artifact": 0,
+            "infrastructure_incomplete": 0
+          },
+          "families": {
+            "delivery_workflows": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 3,
+              "complete_recovery_rate": 0.75,
+              "outcomes": {
+                "complete": 3,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 1,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "coupled_resources": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 3,
+              "complete_recovery_rate": 0.75,
+              "outcomes": {
+                "complete": 3,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 1,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "versioned_storage": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 3,
+              "complete_recovery_rate": 0.75,
+              "outcomes": {
+                "complete": 3,
+                "executable_but_wrong": 1,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "authorization_graphs": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 4,
+              "complete_recovery_rate": 1.0,
+              "outcomes": {
+                "complete": 4,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "ordered_state": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 1,
+              "complete_recovery_rate": 0.25,
+              "outcomes": {
+                "complete": 1,
+                "executable_but_wrong": 3,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "evidence_adjudication": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 4,
+              "complete_recovery_rate": 1.0,
+              "outcomes": {
+                "complete": 4,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            }
+          },
+          "family_macro_rate": 0.75,
+          "macro_note": "Only computed when every scheduled family cell is observed.",
+          "component_pass_counts": {
+            "historical": 18,
+            "preservation": 22,
+            "repeatable": 22,
+            "healthy_control": 22,
+            "future": 24,
+            "continuation": 20
+          },
+          "component_note": "Future is supplied-patch validation, not generated model capability. No artifact contributes no passes.",
+          "trace_calls": 0,
+          "attempts_using_trace": 0,
+          "protocol_errors": 4,
+          "output_tokens": 11319,
+          "wall_seconds_including_partial_runs": 1318.9587718439993
+        },
+        "checklist": {
+          "planned": 24,
+          "evaluated": 24,
+          "infrastructure_incomplete": 0,
+          "complete_recoveries": 17,
+          "complete_recovery_rate": 0.7083333333333334,
+          "outcomes": {
+            "complete": 17,
+            "executable_but_wrong": 6,
+            "sql_execution_failure": 1,
+            "no_valid_artifact": 0,
+            "infrastructure_incomplete": 0
+          },
+          "families": {
+            "delivery_workflows": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 3,
+              "complete_recovery_rate": 0.75,
+              "outcomes": {
+                "complete": 3,
+                "executable_but_wrong": 1,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "coupled_resources": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 3,
+              "complete_recovery_rate": 0.75,
+              "outcomes": {
+                "complete": 3,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 1,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "versioned_storage": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 2,
+              "complete_recovery_rate": 0.5,
+              "outcomes": {
+                "complete": 2,
+                "executable_but_wrong": 2,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "authorization_graphs": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 4,
+              "complete_recovery_rate": 1.0,
+              "outcomes": {
+                "complete": 4,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "ordered_state": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 1,
+              "complete_recovery_rate": 0.25,
+              "outcomes": {
+                "complete": 1,
+                "executable_but_wrong": 3,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "evidence_adjudication": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 4,
+              "complete_recovery_rate": 1.0,
+              "outcomes": {
+                "complete": 4,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            }
+          },
+          "family_macro_rate": 0.7083333333333334,
+          "macro_note": "Only computed when every scheduled family cell is observed.",
+          "component_pass_counts": {
+            "historical": 17,
+            "preservation": 23,
+            "repeatable": 23,
+            "healthy_control": 22,
+            "future": 24,
+            "continuation": 20
+          },
+          "component_note": "Future is supplied-patch validation, not generated model capability. No artifact contributes no passes.",
+          "trace_calls": 0,
+          "attempts_using_trace": 0,
+          "protocol_errors": 2,
+          "output_tokens": 11180,
+          "wall_seconds_including_partial_runs": 1386.8597813270005
+        },
+        "provenance": {
+          "planned": 24,
+          "evaluated": 24,
+          "infrastructure_incomplete": 0,
+          "complete_recoveries": 16,
+          "complete_recovery_rate": 0.6666666666666666,
+          "outcomes": {
+            "complete": 16,
+            "executable_but_wrong": 8,
+            "sql_execution_failure": 0,
+            "no_valid_artifact": 0,
+            "infrastructure_incomplete": 0
+          },
+          "families": {
+            "delivery_workflows": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 3,
+              "complete_recovery_rate": 0.75,
+              "outcomes": {
+                "complete": 3,
+                "executable_but_wrong": 1,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "coupled_resources": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 2,
+              "complete_recovery_rate": 0.5,
+              "outcomes": {
+                "complete": 2,
+                "executable_but_wrong": 2,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "versioned_storage": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 2,
+              "complete_recovery_rate": 0.5,
+              "outcomes": {
+                "complete": 2,
+                "executable_but_wrong": 2,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "authorization_graphs": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 4,
+              "complete_recovery_rate": 1.0,
+              "outcomes": {
+                "complete": 4,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "ordered_state": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 1,
+              "complete_recovery_rate": 0.25,
+              "outcomes": {
+                "complete": 1,
+                "executable_but_wrong": 3,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "evidence_adjudication": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 4,
+              "complete_recovery_rate": 1.0,
+              "outcomes": {
+                "complete": 4,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            }
+          },
+          "family_macro_rate": 0.6666666666666666,
+          "macro_note": "Only computed when every scheduled family cell is observed.",
+          "component_pass_counts": {
+            "historical": 16,
+            "preservation": 24,
+            "repeatable": 24,
+            "healthy_control": 24,
+            "future": 24,
+            "continuation": 21
+          },
+          "component_note": "Future is supplied-patch validation, not generated model capability. No artifact contributes no passes.",
+          "trace_calls": 0,
+          "attempts_using_trace": 0,
+          "protocol_errors": 1,
+          "output_tokens": 10961,
+          "wall_seconds_including_partial_runs": 1429.2147548049995
+        }
+      },
+      "paired_contrasts": {
+        "checklist-minus-ordinary": {
+          "role": "primary",
+          "paired_cases": 24,
+          "excluded_case_ids": [],
+          "intervention_only_successes": 0,
+          "baseline_only_successes": 1,
+          "ties": 23,
+          "rate_difference": -0.041666666666666664,
+          "family_differences": {
+            "delivery_workflows": 0.0,
+            "coupled_resources": 0.0,
+            "versioned_storage": -0.25,
+            "authorization_graphs": 0.0,
+            "ordered_state": 0.0,
+            "evidence_adjudication": 0.0
+          },
+          "family_macro_difference": -0.041666666666666664
+        },
+        "provenance-minus-ordinary": {
+          "role": "exploratory",
+          "paired_cases": 24,
+          "excluded_case_ids": [],
+          "intervention_only_successes": 0,
+          "baseline_only_successes": 2,
+          "ties": 22,
+          "rate_difference": -0.08333333333333333,
+          "family_differences": {
+            "delivery_workflows": 0.0,
+            "coupled_resources": -0.25,
+            "versioned_storage": -0.25,
+            "authorization_graphs": 0.0,
+            "ordered_state": 0.0,
+            "evidence_adjudication": 0.0
+          },
+          "family_macro_difference": -0.08333333333333333
+        },
+        "provenance-minus-checklist": {
+          "role": "exploratory",
+          "paired_cases": 24,
+          "excluded_case_ids": [],
+          "intervention_only_successes": 1,
+          "baseline_only_successes": 2,
+          "ties": 21,
+          "rate_difference": -0.041666666666666664,
+          "family_differences": {
+            "delivery_workflows": 0.0,
+            "coupled_resources": -0.25,
+            "versioned_storage": 0.0,
+            "authorization_graphs": 0.0,
+            "ordered_state": 0.0,
+            "evidence_adjudication": 0.0
+          },
+          "family_macro_difference": -0.041666666666666664
+        }
+      },
+      "comparison_ready": true,
+      "note": "Descriptive case-level results. Seed variants are not observations. Families were purposively designed; no population significance claim."
+    },
+    "12b": {
+      "by_method": {
+        "ordinary": {
+          "planned": 24,
+          "evaluated": 24,
+          "infrastructure_incomplete": 0,
+          "complete_recoveries": 11,
+          "complete_recovery_rate": 0.4583333333333333,
+          "outcomes": {
+            "complete": 11,
+            "executable_but_wrong": 10,
+            "sql_execution_failure": 3,
+            "no_valid_artifact": 0,
+            "infrastructure_incomplete": 0
+          },
+          "families": {
+            "delivery_workflows": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 4,
+              "complete_recovery_rate": 1.0,
+              "outcomes": {
+                "complete": 4,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "coupled_resources": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 3,
+              "complete_recovery_rate": 0.75,
+              "outcomes": {
+                "complete": 3,
+                "executable_but_wrong": 1,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "versioned_storage": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 1,
+              "complete_recovery_rate": 0.25,
+              "outcomes": {
+                "complete": 1,
+                "executable_but_wrong": 2,
+                "sql_execution_failure": 1,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "authorization_graphs": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 2,
+              "complete_recovery_rate": 0.5,
+              "outcomes": {
+                "complete": 2,
+                "executable_but_wrong": 1,
+                "sql_execution_failure": 1,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "ordered_state": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 0,
+              "complete_recovery_rate": 0.0,
+              "outcomes": {
+                "complete": 0,
+                "executable_but_wrong": 3,
+                "sql_execution_failure": 1,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "evidence_adjudication": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 1,
+              "complete_recovery_rate": 0.25,
+              "outcomes": {
+                "complete": 1,
+                "executable_but_wrong": 3,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            }
+          },
+          "family_macro_rate": 0.4583333333333333,
+          "macro_note": "Only computed when every scheduled family cell is observed.",
+          "component_pass_counts": {
+            "historical": 11,
+            "preservation": 17,
+            "repeatable": 21,
+            "healthy_control": 17,
+            "future": 24,
+            "continuation": 14
+          },
+          "component_note": "Future is supplied-patch validation, not generated model capability. No artifact contributes no passes.",
+          "trace_calls": 0,
+          "attempts_using_trace": 0,
+          "protocol_errors": 19,
+          "output_tokens": 16347,
+          "wall_seconds_including_partial_runs": 929.7842416649992
+        },
+        "checklist": {
+          "planned": 24,
+          "evaluated": 24,
+          "infrastructure_incomplete": 0,
+          "complete_recoveries": 12,
+          "complete_recovery_rate": 0.5,
+          "outcomes": {
+            "complete": 12,
+            "executable_but_wrong": 8,
+            "sql_execution_failure": 3,
+            "no_valid_artifact": 1,
+            "infrastructure_incomplete": 0
+          },
+          "families": {
+            "delivery_workflows": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 4,
+              "complete_recovery_rate": 1.0,
+              "outcomes": {
+                "complete": 4,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "coupled_resources": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 3,
+              "complete_recovery_rate": 0.75,
+              "outcomes": {
+                "complete": 3,
+                "executable_but_wrong": 1,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "versioned_storage": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 1,
+              "complete_recovery_rate": 0.25,
+              "outcomes": {
+                "complete": 1,
+                "executable_but_wrong": 3,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "authorization_graphs": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 3,
+              "complete_recovery_rate": 0.75,
+              "outcomes": {
+                "complete": 3,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 1,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "ordered_state": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 1,
+              "complete_recovery_rate": 0.25,
+              "outcomes": {
+                "complete": 1,
+                "executable_but_wrong": 1,
+                "sql_execution_failure": 1,
+                "no_valid_artifact": 1,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "evidence_adjudication": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 0,
+              "complete_recovery_rate": 0.0,
+              "outcomes": {
+                "complete": 0,
+                "executable_but_wrong": 3,
+                "sql_execution_failure": 1,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            }
+          },
+          "family_macro_rate": 0.5,
+          "macro_note": "Only computed when every scheduled family cell is observed.",
+          "component_pass_counts": {
+            "historical": 12,
+            "preservation": 19,
+            "repeatable": 20,
+            "healthy_control": 17,
+            "future": 23,
+            "continuation": 14
+          },
+          "component_note": "Future is supplied-patch validation, not generated model capability. No artifact contributes no passes.",
+          "trace_calls": 0,
+          "attempts_using_trace": 0,
+          "protocol_errors": 19,
+          "output_tokens": 20411,
+          "wall_seconds_including_partial_runs": 1099.0926131020015
+        },
+        "provenance": {
+          "planned": 24,
+          "evaluated": 24,
+          "infrastructure_incomplete": 0,
+          "complete_recoveries": 10,
+          "complete_recovery_rate": 0.4166666666666667,
+          "outcomes": {
+            "complete": 10,
+            "executable_but_wrong": 12,
+            "sql_execution_failure": 2,
+            "no_valid_artifact": 0,
+            "infrastructure_incomplete": 0
+          },
+          "families": {
+            "delivery_workflows": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 3,
+              "complete_recovery_rate": 0.75,
+              "outcomes": {
+                "complete": 3,
+                "executable_but_wrong": 1,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "coupled_resources": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 3,
+              "complete_recovery_rate": 0.75,
+              "outcomes": {
+                "complete": 3,
+                "executable_but_wrong": 0,
+                "sql_execution_failure": 1,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "versioned_storage": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 1,
+              "complete_recovery_rate": 0.25,
+              "outcomes": {
+                "complete": 1,
+                "executable_but_wrong": 3,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "authorization_graphs": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 3,
+              "complete_recovery_rate": 0.75,
+              "outcomes": {
+                "complete": 3,
+                "executable_but_wrong": 1,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "ordered_state": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 0,
+              "complete_recovery_rate": 0.0,
+              "outcomes": {
+                "complete": 0,
+                "executable_but_wrong": 4,
+                "sql_execution_failure": 0,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            },
+            "evidence_adjudication": {
+              "planned": 4,
+              "evaluated": 4,
+              "infrastructure_incomplete": 0,
+              "complete_recoveries": 0,
+              "complete_recovery_rate": 0.0,
+              "outcomes": {
+                "complete": 0,
+                "executable_but_wrong": 3,
+                "sql_execution_failure": 1,
+                "no_valid_artifact": 0,
+                "infrastructure_incomplete": 0
+              }
+            }
+          },
+          "family_macro_rate": 0.4166666666666667,
+          "macro_note": "Only computed when every scheduled family cell is observed.",
+          "component_pass_counts": {
+            "historical": 10,
+            "preservation": 19,
+            "repeatable": 22,
+            "healthy_control": 17,
+            "future": 24,
+            "continuation": 17
+          },
+          "component_note": "Future is supplied-patch validation, not generated model capability. No artifact contributes no passes.",
+          "trace_calls": 1,
+          "attempts_using_trace": 1,
+          "protocol_errors": 16,
+          "output_tokens": 15731,
+          "wall_seconds_including_partial_runs": 958.901099961
+        }
+      },
+      "paired_contrasts": {
+        "checklist-minus-ordinary": {
+          "role": "primary",
+          "paired_cases": 24,
+          "excluded_case_ids": [],
+          "intervention_only_successes": 2,
+          "baseline_only_successes": 1,
+          "ties": 21,
+          "rate_difference": 0.041666666666666664,
+          "family_differences": {
+            "delivery_workflows": 0.0,
+            "coupled_resources": 0.0,
+            "versioned_storage": 0.0,
+            "authorization_graphs": 0.25,
+            "ordered_state": 0.25,
+            "evidence_adjudication": -0.25
+          },
+          "family_macro_difference": 0.041666666666666664
+        },
+        "provenance-minus-ordinary": {
+          "role": "exploratory",
+          "paired_cases": 24,
+          "excluded_case_ids": [],
+          "intervention_only_successes": 1,
+          "baseline_only_successes": 2,
+          "ties": 21,
+          "rate_difference": -0.041666666666666664,
+          "family_differences": {
+            "delivery_workflows": -0.25,
+            "coupled_resources": 0.0,
+            "versioned_storage": 0.0,
+            "authorization_graphs": 0.25,
+            "ordered_state": 0.0,
+            "evidence_adjudication": -0.25
+          },
+          "family_macro_difference": -0.041666666666666664
+        },
+        "provenance-minus-checklist": {
+          "role": "exploratory",
+          "paired_cases": 24,
+          "excluded_case_ids": [],
+          "intervention_only_successes": 1,
+          "baseline_only_successes": 3,
+          "ties": 20,
+          "rate_difference": -0.08333333333333333,
+          "family_differences": {
+            "delivery_workflows": -0.25,
+            "coupled_resources": 0.0,
+            "versioned_storage": 0.0,
+            "authorization_graphs": 0.0,
+            "ordered_state": -0.25,
+            "evidence_adjudication": 0.0
+          },
+          "family_macro_difference": -0.08333333333333333
+        }
+      },
+      "comparison_ready": true,
+      "note": "Descriptive case-level results. Seed variants are not observations. Families were purposively designed; no population significance claim."
+    }
+  },
+  "resources": {
+    "31b": {
+      "download_seconds": 170.622361727,
+      "load_seconds": 141.192749397,
+      "worker_seconds": 4330.856232259,
+      "attempt_seconds": 4135.033307975999,
+      "output_tokens": 33460,
+      "smoke_seconds": 45.93646296500003,
+      "generation_calls": 267,
+      "versions": {
+        "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+        "sqlite": "3.45.1",
+        "llama_cpp": "b11836"
+      }
+    },
+    "12b": {
+      "download_seconds": 52.719836751,
+      "load_seconds": 4.034888567000053,
+      "worker_seconds": 3002.067992419,
+      "attempt_seconds": 2987.7779547280006,
+      "output_tokens": 52489,
+      "smoke_seconds": 0.9699569579997842,
+      "generation_calls": 461,
+      "versions": {
+        "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+        "sqlite": "3.45.1",
+        "llama_cpp": "b11836"
+      }
+    }
+  },
+  "controller_seconds": 7660.509079359,
+  "interpretation": "Descriptive matched-case comparison on 24 purposively designed cases in six families; one greedy observation per model/method/case. Seeds are robustness checks, not independent samples."
+}

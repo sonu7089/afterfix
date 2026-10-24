@@ -1,0 +1,16 @@
+{
+  "study_version": "afterfix-deep-study-v3",
+  "files": {
+    "afterfix/__init__.py": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2",
+    "afterfix/engine.py": "b6c53b2742eca951d51595857c656b8666f8f86c737b10c379e566de55cdaee4",
+    "afterfix/protocol.py": "4cbeaa83489957bbd88167ffb16a2dbe2f3e1947742678db6218ca4088c5960d",
+    "afterfix/protocol_v2.py": "e6126716073191c95106af6463ff745f29f2b6360eaa8266ced57638c3c2399d",
+    "afterfix/runner.py": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+    "deep_job.py": "8af9aaa722fc08db6dc02b7e0f1432ee492e67ceaa3a83b9d574f15af61e9967",
+    "deep_worker.py": "c4eda3321cd963871eb94ed54369ebac36b3f169c805d6e35f98fd13c92f3634",
+    "deep_http.py": "7555b70f7c66c328212e34ca7102c6a92cb282815b38ea04447125e9bd604a6e",
+    "deep-results/plan.json": "80a322d75666a16ceb2b846a15f69dae0dc845a27ef8a634b929284f32c1648b",
+    "deep-results/public-incidents.json": "b2ee173ad3b19968728d1d2f44768b51348950e8e4b26825966a942213bfbda5",
+    "startup_verification.py": "78619bc3b7329ca77210ad79738c020d4e7c879c276eb874b50f7d662bc2494c"
+  }
+}

@@ -1,0 +1,830 @@
+{
+  "original-batch-1": {
+    "versions": {
+      "torch": "2.11.0+cu128",
+      "transformers": "5.20.2",
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.50.2",
+      "sqlite": "3.45.1",
+      "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]"
+    },
+    "configuration": {
+      "protocol": "afterfix-protocol-v2-patch-given",
+      "max_turns": 6,
+      "max_generated_tokens_per_case": 1536,
+      "max_generated_tokens_per_call": 512,
+      "max_input_tokens": 4096,
+      "case_seconds": 240,
+      "generation_seconds": 80,
+      "feedback_characters": 7000,
+      "seed": 17,
+      "thinking": false,
+      "decoding": "greedy",
+      "artifact_selection": "latest_schema_valid_test_or_submit_including_failed_execution",
+      "methods": {
+        "ordinary": {
+          "prompt_sha256": "c2237575365d6753687bc7279af885bb07ae23abfa2a2a88f825106025aa7854"
+        },
+        "checklist": {
+          "prompt_sha256": "a7845cadb0e1c1d0615d59f86f974a32d52eea1401f2829a147ee64746ff0559"
+        },
+        "provenance": {
+          "prompt_sha256": "fd177418870cdf83076744651b08c98eb76d950d6a98844b59fa2492f1edaaf6"
+        }
+      },
+      "condition": "correct_patch_given",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "development_only": false,
+      "independent_families": 6,
+      "note": "24 purposively authored cases; six families; three private seeds are robustness checks, not samples.",
+      "dataset": "afterfix-heldout-v1",
+      "planned_cases": 24,
+      "batch": 1,
+      "model": "google/gemma-4/transformers/gemma-4-12b-it/2",
+      "quantization": "CPU NF4 double quantization; FP16 compute",
+      "selected_methods": [
+        "ordinary",
+        "checklist",
+        "provenance"
+      ],
+      "schedule": [
+        {
+          "id": "H01",
+          "method": "ordinary"
+        },
+        {
+          "id": "H01",
+          "method": "checklist"
+        },
+        {
+          "id": "H01",
+          "method": "provenance"
+        },
+        {
+          "id": "H05",
+          "method": "ordinary"
+        },
+        {
+          "id": "H05",
+          "method": "provenance"
+        },
+        {
+          "id": "H05",
+          "method": "checklist"
+        },
+        {
+          "id": "H09",
+          "method": "checklist"
+        },
+        {
+          "id": "H09",
+          "method": "ordinary"
+        },
+        {
+          "id": "H09",
+          "method": "provenance"
+        },
+        {
+          "id": "H13",
+          "method": "checklist"
+        },
+        {
+          "id": "H13",
+          "method": "provenance"
+        },
+        {
+          "id": "H13",
+          "method": "ordinary"
+        },
+        {
+          "id": "H17",
+          "method": "provenance"
+        },
+        {
+          "id": "H17",
+          "method": "ordinary"
+        },
+        {
+          "id": "H17",
+          "method": "checklist"
+        },
+        {
+          "id": "H21",
+          "method": "provenance"
+        },
+        {
+          "id": "H21",
+          "method": "checklist"
+        },
+        {
+          "id": "H21",
+          "method": "ordinary"
+        }
+      ],
+      "prepared_checkpoint": {
+        "source": "google/gemma-4/transformers/gemma-4-12b-it/2",
+        "preparation_kernel": "nitishsongara/afterfix-checkpoint-cpu/1",
+        "quantization_backend": "CPU bitsandbytes NF4 double quantization, FP16 compute; not official QAT",
+        "config_sha256": "b9b660c0c3da1b6d8d89b5b497498b7f0600c1bb62cbc8d65c68701c546f8f73",
+        "weight_bytes": 7678310211,
+        "weight_files": 13
+      }
+    },
+    "load_seconds": 12.811569211000005,
+    "parameter_devices": [
+      "cuda:0"
+    ]
+  },
+  "original-batch-2": {
+    "versions": {
+      "torch": "2.11.0+cu128",
+      "transformers": "5.20.2",
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.50.2",
+      "sqlite": "3.45.1",
+      "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]"
+    },
+    "configuration": {
+      "protocol": "afterfix-protocol-v2-patch-given",
+      "max_turns": 6,
+      "max_generated_tokens_per_case": 1536,
+      "max_generated_tokens_per_call": 512,
+      "max_input_tokens": 4096,
+      "case_seconds": 240,
+      "generation_seconds": 80,
+      "feedback_characters": 7000,
+      "seed": 17,
+      "thinking": false,
+      "decoding": "greedy",
+      "artifact_selection": "latest_schema_valid_test_or_submit_including_failed_execution",
+      "methods": {
+        "ordinary": {
+          "prompt_sha256": "c2237575365d6753687bc7279af885bb07ae23abfa2a2a88f825106025aa7854"
+        },
+        "checklist": {
+          "prompt_sha256": "a7845cadb0e1c1d0615d59f86f974a32d52eea1401f2829a147ee64746ff0559"
+        },
+        "provenance": {
+          "prompt_sha256": "fd177418870cdf83076744651b08c98eb76d950d6a98844b59fa2492f1edaaf6"
+        }
+      },
+      "condition": "correct_patch_given",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "development_only": false,
+      "independent_families": 6,
+      "note": "24 purposively authored cases; six families; three private seeds are robustness checks, not samples.",
+      "dataset": "afterfix-heldout-v1",
+      "planned_cases": 24,
+      "batch": 2,
+      "model": "google/gemma-4/transformers/gemma-4-12b-it/2",
+      "quantization": "CPU NF4 double quantization; FP16 compute",
+      "selected_methods": [
+        "ordinary",
+        "checklist",
+        "provenance"
+      ],
+      "schedule": [
+        {
+          "id": "H02",
+          "method": "ordinary"
+        },
+        {
+          "id": "H02",
+          "method": "provenance"
+        },
+        {
+          "id": "H02",
+          "method": "checklist"
+        },
+        {
+          "id": "H06",
+          "method": "checklist"
+        },
+        {
+          "id": "H06",
+          "method": "ordinary"
+        },
+        {
+          "id": "H06",
+          "method": "provenance"
+        },
+        {
+          "id": "H10",
+          "method": "checklist"
+        },
+        {
+          "id": "H10",
+          "method": "provenance"
+        },
+        {
+          "id": "H10",
+          "method": "ordinary"
+        },
+        {
+          "id": "H14",
+          "method": "provenance"
+        },
+        {
+          "id": "H14",
+          "method": "ordinary"
+        },
+        {
+          "id": "H14",
+          "method": "checklist"
+        },
+        {
+          "id": "H18",
+          "method": "provenance"
+        },
+        {
+          "id": "H18",
+          "method": "checklist"
+        },
+        {
+          "id": "H18",
+          "method": "ordinary"
+        },
+        {
+          "id": "H22",
+          "method": "ordinary"
+        },
+        {
+          "id": "H22",
+          "method": "checklist"
+        },
+        {
+          "id": "H22",
+          "method": "provenance"
+        }
+      ],
+      "prepared_checkpoint": {
+        "source": "google/gemma-4/transformers/gemma-4-12b-it/2",
+        "preparation_kernel": "nitishsongara/afterfix-checkpoint-cpu/1",
+        "quantization_backend": "CPU bitsandbytes NF4 double quantization, FP16 compute; not official QAT",
+        "config_sha256": "b9b660c0c3da1b6d8d89b5b497498b7f0600c1bb62cbc8d65c68701c546f8f73",
+        "weight_bytes": 7678310211,
+        "weight_files": 13
+      }
+    },
+    "load_seconds": 9.749969232000012,
+    "parameter_devices": [
+      "cuda:0"
+    ]
+  },
+  "original-batch-3-retry": {
+    "versions": {
+      "torch": "2.11.0+cu128",
+      "transformers": "5.20.2",
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.50.2",
+      "sqlite": "3.45.1",
+      "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]"
+    },
+    "configuration": {
+      "protocol": "afterfix-protocol-v2-patch-given",
+      "max_turns": 6,
+      "max_generated_tokens_per_case": 1536,
+      "max_generated_tokens_per_call": 512,
+      "max_input_tokens": 4096,
+      "case_seconds": 240,
+      "generation_seconds": 80,
+      "feedback_characters": 7000,
+      "seed": 17,
+      "thinking": false,
+      "decoding": "greedy",
+      "artifact_selection": "latest_schema_valid_test_or_submit_including_failed_execution",
+      "methods": {
+        "ordinary": {
+          "prompt_sha256": "c2237575365d6753687bc7279af885bb07ae23abfa2a2a88f825106025aa7854"
+        },
+        "checklist": {
+          "prompt_sha256": "a7845cadb0e1c1d0615d59f86f974a32d52eea1401f2829a147ee64746ff0559"
+        },
+        "provenance": {
+          "prompt_sha256": "fd177418870cdf83076744651b08c98eb76d950d6a98844b59fa2492f1edaaf6"
+        }
+      },
+      "condition": "correct_patch_given",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "development_only": false,
+      "independent_families": 6,
+      "note": "24 purposively authored cases; six families; three private seeds are robustness checks, not samples.",
+      "dataset": "afterfix-heldout-v1",
+      "planned_cases": 24,
+      "batch": 3,
+      "model": "google/gemma-4/transformers/gemma-4-12b-it/2",
+      "quantization": "CPU NF4 double quantization; FP16 compute",
+      "selected_methods": [
+        "ordinary",
+        "checklist",
+        "provenance"
+      ],
+      "schedule": [
+        {
+          "id": "H03",
+          "method": "checklist"
+        },
+        {
+          "id": "H03",
+          "method": "ordinary"
+        },
+        {
+          "id": "H03",
+          "method": "provenance"
+        },
+        {
+          "id": "H07",
+          "method": "checklist"
+        },
+        {
+          "id": "H07",
+          "method": "provenance"
+        },
+        {
+          "id": "H07",
+          "method": "ordinary"
+        },
+        {
+          "id": "H11",
+          "method": "provenance"
+        },
+        {
+          "id": "H11",
+          "method": "ordinary"
+        },
+        {
+          "id": "H11",
+          "method": "checklist"
+        },
+        {
+          "id": "H15",
+          "method": "provenance"
+        },
+        {
+          "id": "H15",
+          "method": "checklist"
+        },
+        {
+          "id": "H15",
+          "method": "ordinary"
+        },
+        {
+          "id": "H19",
+          "method": "ordinary"
+        },
+        {
+          "id": "H19",
+          "method": "checklist"
+        },
+        {
+          "id": "H19",
+          "method": "provenance"
+        },
+        {
+          "id": "H23",
+          "method": "ordinary"
+        },
+        {
+          "id": "H23",
+          "method": "provenance"
+        },
+        {
+          "id": "H23",
+          "method": "checklist"
+        }
+      ],
+      "prepared_checkpoint": {
+        "source": "google/gemma-4/transformers/gemma-4-12b-it/2",
+        "preparation_kernel": "nitishsongara/afterfix-checkpoint-cpu/1",
+        "quantization_backend": "CPU bitsandbytes NF4 double quantization, FP16 compute; not official QAT",
+        "config_sha256": "b9b660c0c3da1b6d8d89b5b497498b7f0600c1bb62cbc8d65c68701c546f8f73",
+        "weight_bytes": 7678310211,
+        "weight_files": 13
+      }
+    },
+    "load_seconds": 9.554298469999935,
+    "parameter_devices": [
+      "cuda:0"
+    ]
+  },
+  "original-batch-4": {
+    "versions": {
+      "torch": "2.11.0+cu128",
+      "transformers": "5.20.2",
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.50.2",
+      "sqlite": "3.45.1",
+      "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]"
+    },
+    "configuration": {
+      "protocol": "afterfix-protocol-v2-patch-given",
+      "max_turns": 6,
+      "max_generated_tokens_per_case": 1536,
+      "max_generated_tokens_per_call": 512,
+      "max_input_tokens": 4096,
+      "case_seconds": 240,
+      "generation_seconds": 80,
+      "feedback_characters": 7000,
+      "seed": 17,
+      "thinking": false,
+      "decoding": "greedy",
+      "artifact_selection": "latest_schema_valid_test_or_submit_including_failed_execution",
+      "methods": {
+        "ordinary": {
+          "prompt_sha256": "c2237575365d6753687bc7279af885bb07ae23abfa2a2a88f825106025aa7854"
+        },
+        "checklist": {
+          "prompt_sha256": "a7845cadb0e1c1d0615d59f86f974a32d52eea1401f2829a147ee64746ff0559"
+        },
+        "provenance": {
+          "prompt_sha256": "fd177418870cdf83076744651b08c98eb76d950d6a98844b59fa2492f1edaaf6"
+        }
+      },
+      "condition": "correct_patch_given",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "development_only": false,
+      "independent_families": 6,
+      "note": "24 purposively authored cases; six families; three private seeds are robustness checks, not samples.",
+      "dataset": "afterfix-heldout-v1",
+      "planned_cases": 24,
+      "batch": 4,
+      "model": "google/gemma-4/transformers/gemma-4-12b-it/2",
+      "quantization": "CPU NF4 double quantization; FP16 compute",
+      "selected_methods": [
+        "ordinary",
+        "checklist",
+        "provenance"
+      ],
+      "schedule": [
+        {
+          "id": "H04",
+          "method": "checklist"
+        },
+        {
+          "id": "H04",
+          "method": "provenance"
+        },
+        {
+          "id": "H04",
+          "method": "ordinary"
+        },
+        {
+          "id": "H08",
+          "method": "provenance"
+        },
+        {
+          "id": "H08",
+          "method": "ordinary"
+        },
+        {
+          "id": "H08",
+          "method": "checklist"
+        },
+        {
+          "id": "H12",
+          "method": "provenance"
+        },
+        {
+          "id": "H12",
+          "method": "checklist"
+        },
+        {
+          "id": "H12",
+          "method": "ordinary"
+        },
+        {
+          "id": "H16",
+          "method": "ordinary"
+        },
+        {
+          "id": "H16",
+          "method": "checklist"
+        },
+        {
+          "id": "H16",
+          "method": "provenance"
+        },
+        {
+          "id": "H20",
+          "method": "ordinary"
+        },
+        {
+          "id": "H20",
+          "method": "provenance"
+        },
+        {
+          "id": "H20",
+          "method": "checklist"
+        },
+        {
+          "id": "H24",
+          "method": "checklist"
+        },
+        {
+          "id": "H24",
+          "method": "ordinary"
+        },
+        {
+          "id": "H24",
+          "method": "provenance"
+        }
+      ],
+      "prepared_checkpoint": {
+        "source": "google/gemma-4/transformers/gemma-4-12b-it/2",
+        "preparation_kernel": "nitishsongara/afterfix-checkpoint-cpu/1",
+        "quantization_backend": "CPU bitsandbytes NF4 double quantization, FP16 compute; not official QAT",
+        "config_sha256": "b9b660c0c3da1b6d8d89b5b497498b7f0600c1bb62cbc8d65c68701c546f8f73",
+        "weight_bytes": 7678310211,
+        "weight_files": 13
+      }
+    },
+    "load_seconds": 9.736802329,
+    "parameter_devices": [
+      "cuda:0"
+    ]
+  },
+  "h08": {
+    "versions": {
+      "torch": "2.11.0+cu128",
+      "transformers": "5.20.2",
+      "accelerate": "1.15.0",
+      "bitsandbytes": "0.50.2",
+      "sqlite": "3.45.1",
+      "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]"
+    },
+    "configuration": {
+      "protocol": "afterfix-protocol-v2-patch-given",
+      "max_turns": 6,
+      "max_generated_tokens_per_case": 1536,
+      "max_generated_tokens_per_call": 512,
+      "max_input_tokens": 4096,
+      "case_seconds": 240,
+      "generation_seconds": 80,
+      "feedback_characters": 7000,
+      "seed": 17,
+      "thinking": false,
+      "decoding": "greedy",
+      "artifact_selection": "latest_schema_valid_test_or_submit_including_failed_execution",
+      "methods": {
+        "ordinary": {
+          "prompt_sha256": "c2237575365d6753687bc7279af885bb07ae23abfa2a2a88f825106025aa7854"
+        },
+        "checklist": {
+          "prompt_sha256": "a7845cadb0e1c1d0615d59f86f974a32d52eea1401f2829a147ee64746ff0559"
+        },
+        "provenance": {
+          "prompt_sha256": "fd177418870cdf83076744651b08c98eb76d950d6a98844b59fa2492f1edaaf6"
+        }
+      },
+      "condition": "correct_patch_given",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "development_only": false,
+      "independent_families": 1,
+      "note": "H08 all-method correction block; original 24-case study remains separate; private seeds are not samples.",
+      "dataset": "afterfix-heldout-v1",
+      "planned_cases": 1,
+      "batch": 4,
+      "harness_version": "afterfix-harness-v2",
+      "evaluation_role": "H08 shared-harness correction; separate from v1",
+      "model": "google/gemma-4/transformers/gemma-4-12b-it/2",
+      "quantization": "CPU NF4 double quantization; FP16 compute",
+      "selected_methods": [
+        "ordinary",
+        "checklist",
+        "provenance"
+      ],
+      "schedule": [
+        {
+          "id": "H08",
+          "method": "provenance"
+        },
+        {
+          "id": "H08",
+          "method": "ordinary"
+        },
+        {
+          "id": "H08",
+          "method": "checklist"
+        }
+      ],
+      "prepared_checkpoint": {
+        "source": "google/gemma-4/transformers/gemma-4-12b-it/2",
+        "preparation_kernel": "nitishsongara/afterfix-checkpoint-cpu/1",
+        "quantization_backend": "CPU bitsandbytes NF4 double quantization, FP16 compute; not official QAT",
+        "config_sha256": "b9b660c0c3da1b6d8d89b5b497498b7f0600c1bb62cbc8d65c68701c546f8f73",
+        "weight_bytes": 7678310211,
+        "weight_files": 13
+      }
+    },
+    "load_seconds": 13.061307780999982,
+    "parameter_devices": [
+      "cuda:0"
+    ]
+  },
+  "v3/31b": {
+    "versions": {
+      "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+      "sqlite": "3.45.1",
+      "llama_cpp": "b11836"
+    },
+    "model": {
+      "key": "31b",
+      "repo": "google/gemma-4-31B-it-qat-q4_0-gguf",
+      "revision": "59dde24573e7e61570dba08b18a2e1fe246955ed",
+      "filename": "gemma-4-31B_q4_0-it.gguf",
+      "sha256": "179cfb99212709597eae5929112cfca677e1bbf566178b479ae1da0c4772874b",
+      "bytes": 17651001568,
+      "ranges": true,
+      "url": "https://huggingface.co/google/gemma-4-31B-it-qat-q4_0-gguf/resolve/59dde24573e7e61570dba08b18a2e1fe246955ed/gemma-4-31B_q4_0-it.gguf?download=true"
+    },
+    "configuration": {
+      "protocol": "afterfix-deep-protocol-v1",
+      "max_turns": 12,
+      "max_generated_tokens_per_case": 4096,
+      "max_generated_tokens_per_call": 1024,
+      "max_input_tokens": 8192,
+      "case_seconds": 240,
+      "generation_seconds": 80,
+      "feedback_characters": 7000,
+      "seed": 17,
+      "thinking": false,
+      "decoding": "greedy",
+      "artifact_selection": "latest_schema_valid_test_or_submit_including_failed_execution",
+      "methods": {
+        "ordinary": {
+          "prompt_sha256": "3ba886d364730890d3f0fac1cbf92101fba48db144970f6535c3b8dfd96a811d"
+        },
+        "checklist": {
+          "prompt_sha256": "3cd5652335fb7e754e62fc7dd3c7a6eaf236f06d2a04fef4aeafbef0f6fdaa30"
+        },
+        "provenance": {
+          "prompt_sha256": "0c461ffdae00c1b274389b9581beba0a10c23d82c41cbdea5080f8fcd814ebe9"
+        }
+      },
+      "condition": "correct_patch_given",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "development_only": false,
+      "independent_families": 6,
+      "post_study_followup": true,
+      "note": "Post-study follow-up on the same 24 synthetic cases; separate from original evaluation; seeds are robustness checks."
+    },
+    "server_command": [
+      "/tmp/afterfix-deep-yqaeo4zy/runtime/llama-b11836/llama-server",
+      "--model",
+      "/tmp/afterfix-deep-yqaeo4zy/gemma-4-31B_q4_0-it.gguf",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8080",
+      "--n-gpu-layers",
+      "all",
+      "--split-mode",
+      "layer",
+      "--tensor-split",
+      "1,1",
+      "--ctx-size",
+      "10240",
+      "--parallel",
+      "1",
+      "--batch-size",
+      "512",
+      "--ubatch-size",
+      "128",
+      "--flash-attn",
+      "on",
+      "--cache-type-k",
+      "f16",
+      "--cache-type-v",
+      "f16",
+      "--threads",
+      "4",
+      "--threads-batch",
+      "4",
+      "--jinja",
+      "--reasoning",
+      "off",
+      "--no-context-shift",
+      "--cache-ram",
+      "0",
+      "--ctx-checkpoints",
+      "0",
+      "--fit",
+      "off",
+      "--no-warmup",
+      "--log-verbosity",
+      "4",
+      "--log-colors",
+      "off"
+    ],
+    "load_seconds": 141.192749397,
+    "layer_offload": [
+      [
+        61,
+        61
+      ]
+    ]
+  },
+  "v3/12b": {
+    "versions": {
+      "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]",
+      "sqlite": "3.45.1",
+      "llama_cpp": "b11836"
+    },
+    "model": {
+      "key": "12b",
+      "repo": "google/gemma-4-12B-it-qat-q4_0-gguf",
+      "revision": "29d097773436b69ff9feafd636ab4cf873786537",
+      "filename": "gemma-4-12b-it-qat-q4_0.gguf",
+      "sha256": "93567e57a8fe10b23569b9d9ec38cd005deedf71e29477c421a4b83f418a538b",
+      "bytes": 6975879296,
+      "ranges": true,
+      "url": "https://huggingface.co/google/gemma-4-12B-it-qat-q4_0-gguf/resolve/29d097773436b69ff9feafd636ab4cf873786537/gemma-4-12b-it-qat-q4_0.gguf?download=true"
+    },
+    "configuration": {
+      "protocol": "afterfix-deep-protocol-v1",
+      "max_turns": 12,
+      "max_generated_tokens_per_case": 4096,
+      "max_generated_tokens_per_call": 1024,
+      "max_input_tokens": 8192,
+      "case_seconds": 240,
+      "generation_seconds": 80,
+      "feedback_characters": 7000,
+      "seed": 17,
+      "thinking": false,
+      "decoding": "greedy",
+      "artifact_selection": "latest_schema_valid_test_or_submit_including_failed_execution",
+      "methods": {
+        "ordinary": {
+          "prompt_sha256": "3ba886d364730890d3f0fac1cbf92101fba48db144970f6535c3b8dfd96a811d"
+        },
+        "checklist": {
+          "prompt_sha256": "3cd5652335fb7e754e62fc7dd3c7a6eaf236f06d2a04fef4aeafbef0f6fdaa30"
+        },
+        "provenance": {
+          "prompt_sha256": "0c461ffdae00c1b274389b9581beba0a10c23d82c41cbdea5080f8fcd814ebe9"
+        }
+      },
+      "condition": "correct_patch_given",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "development_only": false,
+      "independent_families": 6,
+      "post_study_followup": true,
+      "note": "Post-study follow-up on the same 24 synthetic cases; separate from original evaluation; seeds are robustness checks."
+    },
+    "server_command": [
+      "/tmp/afterfix-deep-yqaeo4zy/runtime/llama-b11836/llama-server",
+      "--model",
+      "/tmp/afterfix-deep-yqaeo4zy/gemma-4-12b-it-qat-q4_0.gguf",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      "8080",
+      "--n-gpu-layers",
+      "all",
+      "--split-mode",
+      "layer",
+      "--tensor-split",
+      "1,1",
+      "--ctx-size",
+      "10240",
+      "--parallel",
+      "1",
+      "--batch-size",
+      "512",
+      "--ubatch-size",
+      "128",
+      "--flash-attn",
+      "on",
+      "--cache-type-k",
+      "f16",
+      "--cache-type-v",
+      "f16",
+      "--threads",
+      "4",
+      "--threads-batch",
+      "4",
+      "--jinja",
+      "--reasoning",
+      "off",
+      "--no-context-shift",
+      "--cache-ram",
+      "0",
+      "--ctx-checkpoints",
+      "0",
+      "--fit",
+      "off",
+      "--no-warmup",
+      "--log-verbosity",
+      "4",
+      "--log-colors",
+      "off"
+    ],
+    "load_seconds": 4.034888567000053,
+    "layer_offload": [
+      [
+        49,
+        49
+      ]
+    ]
+  }
+}

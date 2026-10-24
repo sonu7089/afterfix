@@ -1,0 +1,656 @@
+{
+  "status": "passed",
+  "historical_integrity": {
+    "status": "passed",
+    "seals": {
+      "seal-v1.json": {
+        "sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+        "files_verified": 143
+      },
+      "harness-v2-seal.json": {
+        "sha256": "53b7ddcb05835abffeff23639db5c1b9249a87ce03306e31cb893b0359cdcdf9",
+        "files_verified": 35
+      },
+      "deep-study-seal-v1.json": {
+        "sha256": "a5f308bd3b047e3a69659982e5a9d6576c0752d9f560686626822c2978cce12d",
+        "files_verified": 45
+      },
+      "deep-study-seal-v2.json": {
+        "sha256": "45160e539a506dc87515a43c124df07936c8b2d4514db77c1b6a82f4aef41fa0",
+        "files_verified": 53
+      },
+      "bos-smoke-seal-v1.json": {
+        "sha256": "d5d75c97e775cb7c7c061f28b8cec364b09d5dca95ebc5b8163130c63b961add",
+        "files_verified": 18
+      },
+      "deep-study-seal-v3.json": {
+        "sha256": "1b5dab30de76cd900e2e42fede026b8ba7c51b4c6ed908cd6c542f876bbf0a69",
+        "files_verified": 43
+      }
+    },
+    "preserved_prior_evidence_files": 89
+  },
+  "copied_sources": {
+    "jobs/original-batch-1/pilot.py": {
+      "workspace_source": "kaggle/afterfix-heldout-batch-1/pilot.py",
+      "sha256": "9fbada00861a49c527217a398deb2d39f7727df97f612568ce7bd73d8f8c7f59"
+    },
+    "jobs/original-batch-1/kernel-metadata.recorded.json": {
+      "workspace_source": "kaggle/afterfix-heldout-batch-1/kernel-metadata.json",
+      "sha256": "001958e763e6f4fd415c3413193f8e4f66321afa09ba79719673a20075ab2f4d"
+    },
+    "jobs/original-batch-2/pilot.py": {
+      "workspace_source": "kaggle/afterfix-heldout-batch-2/pilot.py",
+      "sha256": "d016c797305705e9060965290888da5849419aed54fbe75546f9372a6b4c3331"
+    },
+    "jobs/original-batch-2/kernel-metadata.recorded.json": {
+      "workspace_source": "kaggle/afterfix-heldout-batch-2/kernel-metadata.json",
+      "sha256": "8ef473eecadc7d738af3319a0ec267a731a3048e89545af4f3a4c5c8465b03a8"
+    },
+    "jobs/original-batch-3-retry/pilot.py": {
+      "workspace_source": "kaggle/afterfix-heldout-batch-3-retry-v2/pilot.py",
+      "sha256": "b256f4dbcb46eb33118abfeb431c9b1961bc9be24cdf5fd13c778b3abc2a7483"
+    },
+    "jobs/original-batch-3-retry/kernel-metadata.recorded.json": {
+      "workspace_source": "kaggle/afterfix-heldout-batch-3-retry-v2/kernel-metadata.json",
+      "sha256": "ddc74a4ebc211133efbe4b088cd317e0179e5dd0597284714c5ebd226f2f8c2a"
+    },
+    "jobs/original-batch-4/pilot.py": {
+      "workspace_source": "kaggle/afterfix-heldout-batch-4/pilot.py",
+      "sha256": "0136a8aa1097e00f24610a9750979f4cf6d15b71ce880ceaafa244b12472ae47"
+    },
+    "jobs/original-batch-4/kernel-metadata.recorded.json": {
+      "workspace_source": "kaggle/afterfix-heldout-batch-4/kernel-metadata.json",
+      "sha256": "042b40809ffb82bbd2a01dcc7cbad2654b5aee2dccfd9149903d5bfd3871f530"
+    },
+    "jobs/h08/pilot.py": {
+      "workspace_source": "kaggle/afterfix-h08-harness-v2/pilot.py",
+      "sha256": "ae8eac984e36d5000a8543511bff8d58b63ae9068cf2b2f5dbb91906daf048cf"
+    },
+    "jobs/h08/kernel-metadata.recorded.json": {
+      "workspace_source": "kaggle/afterfix-h08-harness-v2/kernel-metadata.json",
+      "sha256": "26cee08930ec32bb15b0ab40d6c2c94d242b5d896cc223a8eab580a11777aaa4"
+    },
+    "jobs/v3/pilot.py": {
+      "workspace_source": "kaggle/afterfix-deep-31b-12b-bos-v3/pilot.py",
+      "sha256": "4549a68c95fa1869ddcb92b78ec007e0ce854fc12ade2f79f9e96ab1a4c9da36"
+    },
+    "jobs/v3/kernel-metadata.recorded.json": {
+      "workspace_source": "kaggle/afterfix-deep-31b-12b-bos-v3/kernel-metadata.json",
+      "sha256": "4d80c3b0977a468dd820673ce029679041c5bf770bbedcdccdd22e36936f9322"
+    },
+    "provenance/v3/summary.json": {
+      "workspace_source": "results/deep-v3-gpu/deep-results/summary.json",
+      "sha256": "05ada4bff64a901918f8e6bf47435d74ddabe40d9e72ded6e5457b6ab618701c"
+    },
+    "provenance/v3/31b/startup-verification.json": {
+      "workspace_source": "results/deep-v3-gpu/deep-results/31b/startup-verification.json",
+      "sha256": "5fc7735dd24f711a9b34543e918713eb32cc21b5711b598c553b5eb2c5e0d4ab"
+    },
+    "provenance/v3/12b/startup-verification.json": {
+      "workspace_source": "results/deep-v3-gpu/deep-results/12b/startup-verification.json",
+      "sha256": "95bc466c6b8b02e1505c0adba5417aef43347d4e2d945c1086cd23da504d8c00"
+    },
+    "provenance/v3/31b/tokenizer-preflight.json": {
+      "workspace_source": "results/deep-v3-gpu/deep-results/31b/tokenizer-preflight.json",
+      "sha256": "875bf2751c0898123f164ec5729b8e1572f449510c4c43124eb2a979806cb4c6"
+    },
+    "provenance/v3/12b/tokenizer-preflight.json": {
+      "workspace_source": "results/deep-v3-gpu/deep-results/12b/tokenizer-preflight.json",
+      "sha256": "875bf2751c0898123f164ec5729b8e1572f449510c4c43124eb2a979806cb4c6"
+    },
+    "jobs/checkpoint/prepare.py": {
+      "workspace_source": "kaggle/afterfix-checkpoint-cpu/prepare.py",
+      "sha256": "92589486ffa73f5cd0f83ce85aa2d533487779b5eadb983c941abd4f779a06c9"
+    },
+    "jobs/checkpoint/kernel-metadata.recorded.json": {
+      "workspace_source": "kaggle/afterfix-checkpoint-cpu/kernel-metadata.json",
+      "sha256": "3880fd27162fb2da56be34aea0900679b70e1ec078c9070a8bfe970e1a2a3c25"
+    },
+    "provenance/checkpoint-preparation.json": {
+      "workspace_source": "results/loading-diagnosis/checkpoint-cpu-v1/preparation-result.json",
+      "sha256": "9863dc57a43eb91d5321eac630e508da531e2d907123ad576eade4009ac3cea5"
+    },
+    "README.md": {
+      "workspace_source": "tools/gpu_supplement_v1/README.md",
+      "sha256": "a2639511c7013976b0177963159889fcff120d3234f265cd79b47af069273d50"
+    },
+    "verify.py": {
+      "workspace_source": "tools/gpu_supplement_v1/verify.py",
+      "sha256": "b77e854ecc3de4b09c30470a4e0e59725c624ad9e7b9b146368cebdbced7a76c"
+    },
+    "stage_job.py": {
+      "workspace_source": "tools/gpu_supplement_v1/stage_job.py",
+      "sha256": "4995e794cdb745f03728f2d12c6136334136b4b70bcf9afff5fed70ee8ac53c1"
+    },
+    "RELEASE_STATUS.md": {
+      "workspace_source": "reproducibility/package/afterfix-cpu-v3/RELEASE_STATUS.md",
+      "sha256": "35b4db55a8e191cc0966aef11af56e0f0ae2c64bc5d1710e78ce79eae536a76e"
+    },
+    "provenance/historical-seals/seal-v1.json": {
+      "workspace_source": "benchmark/seal-v1.json",
+      "sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c"
+    },
+    "provenance/historical-seals/harness-v2-seal.json": {
+      "workspace_source": "benchmark/harness-v2-seal.json",
+      "sha256": "53b7ddcb05835abffeff23639db5c1b9249a87ce03306e31cb893b0359cdcdf9"
+    },
+    "provenance/historical-seals/deep-study-seal-v3.json": {
+      "workspace_source": "benchmark/deep-study-seal-v3.json",
+      "sha256": "1b5dab30de76cd900e2e42fede026b8ba7c51b4c6ed908cd6c542f876bbf0a69"
+    }
+  },
+  "returned_payload_files_exact": [
+    {
+      "job": "original-batch-1",
+      "path": "afterfix/__init__.py",
+      "sha256": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix/__init__.py"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "afterfix/agent.py",
+      "sha256": "956f3c0bfa7c636af436b603dda8eac698ec1de7f234a8d86ced59f3e0e98836",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix/agent.py"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "afterfix/engine.py",
+      "sha256": "f3c8577485cc3e2672dc7f91a190158630797338800c5fc335563b9653c44be3",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix/engine.py"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "afterfix/protocol.py",
+      "sha256": "4a311901d79438699dac006608f1e108a26a65ec6c3bad273c0193664c2efd4f",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix/protocol.py"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "afterfix/protocol_v2.py",
+      "sha256": "0c8641ce6043514dd20e0af83d41e9b1bfb2941a15494d3a00d32f7ead893347",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix/protocol_v2.py"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "afterfix/runner.py",
+      "sha256": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix/runner.py"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "afterfix/runtime.py",
+      "sha256": "7bd0da92eed49aca17c23b29155805617f7a95df088f1340ab7fdb89f2125c53",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix/runtime.py"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "afterfix/model_source.py",
+      "sha256": "a3fdb94550d9168ddd88a5a08117bd95aa897ac3cf8e4278fe7ec1e6111107d9",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix/model_source.py"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "afterfix/checkpoint_download.py",
+      "sha256": "2c8308a4309cad870bcd283d8ce9f29ce1d6f9298f0fce2940050a702e4f0ce2",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix/checkpoint_download.py"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "afterfix/heldout_worker.py",
+      "sha256": "4c2ecdb9d735acccdcf43f66e7d5a5385c9af4f5ef2843b34995489217ac78ab",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix/heldout_worker.py"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "afterfix/heldout_job.py",
+      "sha256": "810f7dbce0724284448e5f95e9d4aef0f668f19d92233ee7ad5d52108e8dc3a4",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix/heldout_job.py"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "afterfix-results/public-incidents.json",
+      "sha256": "71489214feda4cab2e9349f457c199ad454e417dc5c984d608487a8be16a3b50",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix-results/public-incidents.json"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "afterfix-results/run-config.json",
+      "sha256": "e22e0b8539db1aa68915aca0713ee3f9d46eae9a97b28e8d79047d4163624f01",
+      "returned_source": "results/heldout-batch-1-gpu/afterfix-results/run-config.json"
+    },
+    {
+      "job": "original-batch-1",
+      "path": "payload-manifest.json",
+      "sha256": "5baa31256637c3df6315f717cb012f555b187d2917bfad07ae1001d173610675",
+      "returned_source": "results/heldout-batch-1-gpu/payload-manifest.json"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix/__init__.py",
+      "sha256": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix/__init__.py"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix/agent.py",
+      "sha256": "956f3c0bfa7c636af436b603dda8eac698ec1de7f234a8d86ced59f3e0e98836",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix/agent.py"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix/engine.py",
+      "sha256": "f3c8577485cc3e2672dc7f91a190158630797338800c5fc335563b9653c44be3",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix/engine.py"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix/protocol.py",
+      "sha256": "4a311901d79438699dac006608f1e108a26a65ec6c3bad273c0193664c2efd4f",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix/protocol.py"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix/protocol_v2.py",
+      "sha256": "0c8641ce6043514dd20e0af83d41e9b1bfb2941a15494d3a00d32f7ead893347",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix/protocol_v2.py"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix/runner.py",
+      "sha256": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix/runner.py"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix/runtime.py",
+      "sha256": "7bd0da92eed49aca17c23b29155805617f7a95df088f1340ab7fdb89f2125c53",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix/runtime.py"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix/model_source.py",
+      "sha256": "a3fdb94550d9168ddd88a5a08117bd95aa897ac3cf8e4278fe7ec1e6111107d9",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix/model_source.py"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix/checkpoint_download.py",
+      "sha256": "2c8308a4309cad870bcd283d8ce9f29ce1d6f9298f0fce2940050a702e4f0ce2",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix/checkpoint_download.py"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix/heldout_worker.py",
+      "sha256": "4c2ecdb9d735acccdcf43f66e7d5a5385c9af4f5ef2843b34995489217ac78ab",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix/heldout_worker.py"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix/heldout_job.py",
+      "sha256": "810f7dbce0724284448e5f95e9d4aef0f668f19d92233ee7ad5d52108e8dc3a4",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix/heldout_job.py"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix-results/public-incidents.json",
+      "sha256": "6136988317e2f1aed30724ad19841bc5f3a9a2c5001743f53097ee24759fea65",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix-results/public-incidents.json"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "afterfix-results/run-config.json",
+      "sha256": "48e48291bc805180059b51f65967750a42d9171da04aa269c3040acd3e88e399",
+      "returned_source": "results/heldout-batch-2-gpu/afterfix-results/run-config.json"
+    },
+    {
+      "job": "original-batch-2",
+      "path": "payload-manifest.json",
+      "sha256": "0cb265041cdb02766d8490f4d490cd50e5555d9ce2c8e7464be6e50def210a4e",
+      "returned_source": "results/heldout-batch-2-gpu/payload-manifest.json"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix/__init__.py",
+      "sha256": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix/__init__.py"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix/agent.py",
+      "sha256": "956f3c0bfa7c636af436b603dda8eac698ec1de7f234a8d86ced59f3e0e98836",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix/agent.py"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix/engine.py",
+      "sha256": "f3c8577485cc3e2672dc7f91a190158630797338800c5fc335563b9653c44be3",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix/engine.py"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix/protocol.py",
+      "sha256": "4a311901d79438699dac006608f1e108a26a65ec6c3bad273c0193664c2efd4f",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix/protocol.py"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix/protocol_v2.py",
+      "sha256": "0c8641ce6043514dd20e0af83d41e9b1bfb2941a15494d3a00d32f7ead893347",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix/protocol_v2.py"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix/runner.py",
+      "sha256": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix/runner.py"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix/runtime.py",
+      "sha256": "7bd0da92eed49aca17c23b29155805617f7a95df088f1340ab7fdb89f2125c53",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix/runtime.py"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix/model_source.py",
+      "sha256": "a3fdb94550d9168ddd88a5a08117bd95aa897ac3cf8e4278fe7ec1e6111107d9",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix/model_source.py"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix/checkpoint_download.py",
+      "sha256": "2c8308a4309cad870bcd283d8ce9f29ce1d6f9298f0fce2940050a702e4f0ce2",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix/checkpoint_download.py"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix/heldout_worker.py",
+      "sha256": "4c2ecdb9d735acccdcf43f66e7d5a5385c9af4f5ef2843b34995489217ac78ab",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix/heldout_worker.py"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix/heldout_job.py",
+      "sha256": "810f7dbce0724284448e5f95e9d4aef0f668f19d92233ee7ad5d52108e8dc3a4",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix/heldout_job.py"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix-results/public-incidents.json",
+      "sha256": "2886beecb174c53a56b7f4034feb994c7f2e200b05bccb8d76967cb4cb3cc2b7",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix-results/public-incidents.json"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "afterfix-results/run-config.json",
+      "sha256": "0e24b2b0ad1354f5c03d61ad9fa5ecb08469d6e160c9a1eec77a21e678c9948d",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/afterfix-results/run-config.json"
+    },
+    {
+      "job": "original-batch-3-retry",
+      "path": "payload-manifest.json",
+      "sha256": "f434bfd0f1511cb3231721fd20e24cc05bdcd5fbcb7bb86861f167f89305cc6b",
+      "returned_source": "results/heldout-batch-3-retry-v2-gpu/payload-manifest.json"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix/__init__.py",
+      "sha256": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix/__init__.py"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix/agent.py",
+      "sha256": "956f3c0bfa7c636af436b603dda8eac698ec1de7f234a8d86ced59f3e0e98836",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix/agent.py"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix/engine.py",
+      "sha256": "f3c8577485cc3e2672dc7f91a190158630797338800c5fc335563b9653c44be3",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix/engine.py"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix/protocol.py",
+      "sha256": "4a311901d79438699dac006608f1e108a26a65ec6c3bad273c0193664c2efd4f",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix/protocol.py"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix/protocol_v2.py",
+      "sha256": "0c8641ce6043514dd20e0af83d41e9b1bfb2941a15494d3a00d32f7ead893347",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix/protocol_v2.py"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix/runner.py",
+      "sha256": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix/runner.py"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix/runtime.py",
+      "sha256": "7bd0da92eed49aca17c23b29155805617f7a95df088f1340ab7fdb89f2125c53",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix/runtime.py"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix/model_source.py",
+      "sha256": "a3fdb94550d9168ddd88a5a08117bd95aa897ac3cf8e4278fe7ec1e6111107d9",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix/model_source.py"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix/checkpoint_download.py",
+      "sha256": "2c8308a4309cad870bcd283d8ce9f29ce1d6f9298f0fce2940050a702e4f0ce2",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix/checkpoint_download.py"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix/heldout_worker.py",
+      "sha256": "4c2ecdb9d735acccdcf43f66e7d5a5385c9af4f5ef2843b34995489217ac78ab",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix/heldout_worker.py"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix/heldout_job.py",
+      "sha256": "810f7dbce0724284448e5f95e9d4aef0f668f19d92233ee7ad5d52108e8dc3a4",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix/heldout_job.py"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix-results/public-incidents.json",
+      "sha256": "e837c877973f3fa88247936ef591ae2281df0c41893c384dae625c39cfccbd3f",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix-results/public-incidents.json"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "afterfix-results/run-config.json",
+      "sha256": "edbe2a5d71faba0131da6e202a4622a1fa4f62f31dc53a18bf61a981afb2fbd6",
+      "returned_source": "results/heldout-batch-4-gpu/afterfix-results/run-config.json"
+    },
+    {
+      "job": "original-batch-4",
+      "path": "payload-manifest.json",
+      "sha256": "20e2c60b59518f6d5d63f9563d5468222643f6032785acd0c13e00e3d992b17f",
+      "returned_source": "results/heldout-batch-4-gpu/payload-manifest.json"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/__init__.py",
+      "sha256": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/__init__.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/agent.py",
+      "sha256": "956f3c0bfa7c636af436b603dda8eac698ec1de7f234a8d86ced59f3e0e98836",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/agent.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/engine.py",
+      "sha256": "b6c53b2742eca951d51595857c656b8666f8f86c737b10c379e566de55cdaee4",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/engine.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/protocol.py",
+      "sha256": "4a311901d79438699dac006608f1e108a26a65ec6c3bad273c0193664c2efd4f",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/protocol.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/protocol_v2.py",
+      "sha256": "0c8641ce6043514dd20e0af83d41e9b1bfb2941a15494d3a00d32f7ead893347",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/protocol_v2.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/runner.py",
+      "sha256": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/runner.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/runtime.py",
+      "sha256": "7bd0da92eed49aca17c23b29155805617f7a95df088f1340ab7fdb89f2125c53",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/runtime.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/model_source.py",
+      "sha256": "a3fdb94550d9168ddd88a5a08117bd95aa897ac3cf8e4278fe7ec1e6111107d9",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/model_source.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/checkpoint_download.py",
+      "sha256": "2c8308a4309cad870bcd283d8ce9f29ce1d6f9298f0fce2940050a702e4f0ce2",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/checkpoint_download.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/heldout_worker.py",
+      "sha256": "4c2ecdb9d735acccdcf43f66e7d5a5385c9af4f5ef2843b34995489217ac78ab",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/heldout_worker.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/heldout_job.py",
+      "sha256": "810f7dbce0724284448e5f95e9d4aef0f668f19d92233ee7ad5d52108e8dc3a4",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/heldout_job.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/h08_worker.py",
+      "sha256": "b78d502f3330a886dbf78483604354309f1dba237d182632e868a3b11404ce2c",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/h08_worker.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix/h08_job.py",
+      "sha256": "a9b102cb9a2464f11283e464fedd46b091c9c1ada69c6dec57194140d4c7f913",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix/h08_job.py"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix-results/public-incidents.json",
+      "sha256": "5f98cd15d2ac0fa26671910be81356701a129c29f0722d72f1f2ae1e9493a891",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix-results/public-incidents.json"
+    },
+    {
+      "job": "h08",
+      "path": "afterfix-results/run-config.json",
+      "sha256": "206bf260b946fbc6cd3084dad1ee2618c985679dd3fcd3dee594340967168229",
+      "returned_source": "results/h08-harness-v2-gpu/afterfix-results/run-config.json"
+    },
+    {
+      "job": "h08",
+      "path": "payload-manifest.json",
+      "sha256": "5563967880cba3d82a47d86424e314bb85d898eb8817eeda0e61130658d78052",
+      "returned_source": "results/h08-harness-v2-gpu/payload-manifest.json"
+    },
+    {
+      "job": "h08",
+      "path": "harness-amendment.json",
+      "sha256": "d0ca9ade57e8e98ed6a841ea8b3e22a37b506f97629a56b100a9da8010fdcf90",
+      "returned_source": "results/h08-harness-v2-gpu/harness-amendment.json"
+    },
+    {
+      "job": "v3",
+      "path": "afterfix/__init__.py",
+      "sha256": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2",
+      "returned_source": "results/deep-v3-gpu/afterfix/__init__.py"
+    },
+    {
+      "job": "v3",
+      "path": "afterfix/engine.py",
+      "sha256": "b6c53b2742eca951d51595857c656b8666f8f86c737b10c379e566de55cdaee4",
+      "returned_source": "results/deep-v3-gpu/afterfix/engine.py"
+    },
+    {
+      "job": "v3",
+      "path": "afterfix/protocol.py",
+      "sha256": "4cbeaa83489957bbd88167ffb16a2dbe2f3e1947742678db6218ca4088c5960d",
+      "returned_source": "results/deep-v3-gpu/afterfix/protocol.py"
+    },
+    {
+      "job": "v3",
+      "path": "afterfix/protocol_v2.py",
+      "sha256": "e6126716073191c95106af6463ff745f29f2b6360eaa8266ced57638c3c2399d",
+      "returned_source": "results/deep-v3-gpu/afterfix/protocol_v2.py"
+    },
+    {
+      "job": "v3",
+      "path": "afterfix/runner.py",
+      "sha256": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+      "returned_source": "results/deep-v3-gpu/afterfix/runner.py"
+    },
+    {
+      "job": "v3",
+      "path": "deep_job.py",
+      "sha256": "8af9aaa722fc08db6dc02b7e0f1432ee492e67ceaa3a83b9d574f15af61e9967",
+      "returned_source": "results/deep-v3-gpu/deep_job.py"
+    },
+    {
+      "job": "v3",
+      "path": "deep_worker.py",
+      "sha256": "c4eda3321cd963871eb94ed54369ebac36b3f169c805d6e35f98fd13c92f3634",
+      "returned_source": "results/deep-v3-gpu/deep_worker.py"
+    },
+    {
+      "job": "v3",
+      "path": "deep_http.py",
+      "sha256": "7555b70f7c66c328212e34ca7102c6a92cb282815b38ea04447125e9bd604a6e",
+      "returned_source": "results/deep-v3-gpu/deep_http.py"
+    },
+    {
+      "job": "v3",
+      "path": "deep-results/plan.json",
+      "sha256": "80a322d75666a16ceb2b846a15f69dae0dc845a27ef8a634b929284f32c1648b",
+      "returned_source": "results/deep-v3-gpu/deep-results/plan.json"
+    },
+    {
+      "job": "v3",
+      "path": "deep-results/public-incidents.json",
+      "sha256": "b2ee173ad3b19968728d1d2f44768b51348950e8e4b26825966a942213bfbda5",
+      "returned_source": "results/deep-v3-gpu/deep-results/public-incidents.json"
+    },
+    {
+      "job": "v3",
+      "path": "startup_verification.py",
+      "sha256": "78619bc3b7329ca77210ad79738c020d4e7c879c276eb874b50f7d662bc2494c",
+      "returned_source": "results/deep-v3-gpu/startup_verification.py"
+    },
+    {
+      "job": "v3",
+      "path": "deep-payload-manifest.json",
+      "sha256": "df203dd31bb50e3f7e6a143f7d4aec3c4ec74e75a97c8d68b308470d9b36d2f1",
+      "returned_source": "results/deep-v3-gpu/deep-payload-manifest.json"
+    }
+  ],
+  "scope": "Exact frozen launchers and extracted payloads. No new inference or current external-access verification."
+}

@@ -1,0 +1,16 @@
+AfterFix NF4 checkpoint reproduction artifact
+
+Base model: Gemma 4 12B instruction-tuned, Google DeepMind.
+Pinned source: google/gemma-4/transformers/gemma-4-12b-it/2.
+Upstream model card and license declaration: upstream/README.original.md.
+Gemma 4 license: https://ai.google.dev/gemma/apache_2
+
+AfterFix preparation and packaging: Nitish Songara, Independent researcher.
+Copyright 2026 Nitish Songara for original preparation/packaging code and documentation.
+No ownership of Google's base weights or endorsement by Google is claimed.
+
+The prepared model is modified: CPU bitsandbytes NF4 double quantization with
+FP16 compute, serialized into 13 shards by Transformers. It is not Google's
+official QAT checkpoint. See MODIFICATIONS.md and the historical provenance.
+All checkpoint bytes in this local release were copied without modification
+from the pinned historical output. See LICENSE for Apache 2.0 terms.

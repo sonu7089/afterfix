@@ -1,0 +1,925 @@
+{
+  "status": "completed",
+  "runs": [
+    {
+      "id": "H08",
+      "method": "provenance",
+      "turns": [
+        {
+          "turn": 1,
+          "input_tokens": 1535,
+          "output_tokens": 46,
+          "generation_seconds": 9.236869929000022,
+          "response": "```json\n{\"action\":\"query\",\"sql\":\"SELECT tenant, committed, free FROM escrow UNION ALL SELECT 'missing' AS tenant, 0, 0 WHERE NOT EXISTS (SELECT 1 FROM escrow);\"}\n```",
+          "reached_token_limit": false,
+          "action": "query",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "query",
+            "sql": "SELECT tenant, committed, free FROM escrow UNION ALL SELECT 'missing' AS tenant, 0, 0 WHERE NOT EXISTS (SELECT 1 FROM escrow);"
+          },
+          "tool_seconds": 0.028913806999980807,
+          "feedback": {
+            "results": [
+              {
+                "columns": [
+                  "tenant",
+                  "committed",
+                  "free"
+                ],
+                "rows": [
+                  [
+                    "a_0",
+                    8,
+                    32
+                  ],
+                  [
+                    "b_0",
+                    0,
+                    30
+                  ],
+                  [
+                    "c_0",
+                    0,
+                    20
+                  ]
+                ],
+                "truncated": false
+              }
+            ],
+            "rows_written": 0
+          },
+          "feedback_message": "Tool result: {\"results\":[{\"columns\":[\"tenant\",\"committed\",\"free\"],\"rows\":[[\"a_0\",8,32],[\"b_0\",0,30],[\"c_0\",0,20]],\"truncated\":false}],\"rows_written\":0}\nBudget: {\"turns_remaining\": 5, \"generated_tokens_remaining\": 1490}"
+        },
+        {
+          "turn": 2,
+          "input_tokens": 1672,
+          "output_tokens": 23,
+          "generation_seconds": 5.178742251000017,
+          "response": "thought\n```json\n{\"action\":\"query\",\"sql\":\"SELECT * FROM leases;\"}\n```",
+          "reached_token_limit": false,
+          "action": "query",
+          "normalization": [
+            "leading_thought_marker",
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "query",
+            "sql": "SELECT * FROM leases;"
+          },
+          "tool_seconds": 0.0008637829999997848,
+          "feedback": {
+            "results": [
+              {
+                "columns": [
+                  "id",
+                  "tenant",
+                  "issued",
+                  "consumed",
+                  "expires"
+                ],
+                "rows": [
+                  [
+                    "x_0",
+                    "a_0",
+                    10,
+                    4,
+                    20
+                  ],
+                  [
+                    "y_0",
+                    "a_0",
+                    8,
+                    2,
+                    30
+                  ],
+                  [
+                    "z_0",
+                    "b_0",
+                    5,
+                    1,
+                    10
+                  ]
+                ],
+                "truncated": false
+              }
+            ],
+            "rows_written": 0
+          },
+          "feedback_message": "Tool result: {\"results\":[{\"columns\":[\"id\",\"tenant\",\"issued\",\"consumed\",\"expires\"],\"rows\":[[\"x_0\",\"a_0\",10,4,20],[\"y_0\",\"a_0\",8,2,30],[\"z_0\",\"b_0\",5,1,10]],\"truncated\":false}],\"rows_written\":0}\nBudget: {\"turns_remaining\": 4, \"generated_tokens_remaining\": 1467}"
+        },
+        {
+          "turn": 3,
+          "input_tokens": 1807,
+          "output_tokens": 23,
+          "generation_seconds": 5.411491024999975,
+          "response": "thought\n```json\n{\"action\":\"query\",\"sql\":\"SELECT * FROM clock;\"}\n```",
+          "reached_token_limit": false,
+          "action": "query",
+          "normalization": [
+            "leading_thought_marker",
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "query",
+            "sql": "SELECT * FROM clock;"
+          },
+          "tool_seconds": 0.0007646189999377384,
+          "feedback": {
+            "results": [
+              {
+                "columns": [
+                  "now"
+                ],
+                "rows": [
+                  [
+                    20
+                  ]
+                ],
+                "truncated": false
+              }
+            ],
+            "rows_written": 0
+          },
+          "feedback_message": "Tool result: {\"results\":[{\"columns\":[\"now\"],\"rows\":[[20]],\"truncated\":false}],\"rows_written\":0}\nBudget: {\"turns_remaining\": 3, \"generated_tokens_remaining\": 1444}"
+        },
+        {
+          "turn": 4,
+          "input_tokens": 1889,
+          "output_tokens": 99,
+          "generation_seconds": 14.145894822999935,
+          "response": "thought\n```json\n{\"action\":\"query\",\"sql\":\"SELECT t.id, SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END) as committed, t.capacity - SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END) as free FROM tenants t JOIN leases l ON t.id = l.tenant CROSS JOIN clock c GROUP BY t.id;\"}\n```",
+          "reached_token_limit": false,
+          "action": "query",
+          "normalization": [
+            "leading_thought_marker",
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "query",
+            "sql": "SELECT t.id, SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END) as committed, t.capacity - SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END) as free FROM tenants t JOIN leases l ON t.id = l.tenant CROSS JOIN clock c GROUP BY t.id;"
+          },
+          "tool_seconds": 0.0009722560000682279,
+          "feedback": {
+            "results": [
+              {
+                "columns": [
+                  "id",
+                  "committed",
+                  "free"
+                ],
+                "rows": [
+                  [
+                    "a_0",
+                    12,
+                    28
+                  ],
+                  [
+                    "b_0",
+                    1,
+                    29
+                  ]
+                ],
+                "truncated": false
+              }
+            ],
+            "rows_written": 0
+          },
+          "feedback_message": "Tool result: {\"results\":[{\"columns\":[\"id\",\"committed\",\"free\"],\"rows\":[[\"a_0\",12,28],[\"b_0\",1,29]],\"truncated\":false}],\"rows_written\":0}\nBudget: {\"turns_remaining\": 2, \"generated_tokens_remaining\": 1345}"
+        },
+        {
+          "turn": 5,
+          "input_tokens": 2067,
+          "output_tokens": 207,
+          "generation_seconds": 27.367965364000042,
+          "response": "```json\n{\"action\":\"test\",\"recovery_sql\":\"DELETE FROM escrow WHERE tenant IN (SELECT id FROM tenants WHERE id NOT IN (SELECT tenant FROM leases));\\nINSERT INTO escrow (tenant, committed, free) SELECT t.id, COALESCE(SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END), 0), t.capacity - COALESCE(SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END), 0) FROM tenants t LEFT JOIN leases l ON t.id = l.tenant CROSS JOIN clock c GROUP BY t.id;\\nDELETE FROM pool_free;\\nINSERT INTO pool_free (pool, free) SELECT p.id, p.capacity - COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id = e.tenant WHERE t.pool = p.id), 0) FROM pools p;\"}\n```",
+          "reached_token_limit": false,
+          "action": "test",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "test",
+            "recovery_sql": "DELETE FROM escrow WHERE tenant IN (SELECT id FROM tenants WHERE id NOT IN (SELECT tenant FROM leases));\nINSERT INTO escrow (tenant, committed, free) SELECT t.id, COALESCE(SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END), 0), t.capacity - COALESCE(SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END), 0) FROM tenants t LEFT JOIN leases l ON t.id = l.tenant CROSS JOIN clock c GROUP BY t.id;\nDELETE FROM pool_free;\nINSERT INTO pool_free (pool, free) SELECT p.id, p.capacity - COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id = e.tenant WHERE t.pool = p.id), 0) FROM pools p;",
+            "application_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;"
+          },
+          "error_category": "sql",
+          "tool_seconds": 0.001093857000000753,
+          "feedback": {
+            "sql_executed": false,
+            "error": "UNIQUE constraint failed: escrow.tenant"
+          },
+          "feedback_message": "Tool result: {\"sql_executed\":false,\"error\":\"UNIQUE constraint failed: escrow.tenant\"}\nBudget: {\"turns_remaining\": 1, \"generated_tokens_remaining\": 1138}"
+        },
+        {
+          "turn": 6,
+          "input_tokens": 2327,
+          "output_tokens": 207,
+          "generation_seconds": 28.032568531000038,
+          "response": "```json\n{\"action\":\"test\",\"recovery_sql\":\"DELETE FROM escrow WHERE tenant IN (SELECT id FROM tenants WHERE id NOT IN (SELECT tenant FROM leases));\\nINSERT INTO escrow (tenant, committed, free) SELECT t.id, COALESCE(SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END), 0), t.capacity - COALESCE(SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END), 0) FROM tenants t LEFT JOIN leases l ON t.id = l.tenant CROSS JOIN clock c GROUP BY t.id;\\nDELETE FROM pool_free;\\nINSERT INTO pool_free (pool, free) SELECT p.id, p.capacity - COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id = e.tenant WHERE t.pool = p.id), 0) FROM pools p;\"}\n```",
+          "reached_token_limit": false,
+          "action": "test",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "test",
+            "recovery_sql": "DELETE FROM escrow WHERE tenant IN (SELECT id FROM tenants WHERE id NOT IN (SELECT tenant FROM leases));\nINSERT INTO escrow (tenant, committed, free) SELECT t.id, COALESCE(SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END), 0), t.capacity - COALESCE(SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END), 0) FROM tenants t LEFT JOIN leases l ON t.id = l.tenant CROSS JOIN clock c GROUP BY t.id;\nDELETE FROM pool_free;\nINSERT INTO pool_free (pool, free) SELECT p.id, p.capacity - COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id = e.tenant WHERE t.pool = p.id), 0) FROM pools p;",
+            "application_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;"
+          },
+          "error_category": "sql",
+          "tool_seconds": 0.0011236130000042976,
+          "feedback": {
+            "sql_executed": false,
+            "error": "UNIQUE constraint failed: escrow.tenant"
+          },
+          "feedback_message": "Tool result: {\"sql_executed\":false,\"error\":\"UNIQUE constraint failed: escrow.tenant\"}\nBudget: {\"turns_remaining\": 0, \"generated_tokens_remaining\": 931}"
+        }
+      ],
+      "artifact": {
+        "application_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;",
+        "recovery_sql": "DELETE FROM escrow WHERE tenant IN (SELECT id FROM tenants WHERE id NOT IN (SELECT tenant FROM leases));\nINSERT INTO escrow (tenant, committed, free) SELECT t.id, COALESCE(SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END), 0), t.capacity - COALESCE(SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END), 0) FROM tenants t LEFT JOIN leases l ON t.id = l.tenant CROSS JOIN clock c GROUP BY t.id;\nDELETE FROM pool_free;\nINSERT INTO pool_free (pool, free) SELECT p.id, p.capacity - COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id = e.tenant WHERE t.pool = p.id), 0) FROM pools p;"
+      },
+      "artifact_turn": 6,
+      "stop_reason": "turn_budget",
+      "generated_tokens": 605,
+      "status": "completed",
+      "public_task_sha256": "fea6081b25a2c6dabd419b2d73f9a901efb0a5b76d41acd9be048614bf3407b3",
+      "system_prompt_sha256": "fd177418870cdf83076744651b08c98eb76d950d6a98844b59fa2492f1edaaf6",
+      "wall_seconds": 89.61809580599999,
+      "peak_allocated_GiB": 8.243675708770752,
+      "peak_reserved_GiB": 8.390625
+    },
+    {
+      "id": "H08",
+      "method": "ordinary",
+      "turns": [
+        {
+          "turn": 1,
+          "input_tokens": 1358,
+          "output_tokens": 46,
+          "generation_seconds": 7.910670488999926,
+          "response": "```json\n{\"action\":\"query\",\"sql\":\"SELECT tenant, committed, free FROM escrow UNION ALL SELECT 'missing' AS tenant, 0, 0 WHERE NOT EXISTS (SELECT 1 FROM escrow);\"}\n```",
+          "reached_token_limit": false,
+          "action": "query",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "query",
+            "sql": "SELECT tenant, committed, free FROM escrow UNION ALL SELECT 'missing' AS tenant, 0, 0 WHERE NOT EXISTS (SELECT 1 FROM escrow);"
+          },
+          "tool_seconds": 0.000829750999969292,
+          "feedback": {
+            "results": [
+              {
+                "columns": [
+                  "tenant",
+                  "committed",
+                  "free"
+                ],
+                "rows": [
+                  [
+                    "a_0",
+                    8,
+                    32
+                  ],
+                  [
+                    "b_0",
+                    0,
+                    30
+                  ],
+                  [
+                    "c_0",
+                    0,
+                    20
+                  ]
+                ],
+                "truncated": false
+              }
+            ],
+            "rows_written": 0
+          },
+          "feedback_message": "Tool result: {\"results\":[{\"columns\":[\"tenant\",\"committed\",\"free\"],\"rows\":[[\"a_0\",8,32],[\"b_0\",0,30],[\"c_0\",0,20]],\"truncated\":false}],\"rows_written\":0}\nBudget: {\"turns_remaining\": 5, \"generated_tokens_remaining\": 1490}"
+        },
+        {
+          "turn": 2,
+          "input_tokens": 1495,
+          "output_tokens": 24,
+          "generation_seconds": 5.588381216000016,
+          "response": "```json\n{\"action\":\"query\",\"sql\":\"SELECT * FROM leases; SELECT * FROM clock;\"}\n```",
+          "reached_token_limit": false,
+          "action": "query",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "query",
+            "sql": "SELECT * FROM leases; SELECT * FROM clock;"
+          },
+          "tool_seconds": 0.0007857790000116438,
+          "feedback": {
+            "results": [
+              {
+                "columns": [
+                  "id",
+                  "tenant",
+                  "issued",
+                  "consumed",
+                  "expires"
+                ],
+                "rows": [
+                  [
+                    "x_0",
+                    "a_0",
+                    10,
+                    4,
+                    20
+                  ],
+                  [
+                    "y_0",
+                    "a_0",
+                    8,
+                    2,
+                    30
+                  ],
+                  [
+                    "z_0",
+                    "b_0",
+                    5,
+                    1,
+                    10
+                  ]
+                ],
+                "truncated": false
+              },
+              {
+                "columns": [
+                  "now"
+                ],
+                "rows": [
+                  [
+                    20
+                  ]
+                ],
+                "truncated": false
+              }
+            ],
+            "rows_written": 0
+          },
+          "feedback_message": "Tool result: {\"results\":[{\"columns\":[\"id\",\"tenant\",\"issued\",\"consumed\",\"expires\"],\"rows\":[[\"x_0\",\"a_0\",10,4,20],[\"y_0\",\"a_0\",8,2,30],[\"z_0\",\"b_0\",5,1,10]],\"truncated\":false},{\"columns\":[\"now\"],\"rows\":[[20]],\"truncated\":false}],\"rows_written\":0}\nBudget: {\"turns_remaining\": 4, \"generated_tokens_remaining\": 1466}"
+        },
+        {
+          "turn": 3,
+          "input_tokens": 1648,
+          "output_tokens": 94,
+          "generation_seconds": 13.985564264999994,
+          "response": "```json\n{\"action\":\"query\",\"sql\":\"SELECT t.id, SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END) as committed, t.capacity - SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END) as free FROM tenants t JOIN leases l ON t.id = l.tenant CROSS JOIN clock c GROUP BY t.id;\"}\n```",
+          "reached_token_limit": false,
+          "action": "query",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "query",
+            "sql": "SELECT t.id, SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END) as committed, t.capacity - SUM(CASE WHEN l.expires > c.now THEN l.issued ELSE l.consumed END) as free FROM tenants t JOIN leases l ON t.id = l.tenant CROSS JOIN clock c GROUP BY t.id;"
+          },
+          "tool_seconds": 0.0009101499999815132,
+          "feedback": {
+            "results": [
+              {
+                "columns": [
+                  "id",
+                  "committed",
+                  "free"
+                ],
+                "rows": [
+                  [
+                    "a_0",
+                    12,
+                    28
+                  ],
+                  [
+                    "b_0",
+                    1,
+                    29
+                  ]
+                ],
+                "truncated": false
+              }
+            ],
+            "rows_written": 0
+          },
+          "feedback_message": "Tool result: {\"results\":[{\"columns\":[\"id\",\"committed\",\"free\"],\"rows\":[[\"a_0\",12,28],[\"b_0\",1,29]],\"truncated\":false}],\"rows_written\":0}\nBudget: {\"turns_remaining\": 3, \"generated_tokens_remaining\": 1372}"
+        },
+        {
+          "turn": 4,
+          "input_tokens": 1824,
+          "output_tokens": 46,
+          "generation_seconds": 8.650481284999955,
+          "response": "```json\n{\"action\":\"query\",\"sql\":\"SELECT tenant, committed, free FROM escrow UNION ALL SELECT 'missing' AS tenant, 0, 0 WHERE NOT EXISTS (SELECT 1 FROM escrow);\"}\n```",
+          "reached_token_limit": false,
+          "action": "query",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "query",
+            "sql": "SELECT tenant, committed, free FROM escrow UNION ALL SELECT 'missing' AS tenant, 0, 0 WHERE NOT EXISTS (SELECT 1 FROM escrow);"
+          },
+          "tool_seconds": 0.0008429780000369647,
+          "feedback": {
+            "results": [
+              {
+                "columns": [
+                  "tenant",
+                  "committed",
+                  "free"
+                ],
+                "rows": [
+                  [
+                    "a_0",
+                    8,
+                    32
+                  ],
+                  [
+                    "b_0",
+                    0,
+                    30
+                  ],
+                  [
+                    "c_0",
+                    0,
+                    20
+                  ]
+                ],
+                "truncated": false
+              }
+            ],
+            "rows_written": 0
+          },
+          "feedback_message": "Tool result: {\"results\":[{\"columns\":[\"tenant\",\"committed\",\"free\"],\"rows\":[[\"a_0\",8,32],[\"b_0\",0,30],[\"c_0\",0,20]],\"truncated\":false}],\"rows_written\":0}\nBudget: {\"turns_remaining\": 2, \"generated_tokens_remaining\": 1326}"
+        },
+        {
+          "turn": 5,
+          "input_tokens": 1961,
+          "output_tokens": 207,
+          "generation_seconds": 27.36904636199995,
+          "response": "```json\n{\"action\":\"test\",\"recovery_sql\":\"DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;\"}\n```",
+          "reached_token_limit": false,
+          "action": "test",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "test",
+            "recovery_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;",
+            "application_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;"
+          },
+          "tool_seconds": 0.0018091870000489507,
+          "feedback": {
+            "sql_executed": true,
+            "recovery_repeat_state_stable": true,
+            "first_rows_written": 2,
+            "repeat_rows_written": 2,
+            "recovered_tables": {
+              "escrow": [
+                [
+                  "a_0",
+                  8,
+                  32
+                ],
+                [
+                  "b_0",
+                  0,
+                  30
+                ],
+                [
+                  "c_0",
+                  0,
+                  20
+                ]
+              ],
+              "pool_free": [
+                [
+                  "p_0",
+                  92
+                ]
+              ]
+            },
+            "note": "No hidden correctness feedback. State stability does not imply zero writes."
+          },
+          "feedback_message": "Tool result: {\"sql_executed\":true,\"recovery_repeat_state_stable\":true,\"first_rows_written\":2,\"repeat_rows_written\":2,\"recovered_tables\":{\"escrow\":[[\"a_0\",8,32],[\"b_0\",0,30],[\"c_0\",0,20]],\"pool_free\":[[\"p_0\",92]]},\"note\":\"No hidden correctness feedback. State stability does not imply zero writes.\"}\nBudget: {\"turns_remaining\": 1, \"generated_tokens_remaining\": 1119}"
+        },
+        {
+          "turn": 6,
+          "input_tokens": 2304,
+          "output_tokens": 207,
+          "generation_seconds": 27.97479442300005,
+          "response": "```json\n{\"action\":\"submit\",\"recovery_sql\":\"DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;\"}\n```",
+          "reached_token_limit": false,
+          "action": "submit",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "submit",
+            "recovery_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;",
+            "application_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;"
+          },
+          "tool_seconds": 0.00017076199992516194
+        }
+      ],
+      "artifact": {
+        "application_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;",
+        "recovery_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;"
+      },
+      "artifact_turn": 6,
+      "stop_reason": "submitted",
+      "generated_tokens": 624,
+      "status": "completed",
+      "public_task_sha256": "fea6081b25a2c6dabd419b2d73f9a901efb0a5b76d41acd9be048614bf3407b3",
+      "system_prompt_sha256": "c2237575365d6753687bc7279af885bb07ae23abfa2a2a88f825106025aa7854",
+      "wall_seconds": 91.53439222899999,
+      "peak_allocated_GiB": 8.234461784362793,
+      "peak_reserved_GiB": 8.45703125
+    },
+    {
+      "id": "H08",
+      "method": "checklist",
+      "turns": [
+        {
+          "turn": 1,
+          "input_tokens": 1460,
+          "output_tokens": 46,
+          "generation_seconds": 7.930217675999984,
+          "response": "```json\n{\"action\":\"query\",\"sql\":\"SELECT tenant, committed, free FROM escrow UNION ALL SELECT 'missing' AS tenant, 0, 0 WHERE NOT EXISTS (SELECT 1 FROM escrow);\"}\n```",
+          "reached_token_limit": false,
+          "action": "query",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "query",
+            "sql": "SELECT tenant, committed, free FROM escrow UNION ALL SELECT 'missing' AS tenant, 0, 0 WHERE NOT EXISTS (SELECT 1 FROM escrow);"
+          },
+          "tool_seconds": 0.0008785180000359105,
+          "feedback": {
+            "results": [
+              {
+                "columns": [
+                  "tenant",
+                  "committed",
+                  "free"
+                ],
+                "rows": [
+                  [
+                    "a_0",
+                    8,
+                    32
+                  ],
+                  [
+                    "b_0",
+                    0,
+                    30
+                  ],
+                  [
+                    "c_0",
+                    0,
+                    20
+                  ]
+                ],
+                "truncated": false
+              }
+            ],
+            "rows_written": 0
+          },
+          "feedback_message": "Tool result: {\"results\":[{\"columns\":[\"tenant\",\"committed\",\"free\"],\"rows\":[[\"a_0\",8,32],[\"b_0\",0,30],[\"c_0\",0,20]],\"truncated\":false}],\"rows_written\":0}\nBudget: {\"turns_remaining\": 5, \"generated_tokens_remaining\": 1490}"
+        },
+        {
+          "turn": 2,
+          "input_tokens": 1597,
+          "output_tokens": 50,
+          "generation_seconds": 8.881397841999956,
+          "response": "thought\n```json\n{\"action\":\"query\",\"sql\":\"SELECT tenant, committed, free FROM escrow UNION ALL SELECT 'missing' AS tenant, 0, 0 WHERE NOT EXISTS (SELECT 1 FROM escrow);\"}\n```",
+          "reached_token_limit": false,
+          "action": "query",
+          "normalization": [
+            "leading_thought_marker",
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "query",
+            "sql": "SELECT tenant, committed, free FROM escrow UNION ALL SELECT 'missing' AS tenant, 0, 0 WHERE NOT EXISTS (SELECT 1 FROM escrow);"
+          },
+          "tool_seconds": 0.0008193400000209294,
+          "feedback": {
+            "results": [
+              {
+                "columns": [
+                  "tenant",
+                  "committed",
+                  "free"
+                ],
+                "rows": [
+                  [
+                    "a_0",
+                    8,
+                    32
+                  ],
+                  [
+                    "b_0",
+                    0,
+                    30
+                  ],
+                  [
+                    "c_0",
+                    0,
+                    20
+                  ]
+                ],
+                "truncated": false
+              }
+            ],
+            "rows_written": 0
+          },
+          "feedback_message": "Tool result: {\"results\":[{\"columns\":[\"tenant\",\"committed\",\"free\"],\"rows\":[[\"a_0\",8,32],[\"b_0\",0,30],[\"c_0\",0,20]],\"truncated\":false}],\"rows_written\":0}\nBudget: {\"turns_remaining\": 4, \"generated_tokens_remaining\": 1440}"
+        },
+        {
+          "turn": 3,
+          "input_tokens": 1736,
+          "output_tokens": 24,
+          "generation_seconds": 6.169192262000024,
+          "response": "thought\n```json\n{\"action\":\"query\",\"sql\":\"SELECT * FROM leases;--\"}\n```",
+          "reached_token_limit": false,
+          "action": "query",
+          "normalization": [
+            "leading_thought_marker",
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "query",
+            "sql": "SELECT * FROM leases;--"
+          },
+          "tool_seconds": 0.0008561519999830125,
+          "feedback": {
+            "results": [
+              {
+                "columns": [
+                  "id",
+                  "tenant",
+                  "issued",
+                  "consumed",
+                  "expires"
+                ],
+                "rows": [
+                  [
+                    "x_0",
+                    "a_0",
+                    10,
+                    4,
+                    20
+                  ],
+                  [
+                    "y_0",
+                    "a_0",
+                    8,
+                    2,
+                    30
+                  ],
+                  [
+                    "z_0",
+                    "b_0",
+                    5,
+                    1,
+                    10
+                  ]
+                ],
+                "truncated": false
+              }
+            ],
+            "rows_written": 0
+          },
+          "feedback_message": "Tool result: {\"results\":[{\"columns\":[\"id\",\"tenant\",\"issued\",\"consumed\",\"expires\"],\"rows\":[[\"x_0\",\"a_0\",10,4,20],[\"y_0\",\"a_0\",8,2,30],[\"z_0\",\"b_0\",5,1,10]],\"truncated\":false}],\"rows_written\":0}\nBudget: {\"turns_remaining\": 3, \"generated_tokens_remaining\": 1416}"
+        },
+        {
+          "turn": 4,
+          "input_tokens": 1872,
+          "output_tokens": 20,
+          "generation_seconds": 5.533555447000026,
+          "response": "```json\n{\"action\":\"query\",\"sql\":\"SELECT * FROM clock;--\"}\n```",
+          "reached_token_limit": false,
+          "action": "query",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "query",
+            "sql": "SELECT * FROM clock;--"
+          },
+          "tool_seconds": 0.0007770189999973809,
+          "feedback": {
+            "results": [
+              {
+                "columns": [
+                  "now"
+                ],
+                "rows": [
+                  [
+                    20
+                  ]
+                ],
+                "truncated": false
+              }
+            ],
+            "rows_written": 0
+          },
+          "feedback_message": "Tool result: {\"results\":[{\"columns\":[\"now\"],\"rows\":[[20]],\"truncated\":false}],\"rows_written\":0}\nBudget: {\"turns_remaining\": 2, \"generated_tokens_remaining\": 1396}"
+        },
+        {
+          "turn": 5,
+          "input_tokens": 1953,
+          "output_tokens": 208,
+          "generation_seconds": 27.533894637000003,
+          "response": "```json\n{\"action\":\"test\",\"recovery_sql\":\"DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;\"}\n```",
+          "reached_token_limit": false,
+          "action": "test",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "test",
+            "recovery_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;",
+            "application_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;"
+          },
+          "tool_seconds": 0.004491355999903135,
+          "feedback": {
+            "sql_executed": true,
+            "recovery_repeat_state_stable": true,
+            "first_rows_written": 2,
+            "repeat_rows_written": 2,
+            "recovered_tables": {
+              "escrow": [
+                [
+                  "a_0",
+                  8,
+                  32
+                ],
+                [
+                  "b_0",
+                  0,
+                  30
+                ],
+                [
+                  "c_0",
+                  0,
+                  20
+                ]
+              ],
+              "pool_free": [
+                [
+                  "p_0",
+                  92
+                ]
+              ]
+            },
+            "note": "No hidden correctness feedback. State stability does not imply zero writes."
+          },
+          "feedback_message": "Tool result: {\"sql_executed\":true,\"recovery_repeat_state_stable\":true,\"first_rows_written\":2,\"repeat_rows_written\":2,\"recovered_tables\":{\"escrow\":[[\"a_0\",8,32],[\"b_0\",0,30],[\"c_0\",0,20]],\"pool_free\":[[\"p_0\",92]]},\"note\":\"No hidden correctness feedback. State stability does not imply zero writes.\"}\nBudget: {\"turns_remaining\": 1, \"generated_tokens_remaining\": 1188}"
+        },
+        {
+          "turn": 6,
+          "input_tokens": 2296,
+          "output_tokens": 207,
+          "generation_seconds": 28.181099627000094,
+          "response": "```json\n{\"action\":\"submit\",\"recovery_sql\":\"DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;\"}\n```",
+          "reached_token_limit": false,
+          "action": "submit",
+          "normalization": [
+            "single_markdown_fence"
+          ],
+          "parsed_action": {
+            "action": "submit",
+            "recovery_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;",
+            "application_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;"
+          },
+          "tool_seconds": 0.0001723909999782336
+        }
+      ],
+      "artifact": {
+        "application_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;",
+        "recovery_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;"
+      },
+      "artifact_turn": 6,
+      "stop_reason": "submitted",
+      "generated_tokens": 555,
+      "status": "completed",
+      "public_task_sha256": "fea6081b25a2c6dabd419b2d73f9a901efb0a5b76d41acd9be048614bf3407b3",
+      "system_prompt_sha256": "a7845cadb0e1c1d0615d59f86f974a32d52eea1401f2829a147ee64746ff0559",
+      "wall_seconds": 84.29100284799995,
+      "peak_allocated_GiB": 8.231803894042969,
+      "peak_reserved_GiB": 8.45703125
+    }
+  ],
+  "configuration": {
+    "protocol": "afterfix-protocol-v2-patch-given",
+    "max_turns": 6,
+    "max_generated_tokens_per_case": 1536,
+    "max_generated_tokens_per_call": 512,
+    "max_input_tokens": 4096,
+    "case_seconds": 240,
+    "generation_seconds": 80,
+    "feedback_characters": 7000,
+    "seed": 17,
+    "thinking": false,
+    "decoding": "greedy",
+    "artifact_selection": "latest_schema_valid_test_or_submit_including_failed_execution",
+    "methods": {
+      "ordinary": {
+        "prompt_sha256": "c2237575365d6753687bc7279af885bb07ae23abfa2a2a88f825106025aa7854"
+      },
+      "checklist": {
+        "prompt_sha256": "a7845cadb0e1c1d0615d59f86f974a32d52eea1401f2829a147ee64746ff0559"
+      },
+      "provenance": {
+        "prompt_sha256": "fd177418870cdf83076744651b08c98eb76d950d6a98844b59fa2492f1edaaf6"
+      }
+    },
+    "condition": "correct_patch_given",
+    "grading_version": "afterfix-heldout-grader-v3",
+    "development_only": false,
+    "independent_families": 1,
+    "note": "H08 all-method correction block; original 24-case study remains separate; private seeds are not samples.",
+    "dataset": "afterfix-heldout-v1",
+    "planned_cases": 1,
+    "batch": 4,
+    "harness_version": "afterfix-harness-v2",
+    "evaluation_role": "H08 shared-harness correction; separate from v1",
+    "model": "google/gemma-4/transformers/gemma-4-12b-it/2",
+    "quantization": "CPU NF4 double quantization; FP16 compute",
+    "selected_methods": [
+      "ordinary",
+      "checklist",
+      "provenance"
+    ],
+    "schedule": [
+      {
+        "id": "H08",
+        "method": "provenance"
+      },
+      {
+        "id": "H08",
+        "method": "ordinary"
+      },
+      {
+        "id": "H08",
+        "method": "checklist"
+      }
+    ],
+    "prepared_checkpoint": {
+      "source": "google/gemma-4/transformers/gemma-4-12b-it/2",
+      "preparation_kernel": "nitishsongara/afterfix-checkpoint-cpu/1",
+      "quantization_backend": "CPU bitsandbytes NF4 double quantization, FP16 compute; not official QAT",
+      "config_sha256": "b9b660c0c3da1b6d8d89b5b497498b7f0600c1bb62cbc8d65c68701c546f8f73",
+      "weight_bytes": 7678310211,
+      "weight_files": 13
+    }
+  },
+  "worker_elapsed_seconds": 278.51495771900005,
+  "versions": {
+    "torch": "2.11.0+cu128",
+    "transformers": "5.20.2",
+    "accelerate": "1.15.0",
+    "bitsandbytes": "0.50.2",
+    "sqlite": "3.45.1",
+    "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]"
+  },
+  "gpus": [
+    {
+      "name": "Tesla T4",
+      "total_GiB": 14.56219482421875
+    },
+    {
+      "name": "Tesla T4",
+      "total_GiB": 14.56219482421875
+    }
+  ],
+  "host": {
+    "cpu_count": 4,
+    "torch_threads": 2,
+    "cuda_runtime": "12.8",
+    "memory": [
+      "MemTotal:       32869452 kB",
+      "MemAvailable:   31146748 kB",
+      "SwapTotal:             0 kB",
+      "SwapFree:              0 kB"
+    ]
+  },
+  "loading_phase": "ready",
+  "load_seconds": 13.061307780999982,
+  "parameter_devices": [
+    "cuda:0"
+  ]
+}

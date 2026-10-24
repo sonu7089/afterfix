@@ -1,0 +1,4442 @@
+[
+  {
+    "id": "H01",
+    "family": "delivery_workflows",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H01",
+      "family": "delivery_workflows",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 10,
+          "rows_written_repeat": 10,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 10,
+          "rows_written_repeat": 10,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 10,
+          "rows_written_repeat": 10,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H01",
+      "family": "delivery_workflows",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    },
+    "no_op": {
+      "id": "H01",
+      "family": "delivery_workflows",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    }
+  },
+  {
+    "id": "H02",
+    "family": "delivery_workflows",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H02",
+      "family": "delivery_workflows",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H02",
+      "family": "delivery_workflows",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H02",
+      "family": "delivery_workflows",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H03",
+    "family": "delivery_workflows",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H03",
+      "family": "delivery_workflows",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H03",
+      "family": "delivery_workflows",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    },
+    "no_op": {
+      "id": "H03",
+      "family": "delivery_workflows",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    }
+  },
+  {
+    "id": "H04",
+    "family": "delivery_workflows",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H04",
+      "family": "delivery_workflows",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H04",
+      "family": "delivery_workflows",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H04",
+      "family": "delivery_workflows",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H05",
+    "family": "coupled_resources",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H05",
+      "family": "coupled_resources",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 14,
+          "rows_written_repeat": 14,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 14,
+          "rows_written_repeat": 14,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 14,
+          "rows_written_repeat": 14,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H05",
+      "family": "coupled_resources",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    },
+    "no_op": {
+      "id": "H05",
+      "family": "coupled_resources",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    }
+  },
+  {
+    "id": "H06",
+    "family": "coupled_resources",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H06",
+      "family": "coupled_resources",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 12,
+          "rows_written_repeat": 12,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 12,
+          "rows_written_repeat": 12,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 12,
+          "rows_written_repeat": 12,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H06",
+      "family": "coupled_resources",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    },
+    "no_op": {
+      "id": "H06",
+      "family": "coupled_resources",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    }
+  },
+  {
+    "id": "H07",
+    "family": "coupled_resources",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H07",
+      "family": "coupled_resources",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H07",
+      "family": "coupled_resources",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H07",
+      "family": "coupled_resources",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H08",
+    "family": "coupled_resources",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H08",
+      "family": "coupled_resources",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H08",
+      "family": "coupled_resources",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 2,
+          "rows_written_repeat": 2,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 2,
+          "rows_written_repeat": 2,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 2,
+          "rows_written_repeat": 2,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H08",
+      "family": "coupled_resources",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H09",
+    "family": "versioned_storage",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H09",
+      "family": "versioned_storage",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 12,
+          "rows_written_repeat": 10,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 12,
+          "rows_written_repeat": 10,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 12,
+          "rows_written_repeat": 10,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H09",
+      "family": "versioned_storage",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 4,
+          "rows_written_repeat": 4,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 4,
+          "rows_written_repeat": 4,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 4,
+          "rows_written_repeat": 4,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H09",
+      "family": "versioned_storage",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H10",
+    "family": "versioned_storage",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H10",
+      "family": "versioned_storage",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 14,
+          "rows_written_repeat": 14,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 14,
+          "rows_written_repeat": 14,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 14,
+          "rows_written_repeat": 14,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H10",
+      "family": "versioned_storage",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H10",
+      "family": "versioned_storage",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H11",
+    "family": "versioned_storage",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H11",
+      "family": "versioned_storage",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H11",
+      "family": "versioned_storage",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    },
+    "no_op": {
+      "id": "H11",
+      "family": "versioned_storage",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    }
+  },
+  {
+    "id": "H12",
+    "family": "versioned_storage",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H12",
+      "family": "versioned_storage",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 4,
+          "rows_written_repeat": 4,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 4,
+          "rows_written_repeat": 4,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 4,
+          "rows_written_repeat": 4,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H12",
+      "family": "versioned_storage",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    },
+    "no_op": {
+      "id": "H12",
+      "family": "versioned_storage",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    }
+  },
+  {
+    "id": "H13",
+    "family": "authorization_graphs",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H13",
+      "family": "authorization_graphs",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 16,
+          "rows_written_repeat": 16,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 16,
+          "rows_written_repeat": 16,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 16,
+          "rows_written_repeat": 16,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H13",
+      "family": "authorization_graphs",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    },
+    "no_op": {
+      "id": "H13",
+      "family": "authorization_graphs",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    }
+  },
+  {
+    "id": "H14",
+    "family": "authorization_graphs",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H14",
+      "family": "authorization_graphs",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 5,
+          "rows_written_repeat": 4,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 5,
+          "rows_written_repeat": 4,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 5,
+          "rows_written_repeat": 4,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H14",
+      "family": "authorization_graphs",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    },
+    "no_op": {
+      "id": "H14",
+      "family": "authorization_graphs",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    }
+  },
+  {
+    "id": "H15",
+    "family": "authorization_graphs",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H15",
+      "family": "authorization_graphs",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 9,
+          "rows_written_repeat": 10,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 9,
+          "rows_written_repeat": 10,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 9,
+          "rows_written_repeat": 10,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H15",
+      "family": "authorization_graphs",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H15",
+      "family": "authorization_graphs",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H16",
+    "family": "authorization_graphs",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H16",
+      "family": "authorization_graphs",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H16",
+      "family": "authorization_graphs",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H16",
+      "family": "authorization_graphs",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H17",
+    "family": "ordered_state",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H17",
+      "family": "ordered_state",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H17",
+      "family": "ordered_state",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H17",
+      "family": "ordered_state",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H18",
+    "family": "ordered_state",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H18",
+      "family": "ordered_state",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 6,
+          "rows_written_repeat": 6,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H18",
+      "family": "ordered_state",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    },
+    "no_op": {
+      "id": "H18",
+      "family": "ordered_state",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    }
+  },
+  {
+    "id": "H19",
+    "family": "ordered_state",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H19",
+      "family": "ordered_state",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 8,
+          "rows_written_repeat": 8,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H19",
+      "family": "ordered_state",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H19",
+      "family": "ordered_state",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H20",
+    "family": "ordered_state",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H20",
+      "family": "ordered_state",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 10,
+          "rows_written_repeat": 12,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 10,
+          "rows_written_repeat": 12,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 10,
+          "rows_written_repeat": 12,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H20",
+      "family": "ordered_state",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H20",
+      "family": "ordered_state",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H21",
+    "family": "evidence_adjudication",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H21",
+      "family": "evidence_adjudication",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 10,
+          "rows_written_repeat": 10,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 10,
+          "rows_written_repeat": 10,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 10,
+          "rows_written_repeat": 10,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H21",
+      "family": "evidence_adjudication",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    },
+    "no_op": {
+      "id": "H21",
+      "family": "evidence_adjudication",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    }
+  },
+  {
+    "id": "H22",
+    "family": "evidence_adjudication",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H22",
+      "family": "evidence_adjudication",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 10,
+          "rows_written_repeat": 10,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 10,
+          "rows_written_repeat": 10,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 10,
+          "rows_written_repeat": 10,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H22",
+      "family": "evidence_adjudication",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H22",
+      "family": "evidence_adjudication",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H23",
+    "family": "evidence_adjudication",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H23",
+      "family": "evidence_adjudication",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 4,
+          "rows_written_repeat": 4,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 4,
+          "rows_written_repeat": 4,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 4,
+          "rows_written_repeat": 4,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H23",
+      "family": "evidence_adjudication",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "no_op": {
+      "id": "H23",
+      "family": "evidence_adjudication",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    }
+  },
+  {
+    "id": "H24",
+    "family": "evidence_adjudication",
+    "removed_clauses": 2,
+    "scope_adaptation": {
+      "id": "H24",
+      "family": "evidence_adjudication",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": true,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 7,
+          "rows_written_repeat": 6,
+          "complete": true
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 7,
+          "rows_written_repeat": 6,
+          "complete": true
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": true,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true,
+          "rows_written_first": 7,
+          "rows_written_repeat": 6,
+          "complete": true
+        }
+      ],
+      "outcome": "complete",
+      "components": {
+        "historical": true,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true
+      }
+    },
+    "patch_only": {
+      "id": "H24",
+      "family": "evidence_adjudication",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    },
+    "no_op": {
+      "id": "H24",
+      "family": "evidence_adjudication",
+      "grading_version": "afterfix-heldout-grader-v3",
+      "complete": false,
+      "sql_executed": true,
+      "variants": [
+        {
+          "seed": 0,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 7,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        },
+        {
+          "seed": 19,
+          "sql_executed": true,
+          "fixed_patch_unchanged": true,
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false,
+          "rows_written_first": 0,
+          "rows_written_repeat": 0,
+          "complete": false
+        }
+      ],
+      "outcome": "executable_but_wrong",
+      "components": {
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": false
+      }
+    }
+  }
+]

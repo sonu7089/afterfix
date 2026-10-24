@@ -1,0 +1,44 @@
+{
+  "post_hoc": true,
+  "gpu_jobs_started": 0,
+  "cases": 24,
+  "seeds": [
+    0,
+    7,
+    19
+  ],
+  "candidate_sha256": "558012d1feba2bfbb09de0ea6b48f2042a0e15dfc093f4dc7589309992144030",
+  "candidates": {
+    "scope_adaptation": {
+      "full": 24,
+      "executable": 24,
+      "stable": 24
+    },
+    "patch_only": {
+      "full": 0,
+      "executable": 24,
+      "stable": 24
+    },
+    "no_op": {
+      "full": 0,
+      "executable": 24,
+      "stable": 24
+    }
+  },
+  "metric_overlap": {
+    "original": {
+      "attempts": 72,
+      "executables": 60,
+      "executable_stable": 60,
+      "historical_pass_but_not_full": [],
+      "executable_wrong": 57
+    },
+    "v3": {
+      "attempts": 144,
+      "executables": 132,
+      "executable_stable": 132,
+      "historical_pass_but_not_full": [],
+      "executable_wrong": 48
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "source": "google/gemma-4/transformers/gemma-4-12b-it/2",
+  "files": [
+    {
+      "name": "README.md",
+      "listed_bytes": 27867
+    },
+    {
+      "name": "chat_template.jinja",
+      "listed_bytes": 17466
+    },
+    {
+      "name": "config.json",
+      "listed_bytes": 4423
+    },
+    {
+      "name": "generation_config.json",
+      "listed_bytes": 260
+    },
+    {
+      "name": "model.safetensors",
+      "listed_bytes": 23919549408
+    },
+    {
+      "name": "processor_config.json",
+      "listed_bytes": 1382
+    },
+    {
+      "name": "tokenizer.json",
+      "listed_bytes": 32169626
+    },
+    {
+      "name": "tokenizer_config.json",
+      "listed_bytes": 2102
+    }
+  ],
+  "downloaded_notices": [
+    {
+      "name": "README.md",
+      "bytes": 27867,
+      "sha256": "90fe018915b02f8a95fbb53ec75c9cb7bfe3b7c49ea232a79328a8854f988332"
+    }
+  ],
+  "base_weights_downloaded": false
+}

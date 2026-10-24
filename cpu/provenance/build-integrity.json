@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "seals": {
+    "seal-v1.json": {
+      "sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+      "files_verified": 143
+    },
+    "harness-v2-seal.json": {
+      "sha256": "53b7ddcb05835abffeff23639db5c1b9249a87ce03306e31cb893b0359cdcdf9",
+      "files_verified": 35
+    },
+    "deep-study-seal-v1.json": {
+      "sha256": "a5f308bd3b047e3a69659982e5a9d6576c0752d9f560686626822c2978cce12d",
+      "files_verified": 45
+    },
+    "deep-study-seal-v2.json": {
+      "sha256": "45160e539a506dc87515a43c124df07936c8b2d4514db77c1b6a82f4aef41fa0",
+      "files_verified": 53
+    },
+    "bos-smoke-seal-v1.json": {
+      "sha256": "d5d75c97e775cb7c7c061f28b8cec364b09d5dca95ebc5b8163130c63b961add",
+      "files_verified": 18
+    },
+    "deep-study-seal-v3.json": {
+      "sha256": "1b5dab30de76cd900e2e42fede026b8ba7c51b4c6ed908cd6c542f876bbf0a69",
+      "files_verified": 43
+    }
+  },
+  "preserved_prior_evidence_files": 89
+}

@@ -1,0 +1,151 @@
+{
+  "status": "passed",
+  "shards": [
+    {
+      "file": "model-00001-of-00013.safetensors",
+      "header_bytes": 144,
+      "tensors": 1,
+      "dtypes": [
+        "F16"
+      ],
+      "data_bytes": 2013265920
+    },
+    {
+      "file": "model-00002-of-00013.safetensors",
+      "header_bytes": 28808,
+      "tensors": 224,
+      "dtypes": [
+        "F16",
+        "F32",
+        "U8"
+      ],
+      "data_bytes": 502503241
+    },
+    {
+      "file": "model-00003-of-00013.safetensors",
+      "header_bytes": 25520,
+      "tensors": 196,
+      "dtypes": [
+        "F16",
+        "F32",
+        "U8"
+      ],
+      "data_bytes": 502212073
+    },
+    {
+      "file": "model-00004-of-00013.safetensors",
+      "header_bytes": 25632,
+      "tensors": 196,
+      "dtypes": [
+        "F16",
+        "F32",
+        "U8"
+      ],
+      "data_bytes": 502212069
+    },
+    {
+      "file": "model-00005-of-00013.safetensors",
+      "header_bytes": 28720,
+      "tensors": 219,
+      "dtypes": [
+        "F16",
+        "F32",
+        "U8"
+      ],
+      "data_bytes": 505281611
+    },
+    {
+      "file": "model-00006-of-00013.safetensors",
+      "header_bytes": 26752,
+      "tensors": 204,
+      "dtypes": [
+        "F16",
+        "F32",
+        "U8"
+      ],
+      "data_bytes": 483964699
+    },
+    {
+      "file": "model-00007-of-00013.safetensors",
+      "header_bytes": 25720,
+      "tensors": 196,
+      "dtypes": [
+        "F16",
+        "F32",
+        "U8"
+      ],
+      "data_bytes": 502212071
+    },
+    {
+      "file": "model-00008-of-00013.safetensors",
+      "header_bytes": 26512,
+      "tensors": 202,
+      "dtypes": [
+        "F16",
+        "F32",
+        "U8"
+      ],
+      "data_bytes": 493084144
+    },
+    {
+      "file": "model-00009-of-00013.safetensors",
+      "header_bytes": 27000,
+      "tensors": 206,
+      "dtypes": [
+        "F16",
+        "F32",
+        "U8"
+      ],
+      "data_bytes": 506293844
+    },
+    {
+      "file": "model-00010-of-00013.safetensors",
+      "header_bytes": 27656,
+      "tensors": 211,
+      "dtypes": [
+        "F16",
+        "F32",
+        "U8"
+      ],
+      "data_bytes": 492080383
+    },
+    {
+      "file": "model-00011-of-00013.safetensors",
+      "header_bytes": 25720,
+      "tensors": 196,
+      "dtypes": [
+        "F16",
+        "F32",
+        "U8"
+      ],
+      "data_bytes": 502212070
+    },
+    {
+      "file": "model-00012-of-00013.safetensors",
+      "header_bytes": 26512,
+      "tensors": 202,
+      "dtypes": [
+        "F16",
+        "F32",
+        "U8"
+      ],
+      "data_bytes": 493084145
+    },
+    {
+      "file": "model-00013-of-00013.safetensors",
+      "header_bytes": 10296,
+      "tensors": 79,
+      "dtypes": [
+        "F16",
+        "F32",
+        "U8"
+      ],
+      "data_bytes": 179598845
+    }
+  ],
+  "tensors": 2332,
+  "index_matches_headers": true,
+  "offsets_and_tensor_byte_lengths_valid": true,
+  "model_loaded": false,
+  "gpu_used": false
+}

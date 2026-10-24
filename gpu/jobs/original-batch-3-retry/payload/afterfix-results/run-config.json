@@ -1,0 +1,87 @@
+{
+  "batch": 3,
+  "dataset": "afterfix-heldout-v1",
+  "seal_sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+  "schedule": [
+    {
+      "id": "H03",
+      "method": "checklist"
+    },
+    {
+      "id": "H03",
+      "method": "ordinary"
+    },
+    {
+      "id": "H03",
+      "method": "provenance"
+    },
+    {
+      "id": "H07",
+      "method": "checklist"
+    },
+    {
+      "id": "H07",
+      "method": "provenance"
+    },
+    {
+      "id": "H07",
+      "method": "ordinary"
+    },
+    {
+      "id": "H11",
+      "method": "provenance"
+    },
+    {
+      "id": "H11",
+      "method": "ordinary"
+    },
+    {
+      "id": "H11",
+      "method": "checklist"
+    },
+    {
+      "id": "H15",
+      "method": "provenance"
+    },
+    {
+      "id": "H15",
+      "method": "checklist"
+    },
+    {
+      "id": "H15",
+      "method": "ordinary"
+    },
+    {
+      "id": "H19",
+      "method": "ordinary"
+    },
+    {
+      "id": "H19",
+      "method": "checklist"
+    },
+    {
+      "id": "H19",
+      "method": "provenance"
+    },
+    {
+      "id": "H23",
+      "method": "ordinary"
+    },
+    {
+      "id": "H23",
+      "method": "provenance"
+    },
+    {
+      "id": "H23",
+      "method": "checklist"
+    }
+  ],
+  "tokenizer_files": {
+    "AFTERFIX_PROVENANCE.json": "ab5b2878671d600252c57274c6cc0f76da3d1345359814da9c6f27e537ed0976",
+    "chat_template.jinja": "36e3a42e5cf14cd0020e72d92e1fdd9970f59b82170e421f0cbe1bb42bead3f0",
+    "config.json": "b9b660c0c3da1b6d8d89b5b497498b7f0600c1bb62cbc8d65c68701c546f8f73",
+    "processor_config.json": "6b938e76555b3e9946890770e1abcd442a4718f34041a58e8139dc8ad34545c9",
+    "tokenizer.json": "cc8d3a0ce36466ccc1278bf987df5f71db1719b9ca6b4118264f45cb627bfe0f",
+    "tokenizer_config.json": "a4260621db48fa22f2b09ce3ba5ad0ec0cc0e032aa702e3ab743a0bc9d6e1d06"
+  }
+}

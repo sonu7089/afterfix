@@ -1,0 +1,410 @@
+{
+  "public_source_sha256": "b2ee173ad3b19968728d1d2f44768b51348950e8e4b26825966a942213bfbda5",
+  "pattern": "\\s+(?:WHERE|AND)\\s+[A-Za-z_]\\w*(?:\\.[A-Za-z_]\\w*)?\\s+IN\\s*\\(\\s*SELECT\\s+entity\\s+FROM\\s+work\\s*\\)",
+  "plan_sha256": "c8359caaa8b619f63e9e09f136a022bd1b83c96c7b6d1e407e0b78d32f3373f8",
+  "cases": [
+    {
+      "id": "H01",
+      "family": "delivery_workflows",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "messages",
+        "receipts",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM outbox WHERE id IN (SELECT entity FROM work); INSERT INTO outbox SELECT m.id,CASE WHEN EXISTS(SELECT 1 FROM receipts r WHERE r.message=m.id AND r.result='accepted') THEN 'delivered'\nWHEN m.enabled=0 THEN 'canceled' WHEN EXISTS(SELECT 1 FROM receipts r WHERE r.message=m.id AND r.result='permanent') THEN 'failed' ELSE 'pending' END,\nCOALESCE((SELECT MAX(attempt) FROM receipts r WHERE r.message=m.id),0) FROM messages m WHERE m.id IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM outbox; INSERT INTO outbox SELECT m.id,CASE WHEN EXISTS(SELECT 1 FROM receipts r WHERE r.message=m.id AND r.result='accepted') THEN 'delivered'\nWHEN m.enabled=0 THEN 'canceled' WHEN EXISTS(SELECT 1 FROM receipts r WHERE r.message=m.id AND r.result='permanent') THEN 'failed' ELSE 'pending' END,\nCOALESCE((SELECT MAX(attempt) FROM receipts r WHERE r.message=m.id),0) FROM messages m;"
+      }
+    },
+    {
+      "id": "H02",
+      "family": "delivery_workflows",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "entities",
+        "events",
+        "attempts",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM applied WHERE entity IN (SELECT entity FROM work); INSERT INTO applied SELECT * FROM (SELECT x.id AS entity,COALESCE((SELECT value FROM events e WHERE e.entity=x.id AND EXISTS(SELECT 1 FROM attempts a WHERE a.event=e.id AND a.outcome='committed') ORDER BY revision DESC LIMIT 1),x.initial),COALESCE((SELECT MAX(revision) FROM events e WHERE e.entity=x.id AND EXISTS(SELECT 1 FROM attempts a WHERE a.event=e.id AND a.outcome='committed')),0) FROM entities x) WHERE entity IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM applied; INSERT INTO applied SELECT * FROM (SELECT x.id AS entity,COALESCE((SELECT value FROM events e WHERE e.entity=x.id AND EXISTS(SELECT 1 FROM attempts a WHERE a.event=e.id AND a.outcome='committed') ORDER BY revision DESC LIMIT 1),x.initial),COALESCE((SELECT MAX(revision) FROM events e WHERE e.entity=x.id AND EXISTS(SELECT 1 FROM attempts a WHERE a.event=e.id AND a.outcome='committed')),0) FROM entities x);"
+      }
+    },
+    {
+      "id": "H03",
+      "family": "delivery_workflows",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "parents",
+        "steps",
+        "undo_receipts",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM compensation WHERE step IN (SELECT entity FROM work); INSERT INTO compensation SELECT * FROM (SELECT s.id AS step,CASE WHEN p.state='canceled' AND s.state='completed' THEN CASE WHEN EXISTS(SELECT 1 FROM undo_receipts u WHERE u.step=s.id AND u.accepted=1) THEN 'done' ELSE 'pending' END ELSE 'none' END,CASE WHEN p.state='canceled' AND s.state='completed' THEN s.cost ELSE 0 END FROM steps s JOIN parents p ON p.id=s.parent) WHERE step IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM compensation; INSERT INTO compensation SELECT * FROM (SELECT s.id AS step,CASE WHEN p.state='canceled' AND s.state='completed' THEN CASE WHEN EXISTS(SELECT 1 FROM undo_receipts u WHERE u.step=s.id AND u.accepted=1) THEN 'done' ELSE 'pending' END ELSE 'none' END,CASE WHEN p.state='canceled' AND s.state='completed' THEN s.cost ELSE 0 END FROM steps s JOIN parents p ON p.id=s.parent);"
+      }
+    },
+    {
+      "id": "H04",
+      "family": "delivery_workflows",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "leases",
+        "completions",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM job_results WHERE job IN (SELECT entity FROM work); INSERT INTO job_results SELECT * FROM (SELECT l.job,CASE WHEN EXISTS(SELECT 1 FROM completions c WHERE c.job=l.job AND c.generation=l.generation AND c.fence=l.fence AND c.owner=l.owner) THEN 'done' ELSE 'pending' END,COALESCE((SELECT value FROM completions c WHERE c.job=l.job AND c.generation=l.generation AND c.fence=l.fence AND c.owner=l.owner ORDER BY seq DESC LIMIT 1),0) FROM leases l) WHERE job IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM job_results; INSERT INTO job_results SELECT * FROM (SELECT l.job,CASE WHEN EXISTS(SELECT 1 FROM completions c WHERE c.job=l.job AND c.generation=l.generation AND c.fence=l.fence AND c.owner=l.owner) THEN 'done' ELSE 'pending' END,COALESCE((SELECT value FROM completions c WHERE c.job=l.job AND c.generation=l.generation AND c.fence=l.fence AND c.owner=l.owner ORDER BY seq DESC LIMIT 1),0) FROM leases l);"
+      }
+    },
+    {
+      "id": "H05",
+      "family": "coupled_resources",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "inventory",
+        "bundles",
+        "parts",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM allocations WHERE bundle IN (SELECT entity FROM work); INSERT INTO allocations SELECT p.bundle,p.sku,p.units FROM parts p JOIN bundles b ON b.id=p.bundle WHERE b.status='committed' AND b.id IN (SELECT entity FROM work); DELETE FROM available; INSERT INTO available SELECT i.sku,i.total-COALESCE((SELECT SUM(a.qty) FROM allocations a WHERE a.sku=i.sku),0) FROM inventory i;",
+        "recovery_sql": "DELETE FROM allocations; INSERT INTO allocations SELECT p.bundle,p.sku,p.units FROM parts p JOIN bundles b ON b.id=p.bundle WHERE b.status='committed'; DELETE FROM available; INSERT INTO available SELECT i.sku,i.total-COALESCE((SELECT SUM(a.qty) FROM allocations a WHERE a.sku=i.sku),0) FROM inventory i;"
+      }
+    },
+    {
+      "id": "H06",
+      "family": "coupled_resources",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "warehouses",
+        "transfers",
+        "receipts",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM transfer_state WHERE id IN (SELECT entity FROM work); INSERT INTO transfer_state SELECT * FROM (SELECT t.id,t.qty*t.accepted,CASE WHEN t.accepted=1 THEN COALESCE((SELECT SUM(qty) FROM receipts r WHERE r.transfer=t.id AND r.accepted=1),0) ELSE 0 END,t.qty*t.accepted-(CASE WHEN t.accepted=1 THEN COALESCE((SELECT SUM(qty) FROM receipts r WHERE r.transfer=t.id AND r.accepted=1),0) ELSE 0 END) FROM transfers t) WHERE id IN (SELECT entity FROM work);DELETE FROM stock; INSERT INTO stock SELECT w.id,w.opening-COALESCE((SELECT SUM(s.debit) FROM transfer_state s JOIN transfers t ON t.id=s.id WHERE t.source=w.id),0)+COALESCE((SELECT SUM(s.credit) FROM transfer_state s JOIN transfers t ON t.id=s.id WHERE t.destination=w.id),0) FROM warehouses w;",
+        "recovery_sql": "DELETE FROM transfer_state; INSERT INTO transfer_state SELECT * FROM (SELECT t.id,t.qty*t.accepted,CASE WHEN t.accepted=1 THEN COALESCE((SELECT SUM(qty) FROM receipts r WHERE r.transfer=t.id AND r.accepted=1),0) ELSE 0 END,t.qty*t.accepted-(CASE WHEN t.accepted=1 THEN COALESCE((SELECT SUM(qty) FROM receipts r WHERE r.transfer=t.id AND r.accepted=1),0) ELSE 0 END) FROM transfers t);DELETE FROM stock; INSERT INTO stock SELECT w.id,w.opening-COALESCE((SELECT SUM(s.debit) FROM transfer_state s JOIN transfers t ON t.id=s.id WHERE t.source=w.id),0)+COALESCE((SELECT SUM(s.credit) FROM transfer_state s JOIN transfers t ON t.id=s.id WHERE t.destination=w.id),0) FROM warehouses w;"
+      }
+    },
+    {
+      "id": "H07",
+      "family": "coupled_resources",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "lines",
+        "shipments",
+        "returns",
+        "replacements",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM line_state WHERE line IN (SELECT entity FROM work); INSERT INTO line_state SELECT * FROM (SELECT l.id AS line,l.ordered-COALESCE((SELECT SUM(qty) FROM shipments s WHERE s.line=l.id),0),COALESCE((SELECT SUM(qty) FROM shipments s WHERE s.line=l.id),0)-COALESCE((SELECT SUM(r.qty) FROM returns r JOIN shipments s ON s.id=r.shipment WHERE s.line=l.id AND r.accepted=1),0),COALESCE((SELECT SUM(r.qty-COALESCE(p.shipped,0)) FROM returns r JOIN shipments s ON s.id=r.shipment LEFT JOIN replacements p ON p.return_id=r.id WHERE s.line=l.id AND r.accepted=1),0) FROM lines l) WHERE line IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM line_state; INSERT INTO line_state SELECT * FROM (SELECT l.id AS line,l.ordered-COALESCE((SELECT SUM(qty) FROM shipments s WHERE s.line=l.id),0),COALESCE((SELECT SUM(qty) FROM shipments s WHERE s.line=l.id),0)-COALESCE((SELECT SUM(r.qty) FROM returns r JOIN shipments s ON s.id=r.shipment WHERE s.line=l.id AND r.accepted=1),0),COALESCE((SELECT SUM(r.qty-COALESCE(p.shipped,0)) FROM returns r JOIN shipments s ON s.id=r.shipment LEFT JOIN replacements p ON p.return_id=r.id WHERE s.line=l.id AND r.accepted=1),0) FROM lines l);"
+      }
+    },
+    {
+      "id": "H08",
+      "family": "coupled_resources",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "clock",
+        "pools",
+        "tenants",
+        "leases",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;",
+        "recovery_sql": "DELETE FROM escrow; INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;"
+      }
+    },
+    {
+      "id": "H09",
+      "family": "versioned_storage",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "snapshots",
+        "heads",
+        "members",
+        "files",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM active_files WHERE dataset IN (SELECT entity FROM work); INSERT INTO active_files SELECT h.dataset,f.id,f.rows FROM heads h JOIN snapshots s ON s.id=h.snapshot AND s.dataset=h.dataset AND s.status='committed' JOIN members m ON m.snapshot=s.id JOIN files f ON f.id=m.file WHERE h.dataset IN (SELECT entity FROM work); DELETE FROM dataset_totals; INSERT INTO dataset_totals SELECT h.dataset,COALESCE((SELECT SUM(a.rows) FROM active_files a WHERE a.dataset=h.dataset),0) FROM heads h;",
+        "recovery_sql": "DELETE FROM active_files; INSERT INTO active_files SELECT h.dataset,f.id,f.rows FROM heads h JOIN snapshots s ON s.id=h.snapshot AND s.dataset=h.dataset AND s.status='committed' JOIN members m ON m.snapshot=s.id JOIN files f ON f.id=m.file; DELETE FROM dataset_totals; INSERT INTO dataset_totals SELECT h.dataset,COALESCE((SELECT SUM(a.rows) FROM active_files a WHERE a.dataset=h.dataset),0) FROM heads h;"
+      }
+    },
+    {
+      "id": "H10",
+      "family": "versioned_storage",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "slots",
+        "segments",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM coverage WHERE dataset IN (SELECT entity FROM work); INSERT INTO coverage SELECT * FROM (SELECT s.dataset,s.pos,f.id,f.generation FROM slots s JOIN segments f ON f.dataset=s.dataset AND s.pos>=f.lo AND s.pos<f.hi AND f.published=1 WHERE NOT EXISTS(SELECT 1 FROM segments g WHERE g.dataset=s.dataset AND s.pos>=g.lo AND s.pos<g.hi AND g.published=1 AND g.generation>f.generation)) WHERE dataset IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM coverage; INSERT INTO coverage SELECT * FROM (SELECT s.dataset,s.pos,f.id,f.generation FROM slots s JOIN segments f ON f.dataset=s.dataset AND s.pos>=f.lo AND s.pos<f.hi AND f.published=1 WHERE NOT EXISTS(SELECT 1 FROM segments g WHERE g.dataset=s.dataset AND s.pos>=g.lo AND s.pos<g.hi AND g.published=1 AND g.generation>f.generation));"
+      }
+    },
+    {
+      "id": "H11",
+      "family": "versioned_storage",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "documents",
+        "defaults",
+        "edits",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM migrated WHERE id IN (SELECT entity FROM work); INSERT INTO migrated SELECT * FROM (SELECT d.id,CASE WHEN EXISTS(SELECT 1 FROM edits e WHERE e.id=d.id) THEN (SELECT value FROM edits e WHERE e.id=d.id ORDER BY seq DESC LIMIT 1) WHEN d.present=1 THEN d.value ELSE f.value END,CASE WHEN EXISTS(SELECT 1 FROM edits e WHERE e.id=d.id) THEN 'operator' WHEN d.present=1 THEN 'stored' ELSE 'default' END,COALESCE((SELECT MAX(seq) FROM edits e WHERE e.id=d.id),0) FROM documents d JOIN defaults f ON f.epoch=d.epoch) WHERE id IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM migrated; INSERT INTO migrated SELECT * FROM (SELECT d.id,CASE WHEN EXISTS(SELECT 1 FROM edits e WHERE e.id=d.id) THEN (SELECT value FROM edits e WHERE e.id=d.id ORDER BY seq DESC LIMIT 1) WHEN d.present=1 THEN d.value ELSE f.value END,CASE WHEN EXISTS(SELECT 1 FROM edits e WHERE e.id=d.id) THEN 'operator' WHEN d.present=1 THEN 'stored' ELSE 'default' END,COALESCE((SELECT MAX(seq) FROM edits e WHERE e.id=d.id),0) FROM documents d JOIN defaults f ON f.epoch=d.epoch);"
+      }
+    },
+    {
+      "id": "H12",
+      "family": "versioned_storage",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "objects",
+        "materializations",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM cache WHERE key IN (SELECT entity FROM work); INSERT INTO cache SELECT * FROM (SELECT o.key,o.generation,m.value,m.seq FROM objects o JOIN materializations m ON m.key=o.key AND m.generation=o.generation WHERE o.active=1 AND m.accepted=1 AND NOT EXISTS(SELECT 1 FROM materializations x WHERE x.key=m.key AND x.generation=m.generation AND x.accepted=1 AND x.seq>m.seq)) WHERE key IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM cache; INSERT INTO cache SELECT * FROM (SELECT o.key,o.generation,m.value,m.seq FROM objects o JOIN materializations m ON m.key=o.key AND m.generation=o.generation WHERE o.active=1 AND m.accepted=1 AND NOT EXISTS(SELECT 1 FROM materializations x WHERE x.key=m.key AND x.generation=m.generation AND x.accepted=1 AND x.seq>m.seq));"
+      }
+    },
+    {
+      "id": "H13",
+      "family": "authorization_graphs",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "users",
+        "memberships",
+        "role_edges",
+        "grants",
+        "denies",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM effective_access WHERE user IN (SELECT entity FROM work); INSERT INTO effective_access WITH RECURSIVE reach(user,role) AS (SELECT user,role FROM memberships UNION\nSELECT r.user,e.parent FROM reach r JOIN role_edges e ON e.child=r.role) SELECT DISTINCT r.user,g.resource FROM reach r JOIN grants g ON g.role=r.role WHERE g.enabled=1 AND NOT EXISTS(SELECT 1 FROM denies d WHERE d.user=r.user AND d.resource=g.resource) AND r.user IN (SELECT entity FROM work); DELETE FROM access_counts; INSERT INTO access_counts SELECT u.id,(SELECT COUNT(*) FROM effective_access a WHERE a.user=u.id) FROM users u;",
+        "recovery_sql": "DELETE FROM effective_access; INSERT INTO effective_access WITH RECURSIVE reach(user,role) AS (SELECT user,role FROM memberships UNION\nSELECT r.user,e.parent FROM reach r JOIN role_edges e ON e.child=r.role) SELECT DISTINCT r.user,g.resource FROM reach r JOIN grants g ON g.role=r.role WHERE g.enabled=1 AND NOT EXISTS(SELECT 1 FROM denies d WHERE d.user=r.user AND d.resource=g.resource); DELETE FROM access_counts; INSERT INTO access_counts SELECT u.id,(SELECT COUNT(*) FROM effective_access a WHERE a.user=u.id) FROM users u;"
+      }
+    },
+    {
+      "id": "H14",
+      "family": "authorization_graphs",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "delegations",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM access WHERE user IN (SELECT entity FROM work); INSERT INTO access SELECT * FROM (WITH RECURSIVE live(id,user,resource) AS (SELECT id,user,resource FROM delegations WHERE parent IS NULL AND revoked=0 UNION ALL SELECT d.id,d.user,d.resource FROM delegations d JOIN live l ON d.parent=l.id WHERE d.revoked=0) SELECT user,resource,COUNT(*) FROM live GROUP BY user,resource) WHERE user IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM access; INSERT INTO access SELECT * FROM (WITH RECURSIVE live(id,user,resource) AS (SELECT id,user,resource FROM delegations WHERE parent IS NULL AND revoked=0 UNION ALL SELECT d.id,d.user,d.resource FROM delegations d JOIN live l ON d.parent=l.id WHERE d.revoked=0) SELECT user,resource,COUNT(*) FROM live GROUP BY user,resource);"
+      }
+    },
+    {
+      "id": "H15",
+      "family": "authorization_graphs",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "assignments",
+        "routing",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM membership WHERE user IN (SELECT entity FROM work); INSERT INTO membership SELECT * FROM (SELECT user,team,COUNT(*) FROM (SELECT user,origin AS team FROM assignments WHERE kind='direct' AND active=1 UNION ALL SELECT a.user,r.target FROM assignments a JOIN routing r ON r.assignment=a.id WHERE a.kind='inherited' AND a.active=1 AND r.accepted=1) GROUP BY user,team) WHERE user IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM membership; INSERT INTO membership SELECT * FROM (SELECT user,team,COUNT(*) FROM (SELECT user,origin AS team FROM assignments WHERE kind='direct' AND active=1 UNION ALL SELECT a.user,r.target FROM assignments a JOIN routing r ON r.assignment=a.id WHERE a.kind='inherited' AND a.active=1 AND r.accepted=1) GROUP BY user,team);"
+      }
+    },
+    {
+      "id": "H16",
+      "family": "authorization_graphs",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "clock",
+        "capabilities",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM effective WHERE id IN (SELECT entity FROM work); INSERT INTO effective SELECT * FROM (WITH RECURSIVE c(id,mask,expires) AS (SELECT id,mask,expires FROM capabilities WHERE parent IS NULL UNION ALL SELECT a.id,a.mask&c.mask,MIN(a.expires,c.expires) FROM capabilities a JOIN c ON a.parent=c.id) SELECT c.id,c.mask,c.expires FROM c CROSS JOIN clock t WHERE c.mask>0 AND c.expires>t.now) WHERE id IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM effective; INSERT INTO effective SELECT * FROM (WITH RECURSIVE c(id,mask,expires) AS (SELECT id,mask,expires FROM capabilities WHERE parent IS NULL UNION ALL SELECT a.id,a.mask&c.mask,MIN(a.expires,c.expires) FROM capabilities a JOIN c ON a.parent=c.id) SELECT c.id,c.mask,c.expires FROM c CROSS JOIN clock t WHERE c.mask>0 AND c.expires>t.now);"
+      }
+    },
+    {
+      "id": "H17",
+      "family": "ordered_state",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "meters",
+        "commands",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM readings WHERE meter IN (SELECT entity FROM work); INSERT INTO readings SELECT m.id,COALESCE((SELECT amount FROM commands c WHERE c.meter=m.id AND c.kind='SET' ORDER BY seq DESC LIMIT 1),m.opening)+\nCOALESCE((SELECT SUM(amount) FROM commands c WHERE c.meter=m.id AND c.kind='ADD' AND c.seq>COALESCE((SELECT MAX(seq) FROM commands s WHERE s.meter=m.id AND s.kind='SET'),0)),0),\nCOALESCE((SELECT MAX(seq) FROM commands c WHERE c.meter=m.id),0) FROM meters m WHERE m.id IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM readings; INSERT INTO readings SELECT m.id,COALESCE((SELECT amount FROM commands c WHERE c.meter=m.id AND c.kind='SET' ORDER BY seq DESC LIMIT 1),m.opening)+\nCOALESCE((SELECT SUM(amount) FROM commands c WHERE c.meter=m.id AND c.kind='ADD' AND c.seq>COALESCE((SELECT MAX(seq) FROM commands s WHERE s.meter=m.id AND s.kind='SET'),0)),0),\nCOALESCE((SELECT MAX(seq) FROM commands c WHERE c.meter=m.id),0) FROM meters m;"
+      }
+    },
+    {
+      "id": "H18",
+      "family": "ordered_state",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "reservations",
+        "versions",
+        "actions",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM allocation WHERE reservation IN (SELECT entity FROM work); INSERT INTO allocation SELECT * FROM (WITH current AS (SELECT r.id,(SELECT version FROM actions a WHERE a.reservation=r.id AND a.kind='activate' ORDER BY seq DESC LIMIT 1) AS v FROM reservations r) SELECT c.id AS reservation,c.v,CASE WHEN (SELECT kind FROM actions a WHERE a.reservation=c.id AND a.version=c.v ORDER BY seq DESC LIMIT 1)='cancel' THEN 0 ELSE v.qty END FROM current c JOIN versions v ON v.reservation=c.id AND v.version=c.v) WHERE reservation IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM allocation; INSERT INTO allocation SELECT * FROM (WITH current AS (SELECT r.id,(SELECT version FROM actions a WHERE a.reservation=r.id AND a.kind='activate' ORDER BY seq DESC LIMIT 1) AS v FROM reservations r) SELECT c.id AS reservation,c.v,CASE WHEN (SELECT kind FROM actions a WHERE a.reservation=c.id AND a.version=c.v ORDER BY seq DESC LIMIT 1)='cancel' THEN 0 ELSE v.qty END FROM current c JOIN versions v ON v.reservation=c.id AND v.version=c.v);"
+      }
+    },
+    {
+      "id": "H19",
+      "family": "ordered_state",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "accounts",
+        "usage_events",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM charges WHERE account IN (SELECT entity FROM work); INSERT INTO charges SELECT * FROM (WITH u AS (SELECT e.*,a.threshold,a.low_rate,a.high_rate,COALESCE((SELECT SUM(p.units) FROM usage_events p WHERE p.account=e.account AND p.kind='use' AND p.seq<e.seq AND p.seq>COALESCE((SELECT MAX(r.seq) FROM usage_events r WHERE r.account=e.account AND r.kind='reset' AND r.seq<e.seq),0)),0) AS prior FROM usage_events e JOIN accounts a ON a.id=e.account WHERE e.kind='use'), v AS (SELECT *,MIN(units,MAX(0,threshold-prior)) AS lo FROM u) SELECT account,id,lo,units-lo,lo*low_rate+(units-lo)*high_rate FROM v) WHERE account IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM charges; INSERT INTO charges SELECT * FROM (WITH u AS (SELECT e.*,a.threshold,a.low_rate,a.high_rate,COALESCE((SELECT SUM(p.units) FROM usage_events p WHERE p.account=e.account AND p.kind='use' AND p.seq<e.seq AND p.seq>COALESCE((SELECT MAX(r.seq) FROM usage_events r WHERE r.account=e.account AND r.kind='reset' AND r.seq<e.seq),0)),0) AS prior FROM usage_events e JOIN accounts a ON a.id=e.account WHERE e.kind='use'), v AS (SELECT *,MIN(units,MAX(0,threshold-prior)) AS lo FROM u) SELECT account,id,lo,units-lo,lo*low_rate+(units-lo)*high_rate FROM v);"
+      }
+    },
+    {
+      "id": "H20",
+      "family": "ordered_state",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "days",
+        "changes",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM intervals WHERE entity IN (SELECT entity FROM work); INSERT INTO intervals SELECT * FROM (WITH v AS (SELECT d.entity,d.day,(SELECT value FROM changes c WHERE c.entity=d.entity AND c.lo<=d.day AND d.day<c.hi ORDER BY seq DESC LIMIT 1) AS value FROM days d), g AS (SELECT *,day-ROW_NUMBER() OVER(PARTITION BY entity,value ORDER BY day) AS grp FROM v) SELECT entity,MIN(day),MAX(day)+1,value FROM g GROUP BY entity,value,grp) WHERE entity IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM intervals; INSERT INTO intervals SELECT * FROM (WITH v AS (SELECT d.entity,d.day,(SELECT value FROM changes c WHERE c.entity=d.entity AND c.lo<=d.day AND d.day<c.hi ORDER BY seq DESC LIMIT 1) AS value FROM days d), g AS (SELECT *,day-ROW_NUMBER() OVER(PARTITION BY entity,value ORDER BY day) AS grp FROM v) SELECT entity,MIN(day),MAX(day)+1,value FROM g GROUP BY entity,value,grp);"
+      }
+    },
+    {
+      "id": "H21",
+      "family": "evidence_adjudication",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "batches",
+        "items",
+        "reviews",
+        "holds",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM releases WHERE batch IN (SELECT entity FROM work); INSERT INTO releases SELECT b.id,CASE WHEN EXISTS(SELECT 1 FROM holds h WHERE h.batch=b.id AND h.active=1) THEN 'held'\nWHEN (SELECT COUNT(*) FROM items i WHERE i.batch=b.id AND i.revision=b.revision)=b.expected_count\nAND (SELECT decision FROM reviews r WHERE r.batch=b.id AND r.revision=b.revision ORDER BY seq DESC LIMIT 1)='allow' THEN 'released' ELSE 'blocked' END,\n(SELECT COUNT(*) FROM items i WHERE i.batch=b.id AND i.revision=b.revision) FROM batches b WHERE b.id IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM releases; INSERT INTO releases SELECT b.id,CASE WHEN EXISTS(SELECT 1 FROM holds h WHERE h.batch=b.id AND h.active=1) THEN 'held'\nWHEN (SELECT COUNT(*) FROM items i WHERE i.batch=b.id AND i.revision=b.revision)=b.expected_count\nAND (SELECT decision FROM reviews r WHERE r.batch=b.id AND r.revision=b.revision ORDER BY seq DESC LIMIT 1)='allow' THEN 'released' ELSE 'blocked' END,\n(SELECT COUNT(*) FROM items i WHERE i.batch=b.id AND i.revision=b.revision) FROM batches b;"
+      }
+    },
+    {
+      "id": "H22",
+      "family": "evidence_adjudication",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "entities",
+        "links",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM canonical WHERE entity IN (SELECT entity FROM work); INSERT INTO canonical SELECT * FROM (WITH RECURSIVE edges(a,b) AS (SELECT a,b FROM links WHERE decision='accepted' UNION SELECT b,a FROM links WHERE decision='accepted'), reach(a,b) AS (SELECT id,id FROM entities UNION SELECT r.a,e.b FROM reach r JOIN edges e ON e.a=r.b) SELECT a AS entity,MIN(b),COUNT(*) FROM reach GROUP BY a) WHERE entity IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM canonical; INSERT INTO canonical SELECT * FROM (WITH RECURSIVE edges(a,b) AS (SELECT a,b FROM links WHERE decision='accepted' UNION SELECT b,a FROM links WHERE decision='accepted'), reach(a,b) AS (SELECT id,id FROM entities UNION SELECT r.a,e.b FROM reach r JOIN edges e ON e.a=r.b) SELECT a AS entity,MIN(b),COUNT(*) FROM reach GROUP BY a);"
+      }
+    },
+    {
+      "id": "H23",
+      "family": "evidence_adjudication",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "streams",
+        "partitions",
+        "events",
+        "progress",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM watermarks WHERE stream IN (SELECT entity FROM work); INSERT INTO watermarks SELECT * FROM (SELECT s.id AS stream,COALESCE((SELECT MIN(p.slot)-1 FROM partitions p WHERE p.stream=s.id AND (SELECT COUNT(*) FROM events e WHERE e.stream=p.stream AND e.slot=p.slot AND e.accepted=1)<>p.expected),(SELECT MAX(slot) FROM partitions p WHERE p.stream=s.id)),(SELECT COUNT(*) FROM events e WHERE e.stream=s.id AND e.accepted=1) FROM streams s) WHERE stream IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM watermarks; INSERT INTO watermarks SELECT * FROM (SELECT s.id AS stream,COALESCE((SELECT MIN(p.slot)-1 FROM partitions p WHERE p.stream=s.id AND (SELECT COUNT(*) FROM events e WHERE e.stream=p.stream AND e.slot=p.slot AND e.accepted=1)<>p.expected),(SELECT MAX(slot) FROM partitions p WHERE p.stream=s.id)),(SELECT COUNT(*) FROM events e WHERE e.stream=s.id AND e.accepted=1) FROM streams s);"
+      }
+    },
+    {
+      "id": "H24",
+      "family": "evidence_adjudication",
+      "removed_clauses": 2,
+      "immutable_tables": [
+        "versions",
+        "erasures",
+        "work"
+      ],
+      "append_only_tables": [],
+      "work_initial_rows": 0,
+      "artifact": {
+        "application_sql": "DELETE FROM restored WHERE id IN (SELECT entity FROM work); INSERT INTO restored SELECT * FROM (WITH latest AS (SELECT v.* FROM versions v WHERE NOT EXISTS(SELECT 1 FROM versions x WHERE x.id=v.id AND x.revision>v.revision)), safe AS (SELECT * FROM latest l WHERE NOT EXISTS(SELECT 1 FROM erasures e WHERE e.subject=l.subject)) SELECT s.id,s.revision,CASE WHEN EXISTS(SELECT 1 FROM safe p WHERE p.id=s.parent) THEN s.parent ELSE NULL END,s.payload FROM safe s) WHERE id IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM restored; INSERT INTO restored SELECT * FROM (WITH latest AS (SELECT v.* FROM versions v WHERE NOT EXISTS(SELECT 1 FROM versions x WHERE x.id=v.id AND x.revision>v.revision)), safe AS (SELECT * FROM latest l WHERE NOT EXISTS(SELECT 1 FROM erasures e WHERE e.subject=l.subject)) SELECT s.id,s.revision,CASE WHEN EXISTS(SELECT 1 FROM safe p WHERE p.id=s.parent) THEN s.parent ELSE NULL END,s.payload FROM safe s);"
+      }
+    }
+  ],
+  "origin": "Post hoc rule chosen after inspecting public patch structure and prior model outcomes; no private grading used in construction"
+}

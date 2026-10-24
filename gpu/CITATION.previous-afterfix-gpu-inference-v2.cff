@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Cite this local software and benchmark review copy using the metadata below. It is not a published paper."
+type: software
+title: "AfterFix: Supplied-patch data recovery benchmark and evaluation tools"
+authors:
+  - family-names: Songara
+    given-names: Nitish
+    affiliation: Independent researcher
+version: review-1
+license: Apache-2.0
+abstract: "Original code and synthetic benchmark for separate original 12B, corrected H08, matched 31B/12B, and post hoc CPU studies. The software license does not apply to the manuscript or third-party material."

@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "Cite this software and synthetic benchmark release. The paper is included separately."
+type: software
+title: "AfterFix: Supplied-patch data recovery benchmark and evaluation tools"
+authors:
+  - family-names: Songara
+    given-names: Nitish
+    affiliation: Independent researcher
+version: 1.0.0
+license: Apache-2.0
+repository-code: "https://github.com/sonu7089/afterfix"
+url: "https://github.com/sonu7089/afterfix"
+abstract: "Separate original 12B, corrected H08, matched 31B/12B, and post hoc CPU studies. The manuscript uses a separate CC-BY-4.0 OR Apache-2.0 grant."

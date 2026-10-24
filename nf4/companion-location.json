@@ -1,0 +1,9 @@
+{
+  "artifact": "afterfix-gemma4-12b-nf4-v1",
+  "weights_in_review_archive": false,
+  "checkpoint_bytes": 7710759449,
+  "checkpoint_manifest_sha256": "78cb8b4cc2bbfa3efe4f5ac4ff04a384e7d11d6c480b0260018f5fbdaaf3953e",
+  "adapter_archive_sha256": "18b7fc71f693f2009d7cb93e97b2f9f474066098e025629ce9c940fe57777031",
+  "public_url": null,
+  "current_access": "Separate local companion directory. Publication not authorized."
+}

@@ -1,0 +1,166 @@
+{
+  "raw_sha256": "2b1657bae10f866073c56e21f33e043b7e99965e46a0c85b31c7c786c7a250a4",
+  "cases": [
+    {
+      "id": "H12",
+      "model": "31b",
+      "method": "ordinary",
+      "artifact": {
+        "application_sql": "DELETE FROM cache WHERE key IN (SELECT entity FROM work); INSERT INTO cache SELECT * FROM (SELECT o.key,o.generation,m.value,m.seq FROM objects o JOIN materializations m ON m.key=o.key AND m.generation=o.generation WHERE o.active=1 AND m.accepted=1 AND NOT EXISTS(SELECT 1 FROM materializations x WHERE x.key=m.key AND x.generation=m.generation AND x.accepted=1 AND x.seq>m.seq)) WHERE key IN (SELECT entity FROM work);",
+        "recovery_sql": "DELETE FROM cache WHERE NOT EXISTS (SELECT 1 FROM objects o JOIN materializations m ON o.key = cache.key AND o.generation = cache.generation AND m.key = o.key AND m.generation = o.generation WHERE o.active = 1 AND m.accepted = 1 AND m.seq = cache.seq);"
+      },
+      "grade": {
+        "id": "H12",
+        "family": "versioned_storage",
+        "grading_version": "afterfix-heldout-grader-v3",
+        "complete": false,
+        "sql_executed": true,
+        "variants": [
+          {
+            "seed": 0,
+            "sql_executed": true,
+            "fixed_patch_unchanged": true,
+            "historical": false,
+            "preservation": true,
+            "repeatable": true,
+            "healthy_control": true,
+            "future": true,
+            "continuation": false,
+            "rows_written_first": 1,
+            "rows_written_repeat": 0,
+            "complete": false
+          },
+          {
+            "seed": 7,
+            "sql_executed": true,
+            "fixed_patch_unchanged": true,
+            "historical": false,
+            "preservation": true,
+            "repeatable": true,
+            "healthy_control": true,
+            "future": true,
+            "continuation": false,
+            "rows_written_first": 1,
+            "rows_written_repeat": 0,
+            "complete": false
+          },
+          {
+            "seed": 19,
+            "sql_executed": true,
+            "fixed_patch_unchanged": true,
+            "historical": false,
+            "preservation": true,
+            "repeatable": true,
+            "healthy_control": true,
+            "future": true,
+            "continuation": false,
+            "rows_written_first": 1,
+            "rows_written_repeat": 0,
+            "complete": false
+          }
+        ],
+        "outcome": "executable_but_wrong",
+        "components": {
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": false
+        },
+        "method": "ordinary",
+        "model": "31b"
+      },
+      "visible_differences": {
+        "cache": {
+          "missing": [
+            [
+              "reuse_0",
+              3,
+              8,
+              1
+            ]
+          ],
+          "unexpected": []
+        }
+      }
+    },
+    {
+      "id": "H17",
+      "model": "31b",
+      "method": "ordinary",
+      "artifact": {
+        "application_sql": "DELETE FROM readings WHERE meter IN (SELECT entity FROM work); INSERT INTO readings SELECT m.id,COALESCE((SELECT amount FROM commands c WHERE c.meter=m.id AND c.kind='SET' ORDER BY seq DESC LIMIT 1),m.opening)+\nCOALESCE((SELECT SUM(amount) FROM commands c WHERE c.meter=m.id AND c.kind='ADD' AND c.seq>COALESCE((SELECT MAX(seq) FROM commands s WHERE s.meter=m.id AND s.kind='SET'),0)),0),\nCOALESCE((SELECT MAX(seq) FROM commands c WHERE c.meter=m.id),0) FROM meters m WHERE m.id IN (SELECT entity FROM work);",
+        "recovery_sql": "INSERT INTO readings (meter, value, last_seq) SELECT m.id, COALESCE((SELECT amount FROM commands c WHERE c.meter=m.id AND c.kind='SET' ORDER BY seq DESC LIMIT 1), m.opening) + COALESCE((SELECT SUM(amount) FROM commands c WHERE c.meter=m.id AND c.kind='ADD' AND c.seq > COALESCE((SELECT MAX(seq) FROM commands s WHERE s.meter=m.id AND s.kind='SET'), 0)), 0), COALESCE((SELECT MAX(seq) FROM commands c WHERE c.meter=m.id), 0) FROM meters m WHERE m.id = 'east_0' ON CONFLICT(meter) DO UPDATE SET value=excluded.value, last_seq=excluded.last_seq;"
+      },
+      "grade": {
+        "id": "H17",
+        "family": "ordered_state",
+        "grading_version": "afterfix-heldout-grader-v3",
+        "complete": false,
+        "sql_executed": true,
+        "variants": [
+          {
+            "seed": 0,
+            "sql_executed": true,
+            "fixed_patch_unchanged": true,
+            "historical": true,
+            "preservation": true,
+            "repeatable": true,
+            "healthy_control": true,
+            "future": true,
+            "continuation": true,
+            "rows_written_first": 1,
+            "rows_written_repeat": 1,
+            "complete": true
+          },
+          {
+            "seed": 7,
+            "sql_executed": true,
+            "fixed_patch_unchanged": true,
+            "historical": false,
+            "preservation": true,
+            "repeatable": true,
+            "healthy_control": true,
+            "future": true,
+            "continuation": true,
+            "rows_written_first": 0,
+            "rows_written_repeat": 0,
+            "complete": false
+          },
+          {
+            "seed": 19,
+            "sql_executed": true,
+            "fixed_patch_unchanged": true,
+            "historical": false,
+            "preservation": true,
+            "repeatable": true,
+            "healthy_control": true,
+            "future": true,
+            "continuation": true,
+            "rows_written_first": 0,
+            "rows_written_repeat": 0,
+            "complete": false
+          }
+        ],
+        "outcome": "executable_but_wrong",
+        "components": {
+          "historical": false,
+          "preservation": true,
+          "repeatable": true,
+          "healthy_control": true,
+          "future": true,
+          "continuation": true
+        },
+        "method": "ordinary",
+        "model": "31b"
+      },
+      "visible_differences": {
+        "readings": {
+          "missing": [],
+          "unexpected": []
+        }
+      }
+    }
+  ]
+}

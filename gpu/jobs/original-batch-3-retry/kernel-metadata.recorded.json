@@ -1,0 +1,14 @@
+{
+  "id": "nitishsongara/afterfix-held-out-batch-3",
+  "title": "AfterFix Held-out Batch 3",
+  "code_file": "pilot.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

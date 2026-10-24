@@ -1,0 +1,50 @@
+[
+  {
+    "key": "original-batch-1",
+    "folder": "jobs/original-batch-1",
+    "code_file": "pilot.py",
+    "cells_per_model": 18,
+    "payload_manifest": "payload-manifest.json"
+  },
+  {
+    "key": "original-batch-2",
+    "folder": "jobs/original-batch-2",
+    "code_file": "pilot.py",
+    "cells_per_model": 18,
+    "payload_manifest": "payload-manifest.json"
+  },
+  {
+    "key": "original-batch-3-retry",
+    "folder": "jobs/original-batch-3-retry",
+    "code_file": "pilot.py",
+    "cells_per_model": 18,
+    "payload_manifest": "payload-manifest.json"
+  },
+  {
+    "key": "original-batch-4",
+    "folder": "jobs/original-batch-4",
+    "code_file": "pilot.py",
+    "cells_per_model": 18,
+    "payload_manifest": "payload-manifest.json"
+  },
+  {
+    "key": "h08",
+    "folder": "jobs/h08",
+    "code_file": "pilot.py",
+    "cells_per_model": 3,
+    "payload_manifest": "payload-manifest.json"
+  },
+  {
+    "key": "v3",
+    "folder": "jobs/v3",
+    "code_file": "pilot.py",
+    "cells_per_model": 72,
+    "payload_manifest": "deep-payload-manifest.json"
+  },
+  {
+    "key": "checkpoint",
+    "folder": "jobs/checkpoint",
+    "code_file": "prepare.py",
+    "cells_per_model": 0
+  }
+]

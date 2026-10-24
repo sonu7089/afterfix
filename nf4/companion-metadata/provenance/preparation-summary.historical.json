@@ -1,0 +1,76 @@
+{
+  "status": "completed",
+  "source": "google/gemma-4/transformers/gemma-4-12b-it/2",
+  "quantization_backend": "CPU bitsandbytes NF4 double quantization, FP16 compute; not official QAT",
+  "versions": {
+    "torch": "2.11.0+cpu",
+    "transformers": "5.20.2",
+    "accelerate": "1.15.0",
+    "bitsandbytes": "0.50.2"
+  },
+  "cpu_quantization_control_seconds": 0.3176038839999933,
+  "elapsed_seconds": 628.162440028,
+  "quantized_load_seconds": 527.611091256,
+  "quantized_modules": 331,
+  "footprint_GiB": 6.988574119284749,
+  "save_seconds": 16.918800281000017,
+  "artifact_bytes": 7710757551,
+  "weight_files": [
+    {
+      "name": "model-00001-of-00013.safetensors",
+      "bytes": 2013266072
+    },
+    {
+      "name": "model-00002-of-00013.safetensors",
+      "bytes": 502532057
+    },
+    {
+      "name": "model-00003-of-00013.safetensors",
+      "bytes": 502237601
+    },
+    {
+      "name": "model-00004-of-00013.safetensors",
+      "bytes": 502237709
+    },
+    {
+      "name": "model-00005-of-00013.safetensors",
+      "bytes": 505310339
+    },
+    {
+      "name": "model-00006-of-00013.safetensors",
+      "bytes": 483991459
+    },
+    {
+      "name": "model-00007-of-00013.safetensors",
+      "bytes": 502237799
+    },
+    {
+      "name": "model-00008-of-00013.safetensors",
+      "bytes": 493110664
+    },
+    {
+      "name": "model-00009-of-00013.safetensors",
+      "bytes": 506320852
+    },
+    {
+      "name": "model-00010-of-00013.safetensors",
+      "bytes": 492108047
+    },
+    {
+      "name": "model-00011-of-00013.safetensors",
+      "bytes": 502237798
+    },
+    {
+      "name": "model-00012-of-00013.safetensors",
+      "bytes": 493110665
+    },
+    {
+      "name": "model-00013-of-00013.safetensors",
+      "bytes": 179609149
+    }
+  ],
+  "reload_seconds": 2.3160533349999923,
+  "cpu_forward_seconds": 39.95165215099996,
+  "next_token_id": 236812,
+  "next_token": "4"
+}

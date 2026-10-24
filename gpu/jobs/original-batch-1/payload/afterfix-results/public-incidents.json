@@ -1,0 +1,784 @@
+[
+  {
+    "id": "H01",
+    "title": "RelayDesk: acknowledged outbox messages returned to the retry queue",
+    "specification": "Every message has one outbox row. Any accepted receipt means delivered, even if a later transport retry was logged or the message was disabled. Otherwise disabled messages are canceled; otherwise any permanent receipt means failed; otherwise pending. attempts is the maximum recorded attempt number, or zero. Receipts are authoritative acknowledgements, not requests to resend. Never erase them. Reconstructing a delivered message as pending can cause duplicate delivery. The patch refreshes only message IDs in work, the immutable current change-feed batch. Historical messages are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE messages(id TEXT PRIMARY KEY,enabled INTEGER,body TEXT);\nCREATE TABLE receipts(id TEXT PRIMARY KEY,message TEXT,result TEXT,attempt INTEGER);\nCREATE TABLE work(entity TEXT PRIMARY KEY);\nCREATE TABLE outbox(id TEXT PRIMARY KEY,state TEXT,attempts INTEGER);",
+    "application_sql": "DELETE FROM outbox WHERE id IN (SELECT entity FROM work); INSERT INTO outbox SELECT m.id,CASE WHEN EXISTS(SELECT 1 FROM receipts r WHERE r.message=m.id AND r.result='accepted') THEN 'delivered'\nWHEN m.enabled=0 THEN 'canceled' WHEN EXISTS(SELECT 1 FROM receipts r WHERE r.message=m.id AND r.result='permanent') THEN 'failed' ELSE 'pending' END,\nCOALESCE((SELECT MAX(attempt) FROM receipts r WHERE r.message=m.id),0) FROM messages m WHERE m.id IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "outbox"
+    ],
+    "immutable_tables": [
+      "messages",
+      "receipts",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "messages": [
+        [
+          "m1_0",
+          1,
+          "invoice notice"
+        ],
+        [
+          "m2_0",
+          1,
+          "delivery notice"
+        ],
+        [
+          "m3_0",
+          0,
+          "canceled reminder"
+        ],
+        [
+          "m4_0",
+          1,
+          "address rejected"
+        ],
+        [
+          "m5_0",
+          1,
+          "healthy notice"
+        ]
+      ],
+      "receipts": [
+        [
+          "r1_0",
+          "m1_0",
+          "accepted",
+          1
+        ],
+        [
+          "r2_0",
+          "m1_0",
+          "retry",
+          2
+        ],
+        [
+          "r3_0",
+          "m2_0",
+          "retry",
+          1
+        ],
+        [
+          "r4_0",
+          "m4_0",
+          "permanent",
+          1
+        ],
+        [
+          "r5_0",
+          "m5_0",
+          "accepted",
+          1
+        ]
+      ],
+      "work": [],
+      "outbox": [
+        [
+          "m1_0",
+          "pending",
+          0
+        ],
+        [
+          "m2_0",
+          "pending",
+          1
+        ],
+        [
+          "m3_0",
+          "canceled",
+          0
+        ],
+        [
+          "m4_0",
+          "failed",
+          1
+        ],
+        [
+          "m5_0",
+          "delivered",
+          1
+        ]
+      ]
+    },
+    "evidence": [
+      "An outbox rehydration used the last transport outcome and lost an earlier acknowledgement.",
+      "messages + receipts -> outbox; work -> outbox",
+      "A disabled reminder and an unrelated delivered notice are legitimate controls. A late retry does not undo delivery."
+    ],
+    "condition": "correct_patch_given",
+    "family": "delivery_workflows",
+    "history_variant": "H01"
+  },
+  {
+    "id": "H05",
+    "title": "PackForge: one component of a committed kit reservation disappeared",
+    "specification": "A committed bundle reserves exactly the units of every component listed in parts. A released bundle reserves nothing. allocations has one row per committed (bundle,sku), not a partial kit or a merged SKU total. available equals inventory.total minus all allocations per SKU. All recorded commitments fit capacity. Releases are legitimate later activity and must not be reversed. The fixed patch updates allocations only for changed bundle IDs in work, then refreshes global available quantities. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE inventory(sku TEXT PRIMARY KEY,total INTEGER);\nCREATE TABLE bundles(id TEXT PRIMARY KEY,status TEXT);\nCREATE TABLE parts(bundle TEXT,sku TEXT,units INTEGER,PRIMARY KEY(bundle,sku));\nCREATE TABLE work(entity TEXT PRIMARY KEY);\nCREATE TABLE allocations(bundle TEXT,sku TEXT,qty INTEGER,PRIMARY KEY(bundle,sku));\nCREATE TABLE available(sku TEXT PRIMARY KEY,qty INTEGER);",
+    "application_sql": "DELETE FROM allocations WHERE bundle IN (SELECT entity FROM work); INSERT INTO allocations SELECT p.bundle,p.sku,p.units FROM parts p JOIN bundles b ON b.id=p.bundle WHERE b.status='committed' AND b.id IN (SELECT entity FROM work); DELETE FROM available; INSERT INTO available SELECT i.sku,i.total-COALESCE((SELECT SUM(a.qty) FROM allocations a WHERE a.sku=i.sku),0) FROM inventory i;",
+    "writable_tables": [
+      "allocations",
+      "available"
+    ],
+    "immutable_tables": [
+      "inventory",
+      "bundles",
+      "parts",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "inventory": [
+        [
+          "a_0",
+          30
+        ],
+        [
+          "b_0",
+          20
+        ],
+        [
+          "c_0",
+          15
+        ]
+      ],
+      "bundles": [
+        [
+          "kit1_0",
+          "committed"
+        ],
+        [
+          "kit2_0",
+          "released"
+        ],
+        [
+          "kit3_0",
+          "committed"
+        ]
+      ],
+      "parts": [
+        [
+          "kit1_0",
+          "a_0",
+          3
+        ],
+        [
+          "kit1_0",
+          "b_0",
+          2
+        ],
+        [
+          "kit2_0",
+          "a_0",
+          4
+        ],
+        [
+          "kit2_0",
+          "c_0",
+          1
+        ],
+        [
+          "kit3_0",
+          "a_0",
+          2
+        ],
+        [
+          "kit3_0",
+          "c_0",
+          3
+        ]
+      ],
+      "work": [],
+      "allocations": [
+        [
+          "kit1_0",
+          "a_0",
+          3
+        ],
+        [
+          "kit3_0",
+          "a_0",
+          2
+        ],
+        [
+          "kit3_0",
+          "c_0",
+          3
+        ],
+        [
+          "kit2_0",
+          "a_0",
+          4
+        ]
+      ],
+      "available": [
+        [
+          "a_0",
+          21
+        ],
+        [
+          "b_0",
+          20
+        ],
+        [
+          "c_0",
+          12
+        ]
+      ]
+    },
+    "evidence": [
+      "A per-component retry left a half-reserved kit; another kit was legitimately released later.",
+      "bundles + parts -> allocations; inventory + allocations -> available; work -> allocations",
+      "Two committed bundles share a component; repairing only its aggregate does not restore each bundle obligation."
+    ],
+    "condition": "correct_patch_given",
+    "family": "coupled_resources",
+    "history_variant": "H05"
+  },
+  {
+    "id": "H09",
+    "title": "LakeSpan: an index mixed obsolete and unpublished snapshot files",
+    "specification": "heads identifies the authoritative published snapshot for each dataset; heads always points to a committed snapshot belonging to that dataset. Only that snapshot membership determines active_files. Older committed snapshots and staged unpublished snapshots contribute nothing. The same file may belong to different datasets; distinct files with equal row counts must both count. dataset_totals includes every head, including zero-file snapshots. The patch refreshes only dataset IDs in work after a publication, then recomputes dataset_totals. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE snapshots(id TEXT PRIMARY KEY,dataset TEXT,status TEXT);\nCREATE TABLE heads(dataset TEXT PRIMARY KEY,snapshot TEXT);\nCREATE TABLE members(snapshot TEXT,file TEXT,PRIMARY KEY(snapshot,file));\nCREATE TABLE files(id TEXT PRIMARY KEY,rows INTEGER);\nCREATE TABLE work(entity TEXT PRIMARY KEY);\nCREATE TABLE active_files(dataset TEXT,file TEXT,rows INTEGER,PRIMARY KEY(dataset,file));\nCREATE TABLE dataset_totals(dataset TEXT PRIMARY KEY,rows INTEGER);",
+    "application_sql": "DELETE FROM active_files WHERE dataset IN (SELECT entity FROM work); INSERT INTO active_files SELECT h.dataset,f.id,f.rows FROM heads h JOIN snapshots s ON s.id=h.snapshot AND s.dataset=h.dataset AND s.status='committed' JOIN members m ON m.snapshot=s.id JOIN files f ON f.id=m.file WHERE h.dataset IN (SELECT entity FROM work); DELETE FROM dataset_totals; INSERT INTO dataset_totals SELECT h.dataset,COALESCE((SELECT SUM(a.rows) FROM active_files a WHERE a.dataset=h.dataset),0) FROM heads h;",
+    "writable_tables": [
+      "active_files",
+      "dataset_totals"
+    ],
+    "immutable_tables": [
+      "snapshots",
+      "heads",
+      "members",
+      "files",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "snapshots": [
+        [
+          "old_0",
+          "sales_0",
+          "committed"
+        ],
+        [
+          "current_0",
+          "sales_0",
+          "committed"
+        ],
+        [
+          "stage_0",
+          "sales_0",
+          "staged"
+        ],
+        [
+          "other_0",
+          "returns_0",
+          "committed"
+        ]
+      ],
+      "heads": [
+        [
+          "sales_0",
+          "current_0"
+        ],
+        [
+          "returns_0",
+          "other_0"
+        ]
+      ],
+      "members": [
+        [
+          "old_0",
+          "f0_0"
+        ],
+        [
+          "current_0",
+          "f1_0"
+        ],
+        [
+          "current_0",
+          "shared_0"
+        ],
+        [
+          "stage_0",
+          "f2_0"
+        ],
+        [
+          "other_0",
+          "shared_0"
+        ]
+      ],
+      "files": [
+        [
+          "f0_0",
+          8
+        ],
+        [
+          "f1_0",
+          10
+        ],
+        [
+          "shared_0",
+          10
+        ],
+        [
+          "f2_0",
+          25
+        ]
+      ],
+      "work": [],
+      "active_files": [
+        [
+          "sales_0",
+          "f1_0",
+          10
+        ],
+        [
+          "sales_0",
+          "shared_0",
+          10
+        ],
+        [
+          "returns_0",
+          "shared_0",
+          10
+        ],
+        [
+          "sales_0",
+          "f0_0",
+          8
+        ],
+        [
+          "sales_0",
+          "f2_0",
+          25
+        ]
+      ],
+      "dataset_totals": [
+        [
+          "sales_0",
+          53
+        ],
+        [
+          "returns_0",
+          10
+        ]
+      ]
+    },
+    "evidence": [
+      "A maintenance index unioned every snapshot membership and accidentally included a staging manifest.",
+      "heads + snapshots + members + files -> active_files -> dataset_totals; work -> active_files",
+      "A second dataset legitimately uses the shared file; physical-file deduplication across datasets would lose its rows."
+    ],
+    "condition": "correct_patch_given",
+    "family": "versioned_storage",
+    "history_variant": "H09"
+  },
+  {
+    "id": "H13",
+    "title": "AccessHarbor: stale effective grants after inherited-role changes",
+    "specification": "The role graph is a finite DAG. A user receives enabled grants on every directly assigned role and every transitively inherited parent. An explicit (user,resource) deny overrides every path. Disabled grants never authorize access; multiple paths produce one access row. access_counts includes users with zero access. The fixed patch refreshes only users listed in work; the change-feed expands affected users before invoking it. Preserve the legitimate explicit deny and grants through independent inheritance paths. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE users(id TEXT PRIMARY KEY);\nCREATE TABLE memberships(user TEXT,role TEXT,PRIMARY KEY(user,role));\nCREATE TABLE role_edges(child TEXT,parent TEXT,PRIMARY KEY(child,parent));\nCREATE TABLE grants(role TEXT,resource TEXT,enabled INTEGER,PRIMARY KEY(role,resource));\nCREATE TABLE denies(user TEXT,resource TEXT,PRIMARY KEY(user,resource));\nCREATE TABLE work(entity TEXT PRIMARY KEY);\nCREATE TABLE effective_access(user TEXT,resource TEXT,PRIMARY KEY(user,resource));\nCREATE TABLE access_counts(user TEXT PRIMARY KEY,n INTEGER);",
+    "application_sql": "DELETE FROM effective_access WHERE user IN (SELECT entity FROM work); INSERT INTO effective_access WITH RECURSIVE reach(user,role) AS (SELECT user,role FROM memberships UNION\nSELECT r.user,e.parent FROM reach r JOIN role_edges e ON e.child=r.role) SELECT DISTINCT r.user,g.resource FROM reach r JOIN grants g ON g.role=r.role WHERE g.enabled=1 AND NOT EXISTS(SELECT 1 FROM denies d WHERE d.user=r.user AND d.resource=g.resource) AND r.user IN (SELECT entity FROM work); DELETE FROM access_counts; INSERT INTO access_counts SELECT u.id,(SELECT COUNT(*) FROM effective_access a WHERE a.user=u.id) FROM users u;",
+    "writable_tables": [
+      "effective_access",
+      "access_counts"
+    ],
+    "immutable_tables": [
+      "users",
+      "memberships",
+      "role_edges",
+      "grants",
+      "denies",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "users": [
+        [
+          "ana_0"
+        ],
+        [
+          "bo_0"
+        ],
+        [
+          "cy_0"
+        ],
+        [
+          "di_0"
+        ]
+      ],
+      "memberships": [
+        [
+          "ana_0",
+          "lead_0"
+        ],
+        [
+          "bo_0",
+          "viewer_0"
+        ],
+        [
+          "cy_0",
+          "lead_0"
+        ]
+      ],
+      "role_edges": [
+        [
+          "lead_0",
+          "analyst_0"
+        ],
+        [
+          "analyst_0",
+          "viewer_0"
+        ],
+        [
+          "lead_0",
+          "viewer_0"
+        ]
+      ],
+      "grants": [
+        [
+          "viewer_0",
+          "read_0",
+          1
+        ],
+        [
+          "analyst_0",
+          "export_0",
+          1
+        ],
+        [
+          "lead_0",
+          "admin_0",
+          0
+        ]
+      ],
+      "denies": [
+        [
+          "ana_0",
+          "export_0"
+        ]
+      ],
+      "work": [],
+      "effective_access": [
+        [
+          "ana_0",
+          "read_0"
+        ],
+        [
+          "bo_0",
+          "read_0"
+        ],
+        [
+          "cy_0",
+          "read_0"
+        ],
+        [
+          "ana_0",
+          "export_0"
+        ]
+      ],
+      "access_counts": [
+        [
+          "ana_0",
+          2
+        ],
+        [
+          "bo_0",
+          1
+        ],
+        [
+          "cy_0",
+          1
+        ],
+        [
+          "di_0",
+          0
+        ]
+      ]
+    },
+    "evidence": [
+      "A stale effective-access cache retained a denied export and omitted grants reachable through a parent role.",
+      "memberships + role_edges + grants + denies -> effective_access -> access_counts; work -> effective_access",
+      "The diamond inheritance has two paths to viewer; the later explicit deny applies only to one user."
+    ],
+    "condition": "correct_patch_given",
+    "family": "authorization_graphs",
+    "history_variant": "H13"
+  },
+  {
+    "id": "H17",
+    "title": "GaugeLine: a late meter correction was added instead of replacing the prior reading",
+    "specification": "For each meter start at opening and process commands in increasing authoritative seq, not arrival order. SET replaces the whole current value; ADD adds a signed amount. seq is positive and unique within a meter. readings has one row per meter, value after all commands, and last_seq equal to max seq or zero for no commands. An older correction may arrive after later commands; later SET and ADD effects must still survive in authoritative order. The patch refreshes only changed meter IDs in work; all earlier readings remain untouched unless explicitly recovered. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE meters(id TEXT PRIMARY KEY,opening INTEGER);\nCREATE TABLE commands(id TEXT PRIMARY KEY,meter TEXT,seq INTEGER,kind TEXT,amount INTEGER,arrival INTEGER,UNIQUE(meter,seq));\nCREATE TABLE work(entity TEXT PRIMARY KEY);\nCREATE TABLE readings(meter TEXT PRIMARY KEY,value INTEGER,last_seq INTEGER);",
+    "application_sql": "DELETE FROM readings WHERE meter IN (SELECT entity FROM work); INSERT INTO readings SELECT m.id,COALESCE((SELECT amount FROM commands c WHERE c.meter=m.id AND c.kind='SET' ORDER BY seq DESC LIMIT 1),m.opening)+\nCOALESCE((SELECT SUM(amount) FROM commands c WHERE c.meter=m.id AND c.kind='ADD' AND c.seq>COALESCE((SELECT MAX(seq) FROM commands s WHERE s.meter=m.id AND s.kind='SET'),0)),0),\nCOALESCE((SELECT MAX(seq) FROM commands c WHERE c.meter=m.id),0) FROM meters m WHERE m.id IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "readings"
+    ],
+    "immutable_tables": [
+      "meters",
+      "commands",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "meters": [
+        [
+          "east_0",
+          10
+        ],
+        [
+          "west_0",
+          20
+        ],
+        [
+          "idle_0",
+          3
+        ]
+      ],
+      "commands": [
+        [
+          "c1_0",
+          "east_0",
+          1,
+          "ADD",
+          5,
+          1
+        ],
+        [
+          "c2_0",
+          "east_0",
+          2,
+          "SET",
+          40,
+          5
+        ],
+        [
+          "c3_0",
+          "east_0",
+          3,
+          "ADD",
+          -3,
+          2
+        ],
+        [
+          "c4_0",
+          "east_0",
+          4,
+          "SET",
+          12,
+          4
+        ],
+        [
+          "c5_0",
+          "east_0",
+          5,
+          "ADD",
+          2,
+          3
+        ],
+        [
+          "c6_0",
+          "west_0",
+          1,
+          "ADD",
+          4,
+          1
+        ]
+      ],
+      "work": [],
+      "readings": [
+        [
+          "east_0",
+          66,
+          5
+        ],
+        [
+          "west_0",
+          24,
+          1
+        ],
+        [
+          "idle_0",
+          3,
+          0
+        ]
+      ]
+    },
+    "evidence": [
+      "The broken materializer treated SET as an additive delta and sorted correction arrivals rather than authoritative sequences.",
+      "meters + commands -> readings; work -> readings",
+      "The late SET at sequence 2 precedes the later SET at sequence 4, regardless of arrival time. An idle meter is a zero-event control."
+    ],
+    "condition": "correct_patch_given",
+    "family": "ordered_state",
+    "history_variant": "H17"
+  },
+  {
+    "id": "H21",
+    "title": "ClearBatch: a stale approval released an incomplete revised batch",
+    "specification": "Every batch has one releases row. An active hold means held regardless of approvals. Otherwise release only when the number of items at the batch current revision equals expected_count and the highest-seq review at that same revision is allow; missing review or any other condition means blocked. item_count counts only current-revision items. Expected counts are positive; older items and reviews remain audit evidence, not current authorization. seq is comparable only within a batch revision. The patch refreshes batch IDs in work after new evidence arrives. Recovering history must retain later holds and denied re-reviews. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE batches(id TEXT PRIMARY KEY,revision INTEGER,expected_count INTEGER);\nCREATE TABLE items(batch TEXT,revision INTEGER,id TEXT,payload TEXT,PRIMARY KEY(batch,revision,id));\nCREATE TABLE reviews(batch TEXT,revision INTEGER,seq INTEGER,decision TEXT,PRIMARY KEY(batch,revision,seq));\nCREATE TABLE holds(batch TEXT PRIMARY KEY,active INTEGER);\nCREATE TABLE work(entity TEXT PRIMARY KEY);\nCREATE TABLE releases(batch TEXT PRIMARY KEY,state TEXT,item_count INTEGER);",
+    "application_sql": "DELETE FROM releases WHERE batch IN (SELECT entity FROM work); INSERT INTO releases SELECT b.id,CASE WHEN EXISTS(SELECT 1 FROM holds h WHERE h.batch=b.id AND h.active=1) THEN 'held'\nWHEN (SELECT COUNT(*) FROM items i WHERE i.batch=b.id AND i.revision=b.revision)=b.expected_count\nAND (SELECT decision FROM reviews r WHERE r.batch=b.id AND r.revision=b.revision ORDER BY seq DESC LIMIT 1)='allow' THEN 'released' ELSE 'blocked' END,\n(SELECT COUNT(*) FROM items i WHERE i.batch=b.id AND i.revision=b.revision) FROM batches b WHERE b.id IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "releases"
+    ],
+    "immutable_tables": [
+      "batches",
+      "items",
+      "reviews",
+      "holds",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "batches": [
+        [
+          "b1_0",
+          2,
+          2
+        ],
+        [
+          "b2_0",
+          1,
+          1
+        ],
+        [
+          "b3_0",
+          1,
+          1
+        ],
+        [
+          "b4_0",
+          1,
+          1
+        ],
+        [
+          "b5_0",
+          1,
+          1
+        ]
+      ],
+      "items": [
+        [
+          "b1_0",
+          1,
+          "old_0",
+          "retired"
+        ],
+        [
+          "b1_0",
+          2,
+          "a_0",
+          "current"
+        ],
+        [
+          "b2_0",
+          1,
+          "a_0",
+          "held"
+        ],
+        [
+          "b3_0",
+          1,
+          "a_0",
+          "healthy"
+        ],
+        [
+          "b5_0",
+          1,
+          "a_0",
+          "awaits new review"
+        ]
+      ],
+      "reviews": [
+        [
+          "b1_0",
+          1,
+          99,
+          "allow"
+        ],
+        [
+          "b1_0",
+          2,
+          1,
+          "deny"
+        ],
+        [
+          "b2_0",
+          1,
+          1,
+          "allow"
+        ],
+        [
+          "b3_0",
+          1,
+          1,
+          "allow"
+        ],
+        [
+          "b4_0",
+          1,
+          1,
+          "allow"
+        ],
+        [
+          "b5_0",
+          1,
+          1,
+          "allow"
+        ],
+        [
+          "b5_0",
+          1,
+          2,
+          "deny"
+        ]
+      ],
+      "holds": [
+        [
+          "b2_0",
+          1
+        ]
+      ],
+      "work": [],
+      "releases": [
+        [
+          "b1_0",
+          "released",
+          2
+        ],
+        [
+          "b2_0",
+          "released",
+          1
+        ],
+        [
+          "b3_0",
+          "released",
+          1
+        ],
+        [
+          "b4_0",
+          "blocked",
+          0
+        ],
+        [
+          "b5_0",
+          "blocked",
+          1
+        ]
+      ]
+    },
+    "evidence": [
+      "An approval join ignored revision and admitted a revised batch using its retired approval; arrival totals hid an incomplete current revision.",
+      "batches + items + reviews + holds -> releases; work -> releases",
+      "An independently imposed hold overrides an approval. A complete healthy released batch is an unrelated control."
+    ],
+    "condition": "correct_patch_given",
+    "family": "evidence_adjudication",
+    "history_variant": "H21"
+  }
+]

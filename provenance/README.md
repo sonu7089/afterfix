@@ -1,0 +1,1 @@
+The review-v2 manifest describes the unchanged earlier review tree, not this publication tree. Current file integrity is recorded in PUBLIC_MANIFEST.json after final assembly. Historical verification records retain their original filenames and claims.

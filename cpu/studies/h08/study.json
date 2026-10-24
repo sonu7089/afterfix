@@ -1,0 +1,24 @@
+{
+  "title": "Corrected H08 study",
+  "caveat": "Three new attempts under harness v2. No replacement of original cells.",
+  "raw_agents": [
+    {
+      "file": "raw/agents-1-12b_nf4.json",
+      "model": "12b_nf4"
+    }
+  ],
+  "schedule": [
+    {
+      "id": "H08",
+      "method": "provenance"
+    },
+    {
+      "id": "H08",
+      "method": "ordinary"
+    },
+    {
+      "id": "H08",
+      "method": "checklist"
+    }
+  ]
+}

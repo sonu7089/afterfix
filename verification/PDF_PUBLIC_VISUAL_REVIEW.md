@@ -1,0 +1,1 @@
+All seven publication PDF pages were rendered and visually inspected. No clipping, overlap or unreadable table cells was observed. Automated checks cover 164 source units, valid text bounds, 29 links and no em dashes. The review PDF remains unchanged.

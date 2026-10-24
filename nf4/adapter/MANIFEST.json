@@ -1,0 +1,24 @@
+{
+  "version": "afterfix-nf4-adapter-v1",
+  "files": {
+    "checkpoint_download.py": "e77a9734a221d50b729e98c0b5f30e7bf95ab057b9825cedf751a326ad384f38",
+    "historical/h08/kernel-metadata.recorded.json": "26cee08930ec32bb15b0ab40d6c2c94d242b5d896cc223a8eab580a11777aaa4",
+    "historical/h08/pilot.py": "ae8eac984e36d5000a8543511bff8d58b63ae9068cf2b2f5dbb91906daf048cf",
+    "historical/original-batch-1/kernel-metadata.recorded.json": "001958e763e6f4fd415c3413193f8e4f66321afa09ba79719673a20075ab2f4d",
+    "historical/original-batch-1/pilot.py": "9fbada00861a49c527217a398deb2d39f7727df97f612568ce7bd73d8f8c7f59",
+    "historical/original-batch-2/kernel-metadata.recorded.json": "8ef473eecadc7d738af3319a0ec267a731a3048e89545af4f3a4c5c8465b03a8",
+    "historical/original-batch-2/pilot.py": "d016c797305705e9060965290888da5849419aed54fbe75546f9372a6b4c3331",
+    "historical/original-batch-3-retry/kernel-metadata.recorded.json": "ddc74a4ebc211133efbe4b088cd317e0179e5dd0597284714c5ebd226f2f8c2a",
+    "historical/original-batch-3-retry/pilot.py": "b256f4dbcb46eb33118abfeb431c9b1961bc9be24cdf5fd13c778b3abc2a7483",
+    "historical/original-batch-4/kernel-metadata.recorded.json": "042b40809ffb82bbd2a01dcc7cbad2654b5aee2dccfd9149903d5bfd3871f530",
+    "historical/original-batch-4/pilot.py": "0136a8aa1097e00f24610a9750979f4cf6d15b71ce880ceaafa244b12472ae47",
+    "JOBS.json": "a7d8e74655ce5e1d558c3cce9ad5b5415ee8e1ed6ff2263cdab3f9b40b01975f",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "nf4-checkpoint-manifest.json": "78cb8b4cc2bbfa3efe4f5ac4ff04a384e7d11d6c480b0260018f5fbdaaf3953e",
+    "nf4_checkpoint.py": "ad1d4fe318ee21439076e9941e2a884b00104bf82081ee0639f748b5dabd30b8",
+    "NOTICE": "caeb4d7419deb2eba45a6c645d7c46c110521f148ddadc5ca2b72f2c97f377ab",
+    "PROTECTED_NOTEBOOK_IDS.json": "d5dbd52b33738a57b1a79e144eaa5ee08eee56a71386d5467a325c57345414ab",
+    "README.md": "c6e942756d19802686daa0efbd61e69c9ef0d3fad0e4d616a328c36d2c6bc25d",
+    "stage_job.py": "7b9a49984d45e6ce5e23ef47f2f88d5d56abb4ca2854761dd03393639d83c653"
+  }
+}

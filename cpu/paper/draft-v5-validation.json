@@ -1,0 +1,33 @@
+{
+  "status": "passed",
+  "source": "afterfix-draft-v4.md",
+  "manuscript": "afterfix-draft-v5.md",
+  "source_sha256": "85e3ba1d602458f877ebf12c248a060f863e912f7772c2282a6125383b16b0e3",
+  "manuscript_sha256": "bef2c8ee534971d2d1c6731c66f8696da8ece00a562c37c4e046919e9b429571",
+  "whitespace_words": 2911,
+  "em_dashes": 0,
+  "numeric_tables_unchanged": true,
+  "all_study_numbers_unchanged": true,
+  "removed_only_old_package_version_number": true,
+  "changes": [
+    "# AfterFix: Evaluating Data Recovery After a Correct Code Patch",
+    "Agents receive a correct patch, complete evidence and permission to rebuild derived tables.",
+    "A later CPU check reveals an important limitation: removing filters from the supplied patches solves all 24 cases. The tasks therefore test adaptation of existing repair logic.",
+    "We present these findings as a small, controlled study, with clear limits on task difficulty and production relevance.",
+    "## 1. Motivation and contribution",
+    "given correct application SQL and explicit recovery requirements",
+    "Our contribution is an inspectable task set and controlled evaluation. Every supplied patch contains reconstruction logic exposed by removing work filters. This limits the task to adapting existing logic.",
+    "They cover acknowledgements, reservations, object versions, delegated access, event ordering and decisions based on available evidence. All cases are authored examples.",
+    "These show solutions and rejection of selected mistakes. The same authors wrote cases and oracles; separate implementations are not independent human review.",
+    "The variants are not additional model runs. Development cases were excluded from the original evaluation, but the authors knew the test cases.",
+    "An edge declares that one table or concept depends on another.",
+    "It returns existing nodes, edges and evidence references. It supplies no private information, does not identify damaged rows and does not plan repairs.",
+    "The larger model performs better overall but not on every case.",
+    "The measured finding is that execution and stability checks do not separate correct from incorrect generated repairs in these runs. Displayed rows provide evidence, not a correctness verdict.",
+    "AfterFix starts with damaged projections and supplied correct SQL.",
+    "Original, corrected H08, v3, scope-diagnostic and review evidence remain separate. Earlier drafts, package v1 and original results are preserved. Public hosting and licensing remain pending.",
+    "6. Letta. [Recovery-Bench](https://github.com/letta-ai/recovery-bench). Project repository."
+  ],
+  "publication_metadata_pending": true,
+  "experiments_changed": false
+}

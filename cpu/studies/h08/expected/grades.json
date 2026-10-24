@@ -1,0 +1,188 @@
+[
+  {
+    "id": "H08",
+    "family": "coupled_resources",
+    "grading_version": "afterfix-heldout-grader-v3",
+    "complete": false,
+    "sql_executed": false,
+    "variants": [
+      {
+        "seed": 0,
+        "sql_executed": false,
+        "fixed_patch_unchanged": true,
+        "historical": false,
+        "preservation": false,
+        "repeatable": false,
+        "healthy_control": false,
+        "future": true,
+        "continuation": false,
+        "recovery_error": "UNIQUE constraint failed: escrow.tenant",
+        "healthy_error": "UNIQUE constraint failed: escrow.tenant",
+        "complete": false
+      },
+      {
+        "seed": 7,
+        "sql_executed": false,
+        "fixed_patch_unchanged": true,
+        "historical": false,
+        "preservation": false,
+        "repeatable": false,
+        "healthy_control": false,
+        "future": true,
+        "continuation": false,
+        "recovery_error": "UNIQUE constraint failed: escrow.tenant",
+        "healthy_error": "UNIQUE constraint failed: escrow.tenant",
+        "complete": false
+      },
+      {
+        "seed": 19,
+        "sql_executed": false,
+        "fixed_patch_unchanged": true,
+        "historical": false,
+        "preservation": false,
+        "repeatable": false,
+        "healthy_control": false,
+        "future": true,
+        "continuation": false,
+        "recovery_error": "UNIQUE constraint failed: escrow.tenant",
+        "healthy_error": "UNIQUE constraint failed: escrow.tenant",
+        "complete": false
+      }
+    ],
+    "outcome": "sql_execution_failure",
+    "components": {
+      "historical": false,
+      "preservation": false,
+      "repeatable": false,
+      "healthy_control": false,
+      "future": true,
+      "continuation": false
+    },
+    "method": "provenance",
+    "harness_version": "afterfix-harness-v2"
+  },
+  {
+    "id": "H08",
+    "family": "coupled_resources",
+    "grading_version": "afterfix-heldout-grader-v3",
+    "complete": false,
+    "sql_executed": true,
+    "variants": [
+      {
+        "seed": 0,
+        "sql_executed": true,
+        "fixed_patch_unchanged": true,
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true,
+        "rows_written_first": 2,
+        "rows_written_repeat": 2,
+        "complete": false
+      },
+      {
+        "seed": 7,
+        "sql_executed": true,
+        "fixed_patch_unchanged": true,
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true,
+        "rows_written_first": 2,
+        "rows_written_repeat": 2,
+        "complete": false
+      },
+      {
+        "seed": 19,
+        "sql_executed": true,
+        "fixed_patch_unchanged": true,
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true,
+        "rows_written_first": 2,
+        "rows_written_repeat": 2,
+        "complete": false
+      }
+    ],
+    "outcome": "executable_but_wrong",
+    "components": {
+      "historical": false,
+      "preservation": true,
+      "repeatable": true,
+      "healthy_control": true,
+      "future": true,
+      "continuation": true
+    },
+    "method": "ordinary",
+    "harness_version": "afterfix-harness-v2"
+  },
+  {
+    "id": "H08",
+    "family": "coupled_resources",
+    "grading_version": "afterfix-heldout-grader-v3",
+    "complete": false,
+    "sql_executed": true,
+    "variants": [
+      {
+        "seed": 0,
+        "sql_executed": true,
+        "fixed_patch_unchanged": true,
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true,
+        "rows_written_first": 2,
+        "rows_written_repeat": 2,
+        "complete": false
+      },
+      {
+        "seed": 7,
+        "sql_executed": true,
+        "fixed_patch_unchanged": true,
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true,
+        "rows_written_first": 2,
+        "rows_written_repeat": 2,
+        "complete": false
+      },
+      {
+        "seed": 19,
+        "sql_executed": true,
+        "fixed_patch_unchanged": true,
+        "historical": false,
+        "preservation": true,
+        "repeatable": true,
+        "healthy_control": true,
+        "future": true,
+        "continuation": true,
+        "rows_written_first": 2,
+        "rows_written_repeat": 2,
+        "complete": false
+      }
+    ],
+    "outcome": "executable_but_wrong",
+    "components": {
+      "historical": false,
+      "preservation": true,
+      "repeatable": true,
+      "healthy_control": true,
+      "future": true,
+      "continuation": true
+    },
+    "method": "checklist",
+    "harness_version": "afterfix-harness-v2"
+  }
+]

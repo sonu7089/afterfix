@@ -1,0 +1,305 @@
+{
+  "status": "passed",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "isolated": 1,
+    "third_party": []
+  },
+  "checkpoint_bytes": 7710759449,
+  "checkpoint_files": 21,
+  "checkpoint_manifest_sha256": "78cb8b4cc2bbfa3efe4f5ac4ff04a384e7d11d6c480b0260018f5fbdaaf3953e",
+  "checkpoint_package_manifest_sha256": "c5ab0ee46b3f9d9debde6744e357cdfd645466decaf1bf7582be0a43fb22b1f9",
+  "checkpoint_checksums_sha256": "a8cead637503cc56b123e0e88a04b273ddfb62677829a583fea79407bed4957c",
+  "structural_check": {
+    "status": "passed",
+    "shards": [
+      {
+        "file": "model-00001-of-00013.safetensors",
+        "header_bytes": 144,
+        "tensors": 1,
+        "dtypes": [
+          "F16"
+        ],
+        "data_bytes": 2013265920
+      },
+      {
+        "file": "model-00002-of-00013.safetensors",
+        "header_bytes": 28808,
+        "tensors": 224,
+        "dtypes": [
+          "F16",
+          "F32",
+          "U8"
+        ],
+        "data_bytes": 502503241
+      },
+      {
+        "file": "model-00003-of-00013.safetensors",
+        "header_bytes": 25520,
+        "tensors": 196,
+        "dtypes": [
+          "F16",
+          "F32",
+          "U8"
+        ],
+        "data_bytes": 502212073
+      },
+      {
+        "file": "model-00004-of-00013.safetensors",
+        "header_bytes": 25632,
+        "tensors": 196,
+        "dtypes": [
+          "F16",
+          "F32",
+          "U8"
+        ],
+        "data_bytes": 502212069
+      },
+      {
+        "file": "model-00005-of-00013.safetensors",
+        "header_bytes": 28720,
+        "tensors": 219,
+        "dtypes": [
+          "F16",
+          "F32",
+          "U8"
+        ],
+        "data_bytes": 505281611
+      },
+      {
+        "file": "model-00006-of-00013.safetensors",
+        "header_bytes": 26752,
+        "tensors": 204,
+        "dtypes": [
+          "F16",
+          "F32",
+          "U8"
+        ],
+        "data_bytes": 483964699
+      },
+      {
+        "file": "model-00007-of-00013.safetensors",
+        "header_bytes": 25720,
+        "tensors": 196,
+        "dtypes": [
+          "F16",
+          "F32",
+          "U8"
+        ],
+        "data_bytes": 502212071
+      },
+      {
+        "file": "model-00008-of-00013.safetensors",
+        "header_bytes": 26512,
+        "tensors": 202,
+        "dtypes": [
+          "F16",
+          "F32",
+          "U8"
+        ],
+        "data_bytes": 493084144
+      },
+      {
+        "file": "model-00009-of-00013.safetensors",
+        "header_bytes": 27000,
+        "tensors": 206,
+        "dtypes": [
+          "F16",
+          "F32",
+          "U8"
+        ],
+        "data_bytes": 506293844
+      },
+      {
+        "file": "model-00010-of-00013.safetensors",
+        "header_bytes": 27656,
+        "tensors": 211,
+        "dtypes": [
+          "F16",
+          "F32",
+          "U8"
+        ],
+        "data_bytes": 492080383
+      },
+      {
+        "file": "model-00011-of-00013.safetensors",
+        "header_bytes": 25720,
+        "tensors": 196,
+        "dtypes": [
+          "F16",
+          "F32",
+          "U8"
+        ],
+        "data_bytes": 502212070
+      },
+      {
+        "file": "model-00012-of-00013.safetensors",
+        "header_bytes": 26512,
+        "tensors": 202,
+        "dtypes": [
+          "F16",
+          "F32",
+          "U8"
+        ],
+        "data_bytes": 493084145
+      },
+      {
+        "file": "model-00013-of-00013.safetensors",
+        "header_bytes": 10296,
+        "tensors": 79,
+        "dtypes": [
+          "F16",
+          "F32",
+          "U8"
+        ],
+        "data_bytes": 179598845
+      }
+    ],
+    "tensors": 2332,
+    "index_matches_headers": true,
+    "offsets_and_tensor_byte_lengths_valid": true,
+    "model_loaded": false,
+    "gpu_used": false
+  },
+  "package_checks": [
+    {
+      "check": "package_hashes",
+      "package": "afterfix-gemma4-12b-nf4-v1",
+      "files": 34
+    },
+    {
+      "check": "package_hashes",
+      "package": "afterfix-nf4-adapter-v1",
+      "files": 19
+    }
+  ],
+  "stage_checks": [
+    {
+      "job": "original-batch-1",
+      "changed_existing_payload_files": [
+        "afterfix/checkpoint_download.py",
+        "payload-manifest.json"
+      ],
+      "unchanged_existing_payload_files": 12,
+      "added_payload_files": [
+        "afterfix-results/replication.json",
+        "afterfix/nf4-checkpoint-manifest.json",
+        "afterfix/nf4-runtime.json",
+        "afterfix/nf4_checkpoint.py"
+      ],
+      "prompts_schedule_budgets_workers_unchanged": true
+    },
+    {
+      "job": "original-batch-2",
+      "changed_existing_payload_files": [
+        "afterfix/checkpoint_download.py",
+        "payload-manifest.json"
+      ],
+      "unchanged_existing_payload_files": 12,
+      "added_payload_files": [
+        "afterfix-results/replication.json",
+        "afterfix/nf4-checkpoint-manifest.json",
+        "afterfix/nf4-runtime.json",
+        "afterfix/nf4_checkpoint.py"
+      ],
+      "prompts_schedule_budgets_workers_unchanged": true
+    },
+    {
+      "job": "original-batch-3-retry",
+      "changed_existing_payload_files": [
+        "afterfix/checkpoint_download.py",
+        "payload-manifest.json"
+      ],
+      "unchanged_existing_payload_files": 12,
+      "added_payload_files": [
+        "afterfix-results/replication.json",
+        "afterfix/nf4-checkpoint-manifest.json",
+        "afterfix/nf4-runtime.json",
+        "afterfix/nf4_checkpoint.py"
+      ],
+      "prompts_schedule_budgets_workers_unchanged": true
+    },
+    {
+      "job": "original-batch-4",
+      "changed_existing_payload_files": [
+        "afterfix/checkpoint_download.py",
+        "payload-manifest.json"
+      ],
+      "unchanged_existing_payload_files": 12,
+      "added_payload_files": [
+        "afterfix-results/replication.json",
+        "afterfix/nf4-checkpoint-manifest.json",
+        "afterfix/nf4-runtime.json",
+        "afterfix/nf4_checkpoint.py"
+      ],
+      "prompts_schedule_budgets_workers_unchanged": true
+    },
+    {
+      "job": "h08",
+      "changed_existing_payload_files": [
+        "afterfix/checkpoint_download.py",
+        "payload-manifest.json"
+      ],
+      "unchanged_existing_payload_files": 15,
+      "added_payload_files": [
+        "afterfix-results/replication.json",
+        "afterfix/nf4-checkpoint-manifest.json",
+        "afterfix/nf4-runtime.json",
+        "afterfix/nf4_checkpoint.py"
+      ],
+      "prompts_schedule_budgets_workers_unchanged": true
+    }
+  ],
+  "compiled_payload_python_files": 62,
+  "negative_checks": [
+    "historical-id:nitishsongara/afterfix-heldout-batch-1",
+    "historical-id:nitishsongara/afterfix-heldout-batch-2",
+    "historical-id:nitishsongara/afterfix-held-out-batch-3",
+    "historical-id:nitishsongara/afterfix-heldout-batch-4",
+    "historical-id:nitishsongara/afterfix-h08-harness-v2",
+    "historical-id:nitishsongara/afterfix-deep-31b-12b-bos-v3",
+    "historical-id:nitishsongara/afterfix-checkpoint-cpu",
+    "existing-directory",
+    "in-package-directory",
+    "unsupported-v3",
+    "relative-checkpoint-path",
+    "same-size-corruption",
+    "truncated-file",
+    "missing-file",
+    "path-traversal",
+    "windows-path-separator",
+    "existing-copy-destination",
+    "altered-checkpoint-manifest",
+    "wrapper-missing-source-no-fallback",
+    "case-insensitive-historical-id:NITISHSONGARA/afterfix-heldout-batch-1",
+    "case-insensitive-historical-id:NITISHSONGARA/afterfix-heldout-batch-2",
+    "case-insensitive-historical-id:NITISHSONGARA/afterfix-held-out-batch-3",
+    "case-insensitive-historical-id:NITISHSONGARA/afterfix-heldout-batch-4",
+    "case-insensitive-historical-id:NITISHSONGARA/afterfix-h08-harness-v2",
+    "case-insensitive-historical-id:NITISHSONGARA/afterfix-deep-31b-12b-bos-v3",
+    "case-insensitive-historical-id:NITISHSONGARA/afterfix-checkpoint-cpu"
+  ],
+  "real_local_copy_and_hash_verification": true,
+  "materialization_seconds": 16.45299999999952,
+  "copied_files_read_back_and_verified": true,
+  "preserved_prior_files": 5340,
+  "adapter_archive_sha256": "18b7fc71f693f2009d7cb93e97b2f9f474066098e025629ce9c940fe57777031",
+  "gpu_runs": 0,
+  "uploads": 0,
+  "published": false,
+  "limitations": [
+    "No GPU model loading or generation in this preparation",
+    "No public or cross-account download test",
+    "Historical full NF4 weight hashes were not recorded; these hashes describe the retrieved release",
+    "Local SSD copy timing does not establish future Kaggle mounted-input speed"
+  ],
+  "final_stage_guard_review": {
+    "status": "passed",
+    "change": "Reject historical notebook IDs regardless of username casing",
+    "all_five_jobs_restaged": true,
+    "added_negative_checks": 7,
+    "prior_internal_archive_sha256": "b5d878a855fba63860f296365bfb9a702f2490edaae7bf1ede33ff2429b3b11d",
+    "prior_internal_archive_preserved": "tmp/nf4-internal-review-v1/afterfix-nf4-adapter-v1.zip",
+    "checkpoint_and_inference_adapter_code_unchanged": true
+  }
+}

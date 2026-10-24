@@ -1,0 +1,208 @@
+{
+  "recorded_at_utc": "2026-10-23T12:03:33.942026+00:00",
+  "seal_sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+  "sources": [
+    {
+      "batch": 1,
+      "version": 1,
+      "path": "results/heldout-batch-1-gpu/afterfix-results/agent-results.json",
+      "sha256": "a4a75b72c51aca5ef3b1a0d1187f0b22ae505fa93bb38498f09f3337846b856d",
+      "validation": {
+        "status": "passed",
+        "seal_sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+        "payload_files_verified": 13,
+        "exact_public_feedback_replays": 21,
+        "run_order_verified": true,
+        "prompt_and_task_hashes_verified": true,
+        "source_versions": {
+          "torch": "2.11.0+cu128",
+          "transformers": "5.20.2",
+          "accelerate": "1.15.0",
+          "bitsandbytes": "0.50.2",
+          "sqlite": "3.45.1",
+          "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]"
+        },
+        "local_sqlite": "3.53.1",
+        "controller_status": "completed",
+        "worker_status": "completed",
+        "attempted_runs": 18,
+        "completed_runs": 18,
+        "controller_seconds": 1590.5145496689997,
+        "model_load_seconds": 12.811569211000005,
+        "checkpoint_download_seconds": 37.74200409499997,
+        "maximum_input_tokens": 2867,
+        "maximum_output_tokens_per_response": 458,
+        "output_tokens": 10136,
+        "gpus": [
+          {
+            "name": "Tesla T4",
+            "total_GiB": 14.56219482421875
+          },
+          {
+            "name": "Tesla T4",
+            "total_GiB": 14.56219482421875
+          }
+        ],
+        "parameter_devices": [
+          "cuda:0"
+        ],
+        "model_reruns": 0,
+        "analysis_at_utc": "2026-10-23T08:14:30.124357+00:00"
+      }
+    },
+    {
+      "batch": 2,
+      "version": 1,
+      "path": "results/heldout-batch-2-gpu/afterfix-results/agent-results.json",
+      "sha256": "167847119b67e5fae71ee959eae97713b5cdfc21a5e4ca3618e9cf5383131c26",
+      "validation": {
+        "status": "passed",
+        "seal_sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+        "payload_files_verified": 13,
+        "exact_public_feedback_replays": 21,
+        "run_order_verified": true,
+        "prompt_and_task_hashes_verified": true,
+        "source_versions": {
+          "torch": "2.11.0+cu128",
+          "transformers": "5.20.2",
+          "accelerate": "1.15.0",
+          "bitsandbytes": "0.50.2",
+          "sqlite": "3.45.1",
+          "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]"
+        },
+        "local_sqlite": "3.53.1",
+        "controller_status": "completed",
+        "worker_status": "completed",
+        "attempted_runs": 18,
+        "completed_runs": 18,
+        "controller_seconds": 1598.229727341,
+        "model_load_seconds": 9.749969232000012,
+        "checkpoint_download_seconds": 84.779429075,
+        "maximum_input_tokens": 2907,
+        "maximum_output_tokens_per_response": 512,
+        "output_tokens": 9865,
+        "gpus": [
+          {
+            "name": "Tesla T4",
+            "total_GiB": 14.56219482421875
+          },
+          {
+            "name": "Tesla T4",
+            "total_GiB": 14.56219482421875
+          }
+        ],
+        "parameter_devices": [
+          "cuda:0"
+        ],
+        "model_reruns": 0,
+        "analysis_at_utc": "2026-10-23T09:39:29.998648+00:00"
+      }
+    },
+    {
+      "batch": 3,
+      "version": 2,
+      "path": "results/heldout-batch-3-retry-v2-gpu/afterfix-results/agent-results.json",
+      "sha256": "c198fdc435e3c5d2098cf9d63d941adca67753f21912f04d16547c464d3b32c7",
+      "validation": {
+        "status": "passed",
+        "kaggle_version": 2,
+        "seal_sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+        "payload_files_verified": 13,
+        "exact_public_feedback_replays": 26,
+        "run_order_verified": true,
+        "prompt_and_task_hashes_verified": true,
+        "source_versions": {
+          "torch": "2.11.0+cu128",
+          "transformers": "5.20.2",
+          "accelerate": "1.15.0",
+          "bitsandbytes": "0.50.2",
+          "sqlite": "3.45.1",
+          "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]"
+        },
+        "local_sqlite": "3.53.1",
+        "controller_status": "completed",
+        "worker_status": "completed",
+        "attempted_runs": 18,
+        "completed_runs": 18,
+        "controller_seconds": 1751.4665409229997,
+        "model_load_seconds": 9.554298469999935,
+        "checkpoint_download_seconds": 31.889398819000007,
+        "maximum_input_tokens": 2934,
+        "maximum_output_tokens_per_response": 512,
+        "output_tokens": 11490,
+        "gpus": [
+          {
+            "name": "Tesla T4",
+            "total_GiB": 14.56219482421875
+          },
+          {
+            "name": "Tesla T4",
+            "total_GiB": 14.56219482421875
+          }
+        ],
+        "parameter_devices": [
+          "cuda:0"
+        ],
+        "model_reruns": 0,
+        "analysis_at_utc": "2026-10-23T11:01:49.067857+00:00"
+      }
+    },
+    {
+      "batch": 4,
+      "version": 1,
+      "path": "results/heldout-batch-4-gpu/afterfix-results/agent-results.json",
+      "sha256": "567ad8fbc47e0345404f186d4f0ed3d756da1dd49fdbea30047b8a42147a43dc",
+      "validation": {
+        "status": "passed",
+        "kaggle_version": 1,
+        "seal_sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+        "payload_files_verified": 13,
+        "exact_public_feedback_replays": 23,
+        "run_order_verified": true,
+        "prompt_and_task_hashes_verified": true,
+        "source_versions": {
+          "torch": "2.11.0+cu128",
+          "transformers": "5.20.2",
+          "accelerate": "1.15.0",
+          "bitsandbytes": "0.50.2",
+          "sqlite": "3.45.1",
+          "python": "3.13.15 (main, Aug  6 2026, 11:06:22) [GCC 13.3.0]"
+        },
+        "local_sqlite": "3.53.1",
+        "controller_status": "completed",
+        "worker_status": "completed",
+        "attempted_runs": 18,
+        "completed_runs": 18,
+        "controller_seconds": 1643.496136927,
+        "model_load_seconds": 9.736802329,
+        "checkpoint_download_seconds": 77.735271743,
+        "maximum_input_tokens": 2942,
+        "maximum_output_tokens_per_response": 512,
+        "output_tokens": 10460,
+        "gpus": [
+          {
+            "name": "Tesla T4",
+            "total_GiB": 14.56219482421875
+          },
+          {
+            "name": "Tesla T4",
+            "total_GiB": 14.56219482421875
+          }
+        ],
+        "parameter_devices": [
+          "cuda:0"
+        ],
+        "model_reruns": 0,
+        "analysis_at_utc": "2026-10-23T11:59:32.941600+00:00"
+      }
+    }
+  ],
+  "unique_model_attempts": 72,
+  "exact_grade_matches": 72,
+  "exact_public_feedback_replays": 91,
+  "infrastructure_incomplete_cells": 0,
+  "original_batch3_v1_model_attempts": 0,
+  "seeds_are_not_independent_observations": true,
+  "frozen_runtime_modified": false,
+  "gpu_runs_started": 0
+}

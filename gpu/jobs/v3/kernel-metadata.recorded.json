@@ -1,0 +1,14 @@
+{
+  "id": "nitishsongara/afterfix-deep-31b-12b-bos-v3",
+  "title": "AfterFix Deep 31B 12B BOS v3",
+  "code_file": "pilot.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}

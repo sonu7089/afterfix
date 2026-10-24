@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "local_markdown_links_valid": true,
+  "credential_pattern_hits": 0,
+  "credential_scan_scope": "Text files in explicit manifest packages and local review documents; archives are byte-identical to those package trees.",
+  "preserved_prior_files": 5409,
+  "repository_created": false,
+  "published": false,
+  "external_uploads": 0
+}

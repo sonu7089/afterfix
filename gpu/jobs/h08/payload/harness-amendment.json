@@ -1,0 +1,63 @@
+{
+  "version": "afterfix-harness-v2",
+  "base_seal_sha256": "06724b7f9e7fb700ba55396eb47883fd0d680aab385dd106430c5804fe121e4c",
+  "reason": "Fix erroneous rejection of allowed table-only SQLITE_READ callback with database None and empty column.",
+  "affected_case_ids": [
+    "H08"
+  ],
+  "schedule": [
+    {
+      "id": "H08",
+      "method": "provenance"
+    },
+    {
+      "id": "H08",
+      "method": "ordinary"
+    },
+    {
+      "id": "H08",
+      "method": "checklist"
+    }
+  ],
+  "design_unchanged": [
+    "fixtures",
+    "patches",
+    "prompts",
+    "parser",
+    "grader logic",
+    "model",
+    "tokenizer",
+    "decoding",
+    "per-case budgets",
+    "method order"
+  ],
+  "separate_results": true,
+  "original_results_preserved": true,
+  "model_exposure_note": "Post-study correction after inspecting v1 outcomes; not a fresh holdout.",
+  "files": {
+    "afterfix/agent.py": "78962f2b781ed7fbc71c0a51898028b9f7719ba757f7c6e5e98e9361e8722803",
+    "afterfix/cases.py": "70d2c08cb35865ff23e57e0279325c122ae909752c0b8733ad498d7549080650",
+    "afterfix/checkpoint.py": "37ca242c608b77a1d323a0d7b3aaebdc41c71dfa9f1d9d12166ebba116d76135",
+    "afterfix/checkpoint_download.py": "2c8308a4309cad870bcd283d8ce9f29ce1d6f9298f0fce2940050a702e4f0ce2",
+    "afterfix/engine.py": "e83228ef2502ba06cf311f0d7357796d4d99df1b7300fa36ebdbc8be21c0c090",
+    "afterfix/evaluation.py": "714209ce32d8e5e1f59d67920bdd1faebd976d0c9f3f877656aff34a2a40b226",
+    "afterfix/grade.py": "edbe0b9c78b90b83b5597efeab5fa8b48d6c4a2bf8e4c730496b79dd351b1413",
+    "afterfix/h08_job.py": "97ef053f5d7e1af661662a8dbe786cc97058322b3240efc58a5b5eeff5d30308",
+    "afterfix/h08_worker.py": "d4ddb4124ae017e33d93a6580e745e04c91200a20aab68eb30aaf2d159b56aee",
+    "afterfix/heldout_cases.py": "cd3c187cb9a0e1867268b80b388b1edbb66ee0ff7563bec82256000d704b5af6",
+    "afterfix/heldout_evaluation.py": "c61de116cb73ce99b00634ce089f646fb4b048ce524ba1cb318b66728e3550cf",
+    "afterfix/heldout_grade.py": "fdd798f17177a1e839b8ac05df8d8fc5fa838e3b51fa9237bcf08516ed8b64fa",
+    "afterfix/heldout_job.py": "810f7dbce0724284448e5f95e9d4aef0f668f19d92233ee7ad5d52108e8dc3a4",
+    "afterfix/heldout_remaining.py": "98b5d57b2637c13d30593a389af8f53a2c075af63a92c56a077d05a4353f12a8",
+    "afterfix/heldout_worker.py": "4c2ecdb9d735acccdcf43f66e7d5a5385c9af4f5ef2843b34995489217ac78ab",
+    "afterfix/job.py": "4e5b96852478815b3e50ba36770021244760e0039a890f71d51066280dd1e43e",
+    "afterfix/model_source.py": "a3fdb94550d9168ddd88a5a08117bd95aa897ac3cf8e4278fe7ec1e6111107d9",
+    "afterfix/protocol.py": "4a311901d79438699dac006608f1e108a26a65ec6c3bad273c0193664c2efd4f",
+    "afterfix/protocol_v2.py": "0c8641ce6043514dd20e0af83d41e9b1bfb2941a15494d3a00d32f7ead893347",
+    "afterfix/recovery_cases.py": "af0b012e61168071ecfda491f76c054711bf00628a4c1256622615ccaebdb186",
+    "afterfix/recovery_grade.py": "3d3fe491951af25cbba36b26108a92e3297f12ea020540801240cd734a317095",
+    "afterfix/runner.py": "0022075e2f1575ceaba1611df5ec33c5f582b22146eaeb0e5cf711122be01a03",
+    "afterfix/runtime.py": "7bd0da92eed49aca17c23b29155805617f7a95df088f1340ab7fdb89f2125c53",
+    "afterfix/__init__.py": "2d10bcbd6d5b4f395bbe9dafdf0317371e97c2d4a7c46dfa554e6aae77a261d2"
+  }
+}

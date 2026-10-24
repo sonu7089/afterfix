@@ -1,0 +1,15 @@
+{
+  "manuscript_expression": "CC-BY-4.0 OR Apache-2.0",
+  "apache": {
+    "license": "Apache-2.0",
+    "official_text": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "source": "Unmodified standard Apache license text from bundled tzdata license copy; official text reviewed.",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  "cc_by": {
+    "url": "https://creativecommons.org/licenses/by/4.0/legalcode.txt",
+    "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+    "retrieved": "2026-10-24",
+    "unmodified_official_text": true
+  }
+}

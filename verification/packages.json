@@ -1,0 +1,188 @@
+{
+  "status": "passed",
+  "environment": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "sqlite": "3.53.1",
+    "isolated": 1,
+    "distributions": []
+  },
+  "cpu_archive": {
+    "name": "afterfix-cpu-v5",
+    "archive_bytes": 1311529,
+    "sha256": "0248e950d022e0add1b5852af3f11d6f312866764f351542b7c2c77e34f8e806",
+    "entries": 165,
+    "missing_local_markdown_links": [],
+    "manifest_files": 164
+  },
+  "gpu_archive": {
+    "name": "afterfix-gpu-inference-v3",
+    "archive_bytes": 395577,
+    "sha256": "a808ce285207575be415911c97a70740bc6b536c336cead11278f8d77f5d0fe3",
+    "entries": 138,
+    "missing_local_markdown_links": [],
+    "manifest_files": 137
+  },
+  "cpu_reproduction": {
+    "status": "passed",
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "platform": "Windows-11-10.0.26300-SP0",
+    "isolated_python": true,
+    "package_files_verified": 164,
+    "studies": {
+      "original": {
+        "status": "passed",
+        "study": "original",
+        "model_attempts": 72,
+        "exact_grade_matches": 72,
+        "exact_feedback_replays": 336,
+        "source_engine": "studies/original/source/afterfix/engine.py",
+        "source_engine_sha256": "f3c8577485cc3e2672dc7f91a190158630797338800c5fc335563b9653c44be3",
+        "sqlite": "3.53.1",
+        "model_generation_repeated": false,
+        "all_studies_separate": true
+      },
+      "h08": {
+        "status": "passed",
+        "study": "h08",
+        "model_attempts": 3,
+        "exact_grade_matches": 3,
+        "exact_feedback_replays": 16,
+        "source_engine": "studies/h08/source/afterfix/engine.py",
+        "source_engine_sha256": "e83228ef2502ba06cf311f0d7357796d4d99df1b7300fa36ebdbc8be21c0c090",
+        "sqlite": "3.53.1",
+        "model_generation_repeated": false,
+        "all_studies_separate": true
+      },
+      "v3": {
+        "status": "passed",
+        "study": "v3",
+        "model_attempts": 144,
+        "exact_grade_matches": 144,
+        "exact_feedback_replays": 589,
+        "source_engine": "studies/v3/source/afterfix/engine.py",
+        "source_engine_sha256": "e83228ef2502ba06cf311f0d7357796d4d99df1b7300fa36ebdbc8be21c0c090",
+        "sqlite": "3.53.1",
+        "model_generation_repeated": false,
+        "all_studies_separate": true
+      },
+      "diagnostic": {
+        "status": "passed",
+        "cases": 24,
+        "rules": 3,
+        "seeds": [
+          0,
+          7,
+          19
+        ],
+        "exact_case_rule_grade_matches": 72,
+        "public_candidates_exact": true,
+        "post_hoc": true,
+        "model_attempts": 0
+      }
+    },
+    "metric_overlap_exact": true,
+    "case_admissions": 24,
+    "case_review_files_exact": true,
+    "internal_review_exact": true,
+    "internal_review_cases": 24,
+    "review_case_seed_checks": 72,
+    "separate_boundary_probes": 4,
+    "elapsed_seconds": 6.061,
+    "model_inference_performed": false,
+    "network_required": false,
+    "third_party_packages_required": false,
+    "scope": "Saved-output regrading, SQL/feedback replay, case admissions and paper tables. Not a new model evaluation or independent GPU/tokenizer audit."
+  },
+  "gpu_offline_checks": {
+    "status": "passed",
+    "manifest_files": 137,
+    "jobs": [
+      {
+        "job": "original-batch-1",
+        "payload_files": 14,
+        "schedule_cells": 18
+      },
+      {
+        "job": "original-batch-2",
+        "payload_files": 14,
+        "schedule_cells": 18
+      },
+      {
+        "job": "original-batch-3-retry",
+        "payload_files": 14,
+        "schedule_cells": 18
+      },
+      {
+        "job": "original-batch-4",
+        "payload_files": 14,
+        "schedule_cells": 18
+      },
+      {
+        "job": "h08",
+        "payload_files": 17,
+        "schedule_cells": 3
+      },
+      {
+        "job": "v3",
+        "payload_files": 12,
+        "schedule_cells": 72
+      },
+      {
+        "job": "checkpoint",
+        "preparation_worker_compiles": true
+      }
+    ],
+    "python_files_compiled": 75,
+    "cpu_transport_and_placement_controls": 19,
+    "model_generation_performed": false,
+    "network_requests": 0,
+    "gpu_jobs_submitted": 0,
+    "limitation": "Static payload checks and mocked CPU controls do not verify current checkpoint access, native tokenizer generation or cloud runtime availability."
+  },
+  "staging_checks": [
+    {
+      "job": "original-batch-1",
+      "launcher_unchanged": true,
+      "private_staging_only": true
+    },
+    {
+      "job": "original-batch-2",
+      "launcher_unchanged": true,
+      "private_staging_only": true
+    },
+    {
+      "job": "original-batch-3-retry",
+      "launcher_unchanged": true,
+      "private_staging_only": true
+    },
+    {
+      "job": "original-batch-4",
+      "launcher_unchanged": true,
+      "private_staging_only": true
+    },
+    {
+      "job": "h08",
+      "launcher_unchanged": true,
+      "private_staging_only": true
+    },
+    {
+      "job": "v3",
+      "launcher_unchanged": true,
+      "private_staging_only": true
+    },
+    {
+      "job": "checkpoint",
+      "launcher_unchanged": true,
+      "private_staging_only": true
+    }
+  ],
+  "staging_rejection_controls": 4,
+  "regenerated_tables_identical_to_v2": true,
+  "preserved_prior_files": 5409,
+  "preserved_result_files": 2974,
+  "gpu_jobs_submitted": 0,
+  "external_uploads": 0,
+  "weights_downloaded": false,
+  "caveat": "CPU analysis and local NF4 integrity verified. Manuscript uses CC-BY-4.0 OR Apache-2.0. Public checkpoint access, adapter GPU execution and publication remain pending."
+}

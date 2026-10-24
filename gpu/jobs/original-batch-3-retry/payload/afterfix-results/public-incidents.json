@@ -1,0 +1,653 @@
+[
+  {
+    "id": "H03",
+    "title": "SagaDock: compensation intents included unfinished child steps",
+    "specification": "compensation is a rebuildable intent/status projection, not an external side-effect log. Include every child step. Only completed steps of canceled parents require undo: state done if an accepted undo receipt exists, otherwise pending; units equals cost. All other steps have state none and zero units. Never enqueue undo again for an acknowledged compensation. Parent changes expand work to child step IDs. The fixed patch refreshes only step IDs in work for compensation, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE parents(id TEXT PRIMARY KEY,state TEXT);\nCREATE TABLE steps(id TEXT PRIMARY KEY,parent TEXT,state TEXT,cost INTEGER);\nCREATE TABLE undo_receipts(step TEXT PRIMARY KEY,accepted INTEGER);\nCREATE TABLE compensation(step TEXT PRIMARY KEY,state TEXT,units INTEGER);\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM compensation WHERE step IN (SELECT entity FROM work); INSERT INTO compensation SELECT * FROM (SELECT s.id AS step,CASE WHEN p.state='canceled' AND s.state='completed' THEN CASE WHEN EXISTS(SELECT 1 FROM undo_receipts u WHERE u.step=s.id AND u.accepted=1) THEN 'done' ELSE 'pending' END ELSE 'none' END,CASE WHEN p.state='canceled' AND s.state='completed' THEN s.cost ELSE 0 END FROM steps s JOIN parents p ON p.id=s.parent) WHERE step IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "compensation"
+    ],
+    "immutable_tables": [
+      "parents",
+      "steps",
+      "undo_receipts",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "parents": [
+        [
+          "p1_0",
+          "canceled"
+        ],
+        [
+          "p2_0",
+          "active"
+        ]
+      ],
+      "steps": [
+        [
+          "s1_0",
+          "p1_0",
+          "completed",
+          3
+        ],
+        [
+          "s2_0",
+          "p1_0",
+          "pending",
+          4
+        ],
+        [
+          "s3_0",
+          "p1_0",
+          "completed",
+          2
+        ],
+        [
+          "s4_0",
+          "p2_0",
+          "completed",
+          5
+        ]
+      ],
+      "undo_receipts": [
+        [
+          "s3_0",
+          1
+        ],
+        [
+          "s1_0",
+          0
+        ]
+      ],
+      "work": [],
+      "compensation": [
+        [
+          "s1_0",
+          "pending",
+          3
+        ],
+        [
+          "s2_0",
+          "pending",
+          4
+        ],
+        [
+          "s3_0",
+          "pending",
+          2
+        ],
+        [
+          "s4_0",
+          "none",
+          0
+        ]
+      ]
+    },
+    "evidence": [
+      "A saga retry generated undo intents for every child and reset an acknowledged undo.",
+      "parents + steps + undo_receipts -> compensation; work -> compensation"
+    ],
+    "condition": "correct_patch_given",
+    "family": "delivery_workflows",
+    "history_variant": "H03"
+  },
+  {
+    "id": "H07",
+    "title": "SplitCart: returns freed unshipped reservations and duplicated replacements",
+    "specification": "Original shipments reserve ordered minus shipped, regardless of returns. net_delivered counts original shipped units minus accepted returns on those shipments. Every accepted return requests the same quantity of replacement; replacement_due subtracts replacements already shipped for that return. Replacements are tracked separately and are not original shipments. Rejected returns do nothing. Valid quantities never over-return or over-replace. The fixed patch refreshes only line IDs in work for line_state, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE lines(id TEXT PRIMARY KEY,ordered INTEGER);\nCREATE TABLE shipments(id TEXT PRIMARY KEY,line TEXT,qty INTEGER);\nCREATE TABLE returns(id TEXT PRIMARY KEY,shipment TEXT,qty INTEGER,accepted INTEGER);\nCREATE TABLE replacements(return_id TEXT PRIMARY KEY,shipped INTEGER);\nCREATE TABLE line_state(line TEXT PRIMARY KEY,reserved INTEGER,net_delivered INTEGER,replacement_due INTEGER);\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM line_state WHERE line IN (SELECT entity FROM work); INSERT INTO line_state SELECT * FROM (SELECT l.id AS line,l.ordered-COALESCE((SELECT SUM(qty) FROM shipments s WHERE s.line=l.id),0),COALESCE((SELECT SUM(qty) FROM shipments s WHERE s.line=l.id),0)-COALESCE((SELECT SUM(r.qty) FROM returns r JOIN shipments s ON s.id=r.shipment WHERE s.line=l.id AND r.accepted=1),0),COALESCE((SELECT SUM(r.qty-COALESCE(p.shipped,0)) FROM returns r JOIN shipments s ON s.id=r.shipment LEFT JOIN replacements p ON p.return_id=r.id WHERE s.line=l.id AND r.accepted=1),0) FROM lines l) WHERE line IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "line_state"
+    ],
+    "immutable_tables": [
+      "lines",
+      "shipments",
+      "returns",
+      "replacements",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "lines": [
+        [
+          "l1_0",
+          10
+        ],
+        [
+          "l2_0",
+          4
+        ],
+        [
+          "l3_0",
+          3
+        ]
+      ],
+      "shipments": [
+        [
+          "s1_0",
+          "l1_0",
+          4
+        ],
+        [
+          "s2_0",
+          "l1_0",
+          2
+        ],
+        [
+          "s3_0",
+          "l2_0",
+          4
+        ]
+      ],
+      "returns": [
+        [
+          "r1_0",
+          "s1_0",
+          2,
+          1
+        ],
+        [
+          "r2_0",
+          "s2_0",
+          1,
+          0
+        ],
+        [
+          "r3_0",
+          "s3_0",
+          1,
+          1
+        ]
+      ],
+      "replacements": [
+        [
+          "r1_0",
+          1
+        ],
+        [
+          "r3_0",
+          1
+        ]
+      ],
+      "work": [],
+      "line_state": [
+        [
+          "l1_0",
+          2,
+          3,
+          2
+        ],
+        [
+          "l2_0",
+          0,
+          3,
+          0
+        ],
+        [
+          "l3_0",
+          3,
+          0,
+          0
+        ]
+      ]
+    },
+    "evidence": [
+      "An order-level refund freed still-unshipped allocations; replay also forgot an already sent replacement.",
+      "lines + shipments + returns + replacements -> line_state; work -> line_state"
+    ],
+    "condition": "correct_patch_given",
+    "family": "coupled_resources",
+    "history_variant": "H07"
+  },
+  {
+    "id": "H11",
+    "title": "EpochDesk: a migration replaced explicit NULL and later operator edits",
+    "specification": "Apply a default for the document schema epoch only when present=0. present=1 with value NULL is an explicit stored NULL, not absence. Any operator edit supersedes migration; highest seq wins even when its value is NULL. source is operator, stored, or default respectively. revision is highest edit seq or zero. Every document has exactly one matching epoch default. The fixed patch refreshes only id IDs in work for migrated, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE documents(id TEXT PRIMARY KEY,epoch INTEGER,present INTEGER,value TEXT);\nCREATE TABLE defaults(epoch INTEGER PRIMARY KEY,value TEXT);\nCREATE TABLE edits(id TEXT,seq INTEGER,value TEXT,PRIMARY KEY(id,seq));\nCREATE TABLE migrated(id TEXT PRIMARY KEY,value TEXT,source TEXT,revision INTEGER);\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM migrated WHERE id IN (SELECT entity FROM work); INSERT INTO migrated SELECT * FROM (SELECT d.id,CASE WHEN EXISTS(SELECT 1 FROM edits e WHERE e.id=d.id) THEN (SELECT value FROM edits e WHERE e.id=d.id ORDER BY seq DESC LIMIT 1) WHEN d.present=1 THEN d.value ELSE f.value END,CASE WHEN EXISTS(SELECT 1 FROM edits e WHERE e.id=d.id) THEN 'operator' WHEN d.present=1 THEN 'stored' ELSE 'default' END,COALESCE((SELECT MAX(seq) FROM edits e WHERE e.id=d.id),0) FROM documents d JOIN defaults f ON f.epoch=d.epoch) WHERE id IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "migrated"
+    ],
+    "immutable_tables": [
+      "documents",
+      "defaults",
+      "edits",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "documents": [
+        [
+          "absent_0",
+          1,
+          0,
+          null
+        ],
+        [
+          "null_0",
+          1,
+          1,
+          null
+        ],
+        [
+          "edited_0",
+          1,
+          0,
+          null
+        ],
+        [
+          "healthy_0",
+          2,
+          1,
+          "kept"
+        ]
+      ],
+      "defaults": [
+        [
+          1,
+          "legacy"
+        ],
+        [
+          2,
+          "modern"
+        ]
+      ],
+      "edits": [
+        [
+          "edited_0",
+          1,
+          "manual"
+        ],
+        [
+          "edited_0",
+          2,
+          null
+        ]
+      ],
+      "work": [],
+      "migrated": [
+        [
+          "absent_0",
+          "legacy",
+          "default",
+          0
+        ],
+        [
+          "null_0",
+          "legacy",
+          "default",
+          0
+        ],
+        [
+          "edited_0",
+          "legacy",
+          "default",
+          0
+        ],
+        [
+          "healthy_0",
+          "kept",
+          "stored",
+          0
+        ]
+      ]
+    },
+    "evidence": [
+      "COALESCE confused explicit NULL with absent fields and overwrote a later operator-cleared value.",
+      "documents + defaults + edits -> migrated; work -> migrated"
+    ],
+    "condition": "correct_patch_given",
+    "family": "versioned_storage",
+    "history_variant": "H11"
+  },
+  {
+    "id": "H15",
+    "title": "GroupFork: a team split erased direct membership provenance",
+    "specification": "Active direct assignments retain their origin team and ignore routing. Active inherited assignments contribute only accepted routing targets, never their old origin. A split can route one assignment to multiple targets; a merge can create multiple independent sources for one membership. Store one (user,team) row with the number of contributing assignment IDs. Inactive assignments and rejected routes do not contribute. The fixed patch refreshes only user IDs in work for membership, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE assignments(id TEXT PRIMARY KEY,user TEXT,origin TEXT,kind TEXT,active INTEGER);\nCREATE TABLE routing(assignment TEXT,target TEXT,accepted INTEGER,PRIMARY KEY(assignment,target));\nCREATE TABLE membership(user TEXT,team TEXT,sources INTEGER,PRIMARY KEY(user,team));\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM membership WHERE user IN (SELECT entity FROM work); INSERT INTO membership SELECT * FROM (SELECT user,team,COUNT(*) FROM (SELECT user,origin AS team FROM assignments WHERE kind='direct' AND active=1 UNION ALL SELECT a.user,r.target FROM assignments a JOIN routing r ON r.assignment=a.id WHERE a.kind='inherited' AND a.active=1 AND r.accepted=1) GROUP BY user,team) WHERE user IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "membership"
+    ],
+    "immutable_tables": [
+      "assignments",
+      "routing",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "assignments": [
+        [
+          "a1_0",
+          "ana_0",
+          "legacy_0",
+          "inherited",
+          1
+        ],
+        [
+          "a2_0",
+          "ana_0",
+          "red_0",
+          "direct",
+          1
+        ],
+        [
+          "a3_0",
+          "bo_0",
+          "legacy_0",
+          "inherited",
+          1
+        ],
+        [
+          "a4_0",
+          "cy_0",
+          "blue_0",
+          "direct",
+          1
+        ],
+        [
+          "a5_0",
+          "di_0",
+          "legacy_0",
+          "inherited",
+          0
+        ]
+      ],
+      "routing": [
+        [
+          "a1_0",
+          "blue_0",
+          1
+        ],
+        [
+          "a1_0",
+          "red_0",
+          0
+        ],
+        [
+          "a2_0",
+          "blue_0",
+          1
+        ],
+        [
+          "a3_0",
+          "red_0",
+          1
+        ],
+        [
+          "a3_0",
+          "blue_0",
+          1
+        ],
+        [
+          "a5_0",
+          "red_0",
+          1
+        ]
+      ],
+      "work": [],
+      "membership": [
+        [
+          "bo_0",
+          "blue_0",
+          1
+        ],
+        [
+          "bo_0",
+          "red_0",
+          1
+        ],
+        [
+          "cy_0",
+          "blue_0",
+          1
+        ],
+        [
+          "ana_0",
+          "blue_0",
+          2
+        ]
+      ]
+    },
+    "evidence": [
+      "A group split applied routing to direct assignments and retained retired inherited origins.",
+      "assignments + routing -> membership; work -> membership"
+    ],
+    "condition": "correct_patch_given",
+    "family": "authorization_graphs",
+    "history_variant": "H15"
+  },
+  {
+    "id": "H19",
+    "title": "TierMeter: replay priced every usage event in the first tier",
+    "specification": "Each use event receives low tier units up to the account threshold minus earlier usage since the latest reset, then high tier units for the remainder. cost=low_units*low_rate+high_units*high_rate. Process authoritative seq, not arrival. Reset starts a new cumulative period and has no charge row. Units and rates are positive; late arrivals can change earlier-period marginal allocation but not cross reset boundaries. The fixed patch refreshes only account IDs in work for charges, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE accounts(id TEXT PRIMARY KEY,threshold INTEGER,low_rate INTEGER,high_rate INTEGER);\nCREATE TABLE usage_events(id TEXT PRIMARY KEY,account TEXT,seq INTEGER,kind TEXT,units INTEGER,arrival INTEGER,UNIQUE(account,seq));\nCREATE TABLE charges(account TEXT,event TEXT,low_units INTEGER,high_units INTEGER,cost INTEGER,PRIMARY KEY(account,event));\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM charges WHERE account IN (SELECT entity FROM work); INSERT INTO charges SELECT * FROM (WITH u AS (SELECT e.*,a.threshold,a.low_rate,a.high_rate,COALESCE((SELECT SUM(p.units) FROM usage_events p WHERE p.account=e.account AND p.kind='use' AND p.seq<e.seq AND p.seq>COALESCE((SELECT MAX(r.seq) FROM usage_events r WHERE r.account=e.account AND r.kind='reset' AND r.seq<e.seq),0)),0) AS prior FROM usage_events e JOIN accounts a ON a.id=e.account WHERE e.kind='use'), v AS (SELECT *,MIN(units,MAX(0,threshold-prior)) AS lo FROM u) SELECT account,id,lo,units-lo,lo*low_rate+(units-lo)*high_rate FROM v) WHERE account IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "charges"
+    ],
+    "immutable_tables": [
+      "accounts",
+      "usage_events",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "accounts": [
+        [
+          "a_0",
+          10,
+          2,
+          5
+        ],
+        [
+          "b_0",
+          8,
+          1,
+          3
+        ]
+      ],
+      "usage_events": [
+        [
+          "e1_0",
+          "a_0",
+          1,
+          "use",
+          8,
+          1
+        ],
+        [
+          "e2_0",
+          "a_0",
+          2,
+          "use",
+          6,
+          5
+        ],
+        [
+          "e3_0",
+          "a_0",
+          3,
+          "reset",
+          0,
+          2
+        ],
+        [
+          "e4_0",
+          "a_0",
+          4,
+          "use",
+          3,
+          3
+        ],
+        [
+          "e5_0",
+          "b_0",
+          1,
+          "use",
+          2,
+          1
+        ]
+      ],
+      "work": [],
+      "charges": [
+        [
+          "a_0",
+          "e1_0",
+          8,
+          0,
+          16
+        ],
+        [
+          "a_0",
+          "e2_0",
+          6,
+          0,
+          12
+        ],
+        [
+          "a_0",
+          "e4_0",
+          3,
+          0,
+          6
+        ],
+        [
+          "b_0",
+          "e5_0",
+          2,
+          0,
+          2
+        ]
+      ]
+    },
+    "evidence": [
+      "A late pre-reset event was charged at the low rate and also polluted the next period total.",
+      "accounts + usage_events -> charges; work -> charges"
+    ],
+    "condition": "correct_patch_given",
+    "family": "ordered_state",
+    "history_variant": "H19"
+  },
+  {
+    "id": "H23",
+    "title": "FillMark: a processing cursor falsely certified event-time completeness",
+    "specification": "Partition slots are contiguous positive integers starting at one, with positive expected accepted-event counts. complete_through is the largest contiguous prefix whose slots each have exactly expected accepted events; zero when slot 1 is incomplete. accepted_count includes ALL accepted events, even beyond gaps and late arrivals. Event IDs are unique. progress.processed is processing progress, not evidence of event-time completeness. Rejected events never count. The fixed patch refreshes only stream IDs in work for watermarks, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE streams(id TEXT PRIMARY KEY);\nCREATE TABLE partitions(stream TEXT,slot INTEGER,expected INTEGER,PRIMARY KEY(stream,slot));\nCREATE TABLE events(id TEXT PRIMARY KEY,stream TEXT,slot INTEGER,accepted INTEGER,arrival INTEGER);\nCREATE TABLE progress(stream TEXT PRIMARY KEY,processed INTEGER);\nCREATE TABLE watermarks(stream TEXT PRIMARY KEY,complete_through INTEGER,accepted_count INTEGER);\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM watermarks WHERE stream IN (SELECT entity FROM work); INSERT INTO watermarks SELECT * FROM (SELECT s.id AS stream,COALESCE((SELECT MIN(p.slot)-1 FROM partitions p WHERE p.stream=s.id AND (SELECT COUNT(*) FROM events e WHERE e.stream=p.stream AND e.slot=p.slot AND e.accepted=1)<>p.expected),(SELECT MAX(slot) FROM partitions p WHERE p.stream=s.id)),(SELECT COUNT(*) FROM events e WHERE e.stream=s.id AND e.accepted=1) FROM streams s) WHERE stream IN (SELECT entity FROM work);",
+    "writable_tables": [
+      "watermarks"
+    ],
+    "immutable_tables": [
+      "streams",
+      "partitions",
+      "events",
+      "progress",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "streams": [
+        [
+          "a_0"
+        ],
+        [
+          "b_0"
+        ]
+      ],
+      "partitions": [
+        [
+          "a_0",
+          1,
+          2
+        ],
+        [
+          "a_0",
+          2,
+          1
+        ],
+        [
+          "a_0",
+          3,
+          1
+        ],
+        [
+          "b_0",
+          1,
+          1
+        ]
+      ],
+      "events": [
+        [
+          "e1_0",
+          "a_0",
+          1,
+          1,
+          1
+        ],
+        [
+          "e2_0",
+          "a_0",
+          2,
+          1,
+          2
+        ],
+        [
+          "e3_0",
+          "a_0",
+          3,
+          1,
+          9
+        ],
+        [
+          "bad_0",
+          "a_0",
+          1,
+          0,
+          10
+        ],
+        [
+          "e4_0",
+          "b_0",
+          1,
+          1,
+          1
+        ]
+      ],
+      "progress": [
+        [
+          "a_0",
+          99
+        ],
+        [
+          "b_0",
+          1
+        ]
+      ],
+      "work": [],
+      "watermarks": [
+        [
+          "a_0",
+          3,
+          4
+        ],
+        [
+          "b_0",
+          1,
+          1
+        ]
+      ]
+    },
+    "evidence": [
+      "A high processing cursor masked a gap in the first event-time partition; accepted late events beyond the gap must survive.",
+      "streams + partitions + events -> watermarks; work -> watermarks"
+    ],
+    "condition": "correct_patch_given",
+    "family": "evidence_adjudication",
+    "history_variant": "H23"
+  }
+]

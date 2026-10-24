@@ -1,0 +1,105 @@
+[
+  {
+    "id": "H08",
+    "title": "QuotaNest: expiry returned consumed escrow to the parent pool",
+    "specification": "An unexpired lease commits issued units, including consumed units. At expires<=clock.now only consumed units remain committed permanently; unused escrow returns. Sum commitments per tenant, subtract from tenant capacity and shared parent capacity. Consumption never exceeds issued; valid fixtures fit both limits. A clock tick puts all affected tenants in work. The fixed patch refreshes only tenant IDs in work for escrow, then refreshes any dependent summaries. Historical IDs are absent from work. All evidence tables including work are immutable. Listed projections are rebuildable. Recover all historical damage, preserve unrelated correct records, and leave an already healthy snapshot unchanged. Recovery and subsequent patch processing must be repeatable.",
+    "schema": "CREATE TABLE clock(now INTEGER);\nCREATE TABLE pools(id TEXT PRIMARY KEY,capacity INTEGER);\nCREATE TABLE tenants(id TEXT PRIMARY KEY,pool TEXT,capacity INTEGER);\nCREATE TABLE leases(id TEXT PRIMARY KEY,tenant TEXT,issued INTEGER,consumed INTEGER,expires INTEGER);\nCREATE TABLE escrow(tenant TEXT PRIMARY KEY,committed INTEGER,free INTEGER);\nCREATE TABLE pool_free(pool TEXT PRIMARY KEY,free INTEGER);\nCREATE TABLE work(entity TEXT PRIMARY KEY);",
+    "application_sql": "DELETE FROM escrow WHERE tenant IN (SELECT entity FROM work); INSERT INTO escrow SELECT * FROM (SELECT t.id AS tenant,COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0),t.capacity-(COALESCE((SELECT SUM(CASE WHEN l.expires>c.now THEN l.issued ELSE l.consumed END) FROM leases l CROSS JOIN clock c WHERE l.tenant=t.id),0)) FROM tenants t) WHERE tenant IN (SELECT entity FROM work);DELETE FROM pool_free; INSERT INTO pool_free SELECT p.id,p.capacity-COALESCE((SELECT SUM(e.committed) FROM escrow e JOIN tenants t ON t.id=e.tenant WHERE t.pool=p.id),0) FROM pools p;",
+    "writable_tables": [
+      "escrow",
+      "pool_free"
+    ],
+    "immutable_tables": [
+      "clock",
+      "pools",
+      "tenants",
+      "leases",
+      "work"
+    ],
+    "append_only_tables": [],
+    "tables": {
+      "clock": [
+        [
+          20
+        ]
+      ],
+      "pools": [
+        [
+          "p_0",
+          100
+        ]
+      ],
+      "tenants": [
+        [
+          "a_0",
+          "p_0",
+          40
+        ],
+        [
+          "b_0",
+          "p_0",
+          30
+        ],
+        [
+          "c_0",
+          "p_0",
+          20
+        ]
+      ],
+      "leases": [
+        [
+          "x_0",
+          "a_0",
+          10,
+          4,
+          20
+        ],
+        [
+          "y_0",
+          "a_0",
+          8,
+          2,
+          30
+        ],
+        [
+          "z_0",
+          "b_0",
+          5,
+          1,
+          10
+        ]
+      ],
+      "work": [],
+      "escrow": [
+        [
+          "a_0",
+          8,
+          32
+        ],
+        [
+          "b_0",
+          0,
+          30
+        ],
+        [
+          "c_0",
+          0,
+          20
+        ]
+      ],
+      "pool_free": [
+        [
+          "p_0",
+          92
+        ]
+      ]
+    },
+    "evidence": [
+      "An expiry sweep refunded entire leases, including irrevocably consumed units.",
+      "clock + leases + tenants -> escrow; pools + tenants + escrow -> pool_free; work -> escrow"
+    ],
+    "condition": "correct_patch_given",
+    "family": "coupled_resources",
+    "history_variant": "H08"
+  }
+]

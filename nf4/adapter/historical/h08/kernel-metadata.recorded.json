@@ -1,0 +1,14 @@
+{
+  "id": "nitishsongara/afterfix-h08-harness-v2",
+  "title": "AfterFix H08 Harness v2",
+  "code_file": "pilot.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}
